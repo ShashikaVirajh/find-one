@@ -1,0 +1,16 @@
+export const iconNames = {
+  CHEVRON_LEFT: 'chevron-left',
+  CLOSE: 'times-circle',
+  EMAIL: 'envelope',
+  PASSWORD: 'key',
+  SIGN_IN: 'sign-in-alt',
+  MOBILE: 'mobile-alt',
+  NAME: 'id-badge',
+  INVITE: 'user-plus',
+  DEACTIVATE: 'user-slash',
+  SIGN_OUT: 'sign-out-alt',
+  USER: 'user',
+  SUPPORT: 'hands-helping',
+  POSTS: 'mail-bulk',
+  MENU: 'bars',
+};
