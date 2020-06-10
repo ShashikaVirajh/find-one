@@ -1,3 +1,3 @@
-const HomeLogo = require('../res/images/home-logo.jpg');
+import HomeLogo from 'assets/images/home-logo.jpg';
 
 export { HomeLogo };

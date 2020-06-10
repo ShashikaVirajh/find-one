@@ -15,7 +15,6 @@ module.exports = {
           screens: './src/screens',
           utils: './src/utils',
           Redux: './src/Redux',
-          res: './src/images',
           validations: './src/validations',
         },
       },
