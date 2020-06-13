@@ -13,4 +13,5 @@ export const iconNames = {
   SUPPORT: 'hands-helping',
   POSTS: 'mail-bulk',
   MENU: 'bars',
+  CAMERA: 'camera',
 };

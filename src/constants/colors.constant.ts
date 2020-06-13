@@ -8,6 +8,7 @@ export const colors = {
   GRAY: '#CCCCCC',
   DARK_GRAY: '#888888',
   RED: '#FF0008',
+  PINK: '#FC5C65',
   LIGHT_RED: '#F44336',
   DARD_RED: '#C50006',
   BLUE: '#0000FF',

@@ -3,9 +3,9 @@ import React from 'react';
 import { useNetInfo } from '@react-native-community/netinfo';
 
 import { Label } from 'components/ui';
-import styles from './connection.styles';
+import styles from './offline-notice.styles';
 
-const Connection = ({ style, text }: IProps) => {
+const OfflineNotice = ({ style, text }: IProps) => {
   const netInfo = useNetInfo();
 
   if (!netInfo.isConnected) {
@@ -15,7 +15,7 @@ const Connection = ({ style, text }: IProps) => {
   return null;
 };
 
-Connection.defaultProps = {
+OfflineNotice.defaultProps = {
   text: 'No Internet Connection',
 };
 
@@ -24,4 +24,4 @@ interface IProps {
   text?: string;
 }
 
-export default Connection;
+export default OfflineNotice;

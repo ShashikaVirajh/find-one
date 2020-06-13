@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { Connection } from 'components';
 import { Spinner } from 'components/ui';
 import { IApplicationState } from 'types/reducer.types';
 
@@ -15,7 +14,6 @@ const AppNavigator = ({ token, isLoading }: IProps) => {
 
   return (
     <>
-      <Connection />
       {_renderNavigator()}
       {_renderSpinner()}
     </>

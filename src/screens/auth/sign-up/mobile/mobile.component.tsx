@@ -17,8 +17,9 @@ const Mobile = ({ mobile, errors, navigation }: IProps) => {
   };
 
   const _handleNext = () => {
-    navigation.navigate(screenNames.PASSWORD_SCREEN);
+    navigation.navigate(screenNames.PROFILE_PICTURE_SCREEN);
   };
+
   return (
     <Screen title={strings.MOBILE_TITLE} contentStyles={styles.screenContent}>
       <InputText

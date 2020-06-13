@@ -11,12 +11,13 @@ import EmailScreen from 'screens/auth/sign-up/email/email.screen';
 import MobileScreen from 'screens/auth/sign-up/mobile/mobile.screen';
 import NameScreen from 'screens/auth/sign-up/name/name.screen';
 import PasswordScreen from 'screens/auth/sign-up/password/password.screen';
+import ProfilePictureScreen from 'screens/auth/sign-up/profile-picture/profile-picture.screen';
 
 const Stack = createStackNavigator();
 
 const AuthNavigator = () => (
   <NavigationContainer>
-    <Stack.Navigator headerMode='none' initialRouteName={screenNames.AUTH_MAIN_SCREEN}>
+    <Stack.Navigator headerMode='none' initialRouteName={screenNames.PROFILE_PICTURE_SCREEN}>
       <Stack.Screen name={screenNames.AUTH_MAIN_SCREEN} component={AuthMainScreen} />
       <Stack.Screen name={screenNames.SIGN_IN_SCREEN} component={SignInScreen} />
       <Stack.Screen name={screenNames.NAME_SCREEN} component={NameScreen} />
@@ -24,6 +25,7 @@ const AuthNavigator = () => (
       <Stack.Screen name={screenNames.MOBILE_SCREEN} component={MobileScreen} />
       <Stack.Screen name={screenNames.PASSWORD_SCREEN} component={PasswordScreen} />
       <Stack.Screen name={screenNames.CONFIRM_PASSWORD_SCREEN} component={ConfirmPasswordScreen} />
+      <Stack.Screen name={screenNames.PROFILE_PICTURE_SCREEN} component={ProfilePictureScreen} />
     </Stack.Navigator>
   </NavigationContainer>
 );

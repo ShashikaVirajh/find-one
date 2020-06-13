@@ -9,6 +9,7 @@ class Label extends Component<IProps> {
   static Types = {
     DISPLAY: 'display',
     BODY_SMALL: 'bodySmall',
+    LARGE: 'large',
     MEDIUM: 'medium',
     HINT: 'hint',
     ERROR: 'error',
@@ -21,6 +22,7 @@ class Label extends Component<IProps> {
 
     if (type === Label.Types.DISPLAY) return styles.display;
     if (type === Label.Types.BODY_SMALL) return styles.bodySmall;
+    if (type === Label.Types.LARGE) return styles.large;
     if (type === Label.Types.MEDIUM) return styles.medium;
     if (type === Label.Types.HINT) return styles.hint;
     if (type === Label.Types.ERROR) return styles.error;

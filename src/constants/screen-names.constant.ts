@@ -5,6 +5,7 @@ export const screenNames = {
   NAME_SCREEN: 'NameScreen',
   EMAIL_SCREEN: 'EmailScreen',
   MOBILE_SCREEN: 'MobileScreen',
+  PROFILE_PICTURE_SCREEN: 'ProfilePictureScreen',
   PASSWORD_SCREEN: 'PasswordScreen',
   CONFIRM_PASSWORD_SCREEN: 'ConfirmPasswordScreen',
 

@@ -11,6 +11,10 @@ export default StyleSheet.create({
     color: colors.FOREGROUND,
     fontSize: 24,
   },
+  large: {
+    color: colors.FOREGROUND,
+    fontSize: 20,
+  },
   medium: {
     color: colors.FOREGROUND,
     fontSize: 16,

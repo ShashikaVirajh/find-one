@@ -1,4 +1,4 @@
-import Connection from './connection/connection.component';
 import CustomDrawer from './custom-drawer/custom-drawer.container';
+import OfflineNotice from './offline-notice/offline-notice.component';
 
-export { Connection, CustomDrawer };
+export { OfflineNotice, CustomDrawer };

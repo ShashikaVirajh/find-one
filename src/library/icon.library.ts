@@ -2,6 +2,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 
 import {
   faBars,
+  faCamera,
   faCheckSquare,
   faChevronLeft,
   faCoffee,
@@ -21,6 +22,7 @@ import {
 
 const icons = {
   faBars,
+  faCamera,
   faCheckSquare,
   faChevronLeft,
   faCoffee,
