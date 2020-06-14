@@ -26,18 +26,13 @@ const ProfilePicture = ({ uri, navigation }: IProps) => {
     }
   };
 
-  // const _disableButton = () => {
-  //   if (errors?.mobile?.length > 0 || mobile.trim() === '') return true;
-  // };
-
   const _handleNext = () => {
     navigation.navigate(screenNames.PASSWORD_SCREEN);
   };
 
   return (
-    <Screen title={strings.MOBILE_TITLE} contentStyles={styles.screenContent}>
-      {/* <ImagePicker imageUri={uri} onChangeImage={() => {}} /> */}
-      <ImagePicker />
+    <Screen title={strings.PROFILE_PICTURE_TITLE} contentStyles={styles.screenContent}>
+      <ImagePicker name='photo' form='SIGN_UP' />
 
       <Button
         text={strings.NEXT}

@@ -24,6 +24,9 @@ export const strings = {
   MOBILE_TITLE: 'What is your mobile number?',
   MOBILE: 'Mobile',
 
+  /** PROFILE PICTURE COMPONENT */
+  PROFILE_PICTURE_TITLE: 'Upload your profile picture?',
+
   /** PASSWORD COMPONENT */
   PASSWORD_TITLE: 'Enter a secure password',
   PASSWORD: 'Password',

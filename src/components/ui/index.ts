@@ -3,7 +3,7 @@ import Button from './button/button.component';
 import Icon from './clickable-icon/clickable-icon.component';
 import CustomImage from './custom-image/custom-image.component';
 import Divider from './divider/divider.component';
-import ImagePicker from './image-picker/image-picker.component';
+import ImagePicker from './image-picker/image-picker.container';
 import InputText from './input-text/input-text.container';
 import Label from './label/label.component';
 import ListItem from './list-item/list-item.component';
