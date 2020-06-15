@@ -31,3 +31,15 @@ export const requestCameraPermission = async () => {
     return error;
   }
 };
+
+export const requestLocationPermission = async () => {
+  try {
+    const response = await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+    );
+
+    return response;
+  } catch (error) {
+    return error;
+  }
+};

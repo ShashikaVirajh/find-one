@@ -5,21 +5,35 @@ import RNImagePicker from 'react-native-image-picker';
 import { CustomImage, Icon } from 'components/ui';
 import { colors } from 'constants/colors.constant';
 import { iconNames } from 'constants/icon-names.constant';
+import { ResizeModes } from 'enums';
+import { IImagePickerResponse } from 'types/response.types';
 import { requestCameraPermission } from 'utils/android-permissions.utils';
 
 import styles from './image-picker.styles';
 
-const cameraOptions = {
-  title: 'Set your profie picture',
-  allowsEditing: true,
-  quality: 0.5,
-};
-
-const ImagePicker = ({ addFormData, initForm, form, name, fieldValue }: IProps) => {
+const ImagePicker = ({
+  addFormData,
+  borderRadius,
+  containerStyles,
+  iconSize,
+  initForm,
+  fieldValue,
+  form,
+  name,
+  height,
+  width,
+}: IProps) => {
   useEffect(() => {
     initForm({ form, field: name, fieldValue: '' });
     requestPermission();
   }, []);
+
+  const cameraOptions = {
+    title: 'Set your profie picture',
+    allowsEditing: true,
+    quality: 0.5,
+    customButtons: fieldValue ? [{ name: 'removePhoto', title: 'Remove profile picture' }] : [],
+  };
 
   const requestPermission = async () => {
     await requestCameraPermission();
@@ -29,18 +43,47 @@ const ImagePicker = ({ addFormData, initForm, form, name, fieldValue }: IProps) 
     selectImage();
   };
 
+  const _setImage = (response: IImagePickerResponse) => {
+    addFormData({
+      form,
+      data: {
+        values: { [name]: `data:${response.type};base64,${response.data}` },
+      },
+    });
+  };
+
+  const _clearImage = () => {
+    addFormData({
+      form,
+      data: {
+        values: { [name]: '' },
+      },
+    });
+  };
+
   const _renderContent = () => {
     if (!fieldValue) {
       return (
-        <Icon icon={iconNames.CAMERA} color={colors.BACKGROUND} size={50} onPress={_handlePress} />
+        <Icon
+          icon={iconNames.CAMERA}
+          color={colors.BACKGROUND}
+          size={iconSize}
+          onPress={_handlePress}
+        />
       );
     }
 
     return (
       <CustomImage
+        borderRadius={borderRadius}
         containerStyle={styles.container}
+        height={height}
         imageStyle={styles.image}
+        resizeMode={ResizeModes.cover}
         source={{ uri: fieldValue }}
+        width={width}
+        disabled={false}
+        onPress={_handlePress}
       />
     );
   };
@@ -50,26 +93,42 @@ const ImagePicker = ({ addFormData, initForm, form, name, fieldValue }: IProps) 
       RNImagePicker.showImagePicker(cameraOptions, (response: any) => {
         if (response.didCancel) return;
         if (response.error) return;
+        if (response.customButton) return _clearImage();
 
-        addFormData({
-          form,
-          data: {
-            values: { [name]: `data:${response.type};base64,${response.data}` },
-          },
-        });
+        _setImage(response);
       });
     } catch (error) {}
   };
 
-  return <View style={styles.container}>{_renderContent()}</View>;
+  return (
+    <View style={[styles.container, containerStyles, { borderRadius, height, width }]}>
+      {_renderContent()}
+    </View>
+  );
 };
 
 interface IProps {
   addFormData: Function;
-  initForm: Function;
-  form: Object;
-  name: string;
+  borderRadius: number;
+  containerStyles: Object;
   fieldValue: string;
+  form: Object;
+  height?: number | string;
+  iconSize: number;
+  initForm: Function;
+  name: string;
+  width?: number | string;
 }
+
+ImagePicker.defaultProps = {
+  borderRadius: 10,
+  containerStyle: {},
+  disabled: true,
+  height: 300,
+  iconSize: 50,
+  imageStyle: {},
+  onPress: () => {},
+  width: '100%',
+};
 
 export default ImagePicker;

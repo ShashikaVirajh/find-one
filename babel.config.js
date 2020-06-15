@@ -10,6 +10,7 @@ module.exports = {
           config: './src/config',
           constants: './src/constants',
           enums: './src/enums',
+          hooks: './src/hooks',
           library: './src/library',
           navigation: './src/navigation',
           screens: './src/screens',
