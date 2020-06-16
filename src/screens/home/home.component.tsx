@@ -2,14 +2,14 @@ import React from 'react';
 
 import { Icon, Screen } from 'components/ui';
 import { colors } from 'constants/colors.constant';
-import { iconNames } from 'constants/icon-names.constant';
+import { icons } from 'constants/icons.constant';
 
 const Home = ({ navigation }: IProps) => {
   return (
     <Screen
       leftContent={
         <Icon
-          icon={iconNames.MENU}
+          icon={icons.MENU}
           color={colors.LIGHT_GREEN}
           size={25}
           onPress={navigation.openDrawer}

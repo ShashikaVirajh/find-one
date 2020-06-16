@@ -3,7 +3,7 @@ import { Text, TextInput, View } from 'react-native';
 
 import { BorderlessButton, Icon, Label } from 'components/ui';
 import { colors } from 'constants/colors.constant';
-import { iconNames } from 'constants/icon-names.constant';
+import { icons } from 'constants/icons.constant';
 import { strings } from 'constants/strings.constant';
 import { AutoCapitalizeTypes, KeyBoardTypes, ReturnKeyTypes } from 'enums';
 import { validate } from 'validations';
@@ -164,7 +164,7 @@ const InputText = ({
     if (focused && fieldValue) {
       return (
         <Icon
-          icon={iconNames.CLOSE}
+          icon={icons.CLOSE}
           color={colors.GRAY}
           size={24}
           style={styles.clearButton}

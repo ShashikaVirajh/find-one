@@ -4,7 +4,7 @@ import { NavigationScreenProp, NavigationState } from 'react-navigation';
 
 import { Button, ImagePicker, Screen } from 'components/ui';
 import { SIGN_UP_FORM } from 'constants/forms.constant';
-import { screenNames } from 'constants/screen-names.constant';
+import { routes } from 'constants/routes.constant';
 import { strings } from 'constants/strings.constant';
 import {
   requestCameraPermission,
@@ -42,7 +42,7 @@ const ProfilePicture = ({ uri, navigation }: IProps) => {
   };
 
   const _handleNext = () => {
-    navigation.navigate(screenNames.PASSWORD_SCREEN);
+    navigation.navigate(routes.PASSWORD_SCREEN);
   };
 
   return (

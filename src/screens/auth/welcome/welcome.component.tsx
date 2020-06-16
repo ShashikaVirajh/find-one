@@ -4,23 +4,23 @@ import { NavigationScreenProp, NavigationState } from 'react-navigation';
 import { Button, CustomImage, Screen } from 'components/ui';
 import { SIGN_IN_FORM, SIGN_UP_FORM } from 'constants/forms.constant';
 import { HomeLogo } from 'constants/images.constants';
-import { screenNames } from 'constants/screen-names.constant';
+import { routes } from 'constants/routes.constant';
 import { strings } from 'constants/strings.constant';
 
-import styles from './auth-main.styles';
+import styles from './welcome.styles';
 
-const AuthMain = ({ initForm, navigation }: IProps) => {
+const Welcome = ({ initForm, navigation }: IProps) => {
   useEffect(() => {
     initForm({ form: SIGN_IN_FORM, field: 'email' });
     initForm({ form: SIGN_UP_FORM, field: 'firstName' });
   }, []);
 
   const _navigateToSignIn = () => {
-    navigation.navigate(screenNames.SIGN_IN_SCREEN);
+    navigation.navigate(routes.SIGN_IN_SCREEN);
   };
 
   const _navigateToSignUp = () => {
-    navigation.navigate(screenNames.NAME_SCREEN);
+    navigation.navigate(routes.NAME_SCREEN);
   };
 
   return (
@@ -59,4 +59,4 @@ interface IProps {
   navigation: Navigation;
 }
 
-export default AuthMain;
+export default Welcome;

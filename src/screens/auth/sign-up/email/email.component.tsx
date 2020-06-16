@@ -3,8 +3,8 @@ import { NavigationScreenProp, NavigationState } from 'react-navigation';
 
 import { Button, InputText, Screen } from 'components/ui';
 import { SIGN_UP_FORM } from 'constants/forms.constant';
-import { iconNames } from 'constants/icon-names.constant';
-import { screenNames } from 'constants/screen-names.constant';
+import { icons } from 'constants/icons.constant';
+import { routes } from 'constants/routes.constant';
 import { strings } from 'constants/strings.constant';
 import { KeyBoardTypes } from 'enums';
 import { ValidationTypes } from 'enums';
@@ -17,14 +17,14 @@ const Email = ({ email, errors, navigation }: IProps) => {
   };
 
   const _handleNext = () => {
-    navigation.navigate(screenNames.MOBILE_SCREEN);
+    navigation.navigate(routes.MOBILE_SCREEN);
   };
 
   return (
     <Screen title={strings.EMAIL_TITLE} contentStyles={styles.screenContent}>
       <InputText
         name='email'
-        frontIcon={iconNames.EMAIL}
+        frontIcon={icons.EMAIL}
         label={strings.EMAIL}
         form={SIGN_UP_FORM}
         maxLength={50}

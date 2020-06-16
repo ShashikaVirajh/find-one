@@ -3,8 +3,8 @@ import React from 'react';
 
 import { BorderlessButton, Button, InputText, Label, Screen } from 'components/ui';
 import { SIGN_IN_FORM } from 'constants/forms.constant';
-import { iconNames } from 'constants/icon-names.constant';
-import { screenNames } from 'constants/screen-names.constant';
+import { icons } from 'constants/icons.constant';
+import { routes } from 'constants/routes.constant';
 import { strings } from 'constants/strings.constant';
 import { KeyBoardTypes } from 'enums';
 
@@ -14,7 +14,7 @@ const SignIn = ({ email, password, navigation, signInError, signInStart }: IProp
   const _disableButton = () => email.trim() === '' || password.trim() === '';
 
   const _navigateToSignUp = () => {
-    navigation.replace(screenNames.NAME_SCREEN);
+    navigation.replace(routes.NAME_SCREEN);
   };
 
   const _handleLogin = () => {
@@ -34,7 +34,7 @@ const SignIn = ({ email, password, navigation, signInError, signInStart }: IProp
     <Screen title={strings.SIGN_IN_TITLE} contentStyles={styles.screenContent}>
       <InputText
         name='email'
-        frontIcon={iconNames.EMAIL}
+        frontIcon={icons.EMAIL}
         label={strings.EMAIL}
         form={SIGN_IN_FORM}
         maxLength={100}
@@ -45,7 +45,7 @@ const SignIn = ({ email, password, navigation, signInError, signInStart }: IProp
       />
       <InputText
         name='password'
-        frontIcon={iconNames.PASSWORD}
+        frontIcon={icons.PASSWORD}
         label={strings.PASSWORD}
         form={SIGN_IN_FORM}
         maxLength={20}

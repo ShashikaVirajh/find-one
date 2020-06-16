@@ -3,8 +3,8 @@ import { NavigationScreenProp, NavigationState } from 'react-navigation';
 
 import { Button, InputText, Label, Screen } from 'components/ui';
 import { SIGN_UP_FORM } from 'constants/forms.constant';
-import { iconNames } from 'constants/icon-names.constant';
-import { screenNames } from 'constants/screen-names.constant';
+import { icons } from 'constants/icons.constant';
+import { routes } from 'constants/routes.constant';
 import { strings } from 'constants/strings.constant';
 import { KeyBoardTypes, PasswordErrorTypes } from 'enums';
 import { validatePassword } from 'validations';
@@ -48,14 +48,14 @@ const Password = ({ values, navigation }: IProps) => {
   };
 
   const _handleSignIn = () => {
-    navigation.navigate(screenNames.CONFIRM_PASSWORD_SCREEN);
+    navigation.navigate(routes.CONFIRM_PASSWORD_SCREEN);
   };
 
   return (
     <Screen title={strings.PASSWORD_TITLE} contentStyles={styles.screenContent}>
       <InputText
         name='password'
-        frontIcon={iconNames.PASSWORD}
+        frontIcon={icons.PASSWORD}
         label={strings.PASSWORD}
         form={SIGN_UP_FORM}
         maxLength={20}

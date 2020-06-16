@@ -3,7 +3,7 @@ import { NavigationScreenProp, NavigationState } from 'react-navigation';
 
 import { Button, InputText, Label, Screen } from 'components/ui';
 import { SIGN_UP_FORM } from 'constants/forms.constant';
-import { iconNames } from 'constants/icon-names.constant';
+import { icons } from 'constants/icons.constant';
 import { strings } from 'constants/strings.constant';
 import { KeyBoardTypes, ValidationTypes } from 'enums';
 
@@ -60,7 +60,7 @@ const ConfirmPassword = ({
     <Screen title={strings.CONFIRM_PASSWORD_TITLE} contentStyles={styles.screenContent}>
       <InputText
         name='confirmPassword'
-        frontIcon={iconNames.PASSWORD}
+        frontIcon={icons.PASSWORD}
         label={strings.CONFIRM_PASSWORD}
         form={SIGN_UP_FORM}
         maxLength={20}

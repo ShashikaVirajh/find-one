@@ -4,7 +4,7 @@ import RNImagePicker from 'react-native-image-picker';
 
 import { CustomImage, Icon } from 'components/ui';
 import { colors } from 'constants/colors.constant';
-import { iconNames } from 'constants/icon-names.constant';
+import { icons } from 'constants/icons.constant';
 import { ResizeModes } from 'enums';
 import { IImagePickerResponse } from 'types/response.types';
 import { requestCameraPermission } from 'utils/android-permissions.utils';
@@ -65,7 +65,7 @@ const ImagePicker = ({
     if (!fieldValue) {
       return (
         <Icon
-          icon={iconNames.CAMERA}
+          icon={icons.CAMERA}
           color={colors.BACKGROUND}
           size={iconSize}
           onPress={_handlePress}

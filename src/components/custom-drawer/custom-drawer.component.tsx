@@ -5,7 +5,7 @@ import { DrawerContentComponentProps } from '@react-navigation/drawer';
 
 import { CustomImage, Icon, Label, ListItem } from 'components/ui';
 import { colors } from 'constants/colors.constant';
-import { iconNames } from 'constants/icon-names.constant';
+import { icons } from 'constants/icons.constant';
 import { HomeLogo } from 'constants/images.constants';
 import { IDrawerItem } from 'types/data.types';
 
@@ -48,7 +48,7 @@ const CustomDrawer = React.memo(({ firstName, lastName, drawerProps, signOut }: 
         {_renderDrawerItems()}
         <ListItem
           hideBorder
-          leftContent={<Icon icon={iconNames.SIGN_OUT} color={colors.LIGHT_GREEN} size={25} />}
+          leftContent={<Icon icon={icons.SIGN_OUT} color={colors.LIGHT_GREEN} size={25} />}
           mainContent='Log Out'
           onContainerPress={handleSignOut}
         />
@@ -67,28 +67,28 @@ interface IProps {
 const DRAWER_ITEMS: IDrawerItem[] = [
   {
     key: 'Profile',
-    icon: <Icon icon={iconNames.USER} color={colors.LIGHT_GREEN} size={25} />,
+    icon: <Icon icon={icons.USER} color={colors.LIGHT_GREEN} size={25} />,
     text: 'My Profile',
     screen: 'Profile',
     options: {},
   },
   {
     key: 'Invite',
-    icon: <Icon icon={iconNames.INVITE} color={colors.LIGHT_GREEN} size={25} />,
+    icon: <Icon icon={icons.INVITE} color={colors.LIGHT_GREEN} size={25} />,
     text: 'Invite People',
     screen: 'Invite',
     options: {},
   },
   {
     key: 'Support',
-    icon: <Icon icon={iconNames.SUPPORT} color={colors.LIGHT_GREEN} size={25} />,
+    icon: <Icon icon={icons.SUPPORT} color={colors.LIGHT_GREEN} size={25} />,
     text: 'Contact Support',
     screen: 'Support',
     options: {},
   },
   {
     key: 'Deactivate',
-    icon: <Icon icon={iconNames.DEACTIVATE} color={colors.LIGHT_GREEN} size={25} />,
+    icon: <Icon icon={icons.DEACTIVATE} color={colors.LIGHT_GREEN} size={25} />,
     text: 'Deactivate Account',
     screen: 'Deactivate',
     options: {},

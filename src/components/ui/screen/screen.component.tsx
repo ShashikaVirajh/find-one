@@ -4,7 +4,7 @@ import { RefreshControl, SafeAreaView, ScrollView, TouchableOpacity, View } from
 import { useNavigation } from '@react-navigation/native';
 
 import { Icon, Label } from 'components/ui';
-import { iconNames } from 'constants/icon-names.constant';
+import { icons } from 'constants/icons.constant';
 import styles from './screen.styles';
 
 import { colors } from 'constants/colors.constant';
@@ -56,9 +56,7 @@ const Screen = ({
 
     if (leftContent) return leftContent;
 
-    return (
-      <Icon icon={iconNames.CHEVRON_LEFT} color={colors.FOREGROUND} size={18} onPress={_goBack} />
-    );
+    return <Icon icon={icons.CHEVRON_LEFT} color={colors.FOREGROUND} size={18} onPress={_goBack} />;
   };
 
   const _renderRightButton = () => (

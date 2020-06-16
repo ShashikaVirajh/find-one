@@ -1,4 +1,4 @@
-export const iconNames = {
+export const icons = {
   CHEVRON_LEFT: 'chevron-left',
   CLOSE: 'times-circle',
   EMAIL: 'envelope',

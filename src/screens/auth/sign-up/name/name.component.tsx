@@ -3,8 +3,8 @@ import React from 'react';
 
 import { BorderlessButton, Button, InputText, Screen } from 'components/ui';
 import { SIGN_UP_FORM } from 'constants/forms.constant';
-import { iconNames } from 'constants/icon-names.constant';
-import { screenNames } from 'constants/screen-names.constant';
+import { icons } from 'constants/icons.constant';
+import { routes } from 'constants/routes.constant';
 import { strings } from 'constants/strings.constant';
 import { ValidationTypes } from 'enums';
 
@@ -17,18 +17,18 @@ const Name = ({ firstName, lastName, errors, navigation }: IProps) => {
   };
 
   const _navigateToSignIn = () => {
-    navigation.replace(screenNames.SIGN_IN_SCREEN);
+    navigation.replace(routes.SIGN_IN_SCREEN);
   };
 
   const _handleName = () => {
-    navigation.navigate(screenNames.EMAIL_SCREEN);
+    navigation.navigate(routes.EMAIL_SCREEN);
   };
 
   return (
     <Screen title={strings.NAME_TITLE} contentStyles={styles.screenContent}>
       <InputText
         name='firstName'
-        frontIcon={iconNames.NAME}
+        frontIcon={icons.NAME}
         label={strings.FIRST_NAME}
         form={SIGN_UP_FORM}
         maxLength={25}
@@ -39,7 +39,7 @@ const Name = ({ firstName, lastName, errors, navigation }: IProps) => {
       />
       <InputText
         name='lastName'
-        frontIcon={iconNames.NAME}
+        frontIcon={icons.NAME}
         label={strings.LAST_NAME}
         form={SIGN_UP_FORM}
         maxLength={25}

@@ -1,3 +1,5 @@
-export const SIGN_UP = 'auth/register';
-export const SIGN_IN = 'auth/login';
-export const AUTH_USER = 'auth/me';
+export const endpoints = {
+  SIGN_UP: 'auth/register',
+  SIGN_IN: 'auth/login',
+  AUTH_USER: 'auth/me',
+};
