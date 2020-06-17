@@ -15,9 +15,9 @@ const Screen = ({
   leftContentStyles,
   title,
   description,
-  rightButtonText,
-  rightButtonLabelStyles,
-  rightButtonOnPress,
+  rightContent,
+  rightContentStyles,
+  onRightContentPress,
   children,
   containerStyles,
   contentStyles,
@@ -36,7 +36,7 @@ const Screen = ({
         <SafeAreaView>
           <View style={[styles.navigationHeader]}>
             {_renderLeftContent()}
-            {_renderRightButton()}
+            {_renderRightContent()}
           </View>
         </SafeAreaView>
       );
@@ -59,15 +59,19 @@ const Screen = ({
     return <Icon icon={icons.CHEVRON_LEFT} color={colors.FOREGROUND} size={18} onPress={_goBack} />;
   };
 
-  const _renderRightButton = () => (
-    <TouchableOpacity style={styles.rightButton} onPress={() => rightButtonOnPress()}>
-      <Label
-        type={Label.Types.DISPLAY}
-        text={rightButtonText}
-        style={[{ color: colors.DARK_GRAY }, rightButtonLabelStyles]}
-      />
-    </TouchableOpacity>
-  );
+  const _renderRightContent = () => {
+    if (rightContent && typeof rightContent === 'string') {
+      return (
+        <TouchableOpacity onPress={() => onRightContentPress()}>
+          <Label style={[rightContentStyles]} text={rightContent} />
+        </TouchableOpacity>
+      );
+    }
+
+    if (leftContent) return leftContent;
+
+    return null;
+  };
 
   const _renderTitle = () => {
     const desc = description ? (
@@ -76,9 +80,12 @@ const Screen = ({
 
     if (title) {
       return (
-        <View style={[styles.titleContainer, !showNavigationHeader ? styles.titleTopMargin : null]}>
-          <Label type={Label.Types.DISPLAY} text={title} />
-          {desc}
+        <View style={{ flexDirection: 'row' }}>
+          <View
+            style={[styles.titleContainer, !showNavigationHeader ? styles.titleTopMargin : null]}>
+            <Label type={Label.Types.DISPLAY} text={title} />
+            {desc}
+          </View>
         </View>
       );
     }
@@ -131,9 +138,9 @@ interface IProps {
   leftContentStyles?: Object;
   title?: string;
   description?: string;
-  rightButtonText?: string;
-  rightButtonLabelStyles?: Object;
-  rightButtonOnPress: Function;
+  rightContent?: string | JSX.Element;
+  rightContentStyles?: Object;
+  onRightContentPress: Function;
   children?: object;
   containerStyles?: Object;
   contentStyles?: object;
@@ -151,7 +158,7 @@ Screen.defaultProps = {
   showNavigationHeader: true,
   screenRefreshing: false,
   onLeftContentPress: () => {},
-  rightButtonOnPress: () => {},
+  onRightContentPress: () => {},
   screenOnRefresh: () => {},
   footer: () => {},
 };

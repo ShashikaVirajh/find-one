@@ -8,6 +8,6 @@ interface IProps {
   navigation: Navigation;
 }
 
-const AuthMainScreen = ({ navigation }: IProps) => <WelcomeContainer navigation={navigation} />;
+const WelcomeScreen = ({ navigation }: IProps) => <WelcomeContainer navigation={navigation} />;
 
-export default AuthMainScreen;
+export default WelcomeScreen;

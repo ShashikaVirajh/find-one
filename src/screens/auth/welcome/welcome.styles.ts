@@ -8,13 +8,17 @@ export default StyleSheet.create({
     marginTop: 20,
   },
   imageContainer: {
-    marginVertical: 30,
-    height: '50%',
+    marginVertical: 20,
+    paddingHorizontal: -24,
+    width: '100%',
+  },
+  rightHeaderImage: {
+    width: '10%',
   },
   image: {
     flex: 1,
   },
   signUpButton: {
-    marginBottom: 10,
+    marginTop: 20,
   },
 });
