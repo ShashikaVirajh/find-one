@@ -12,16 +12,25 @@ import { ValidationTypes } from 'enums';
 import styles from './email.styles';
 
 const Email = ({ email, errors, navigation }: IProps) => {
-  const _disableButton = () => {
+  const disableButton = () => {
     if (errors?.email?.length > 0 || email.trim() === '') return true;
   };
 
-  const _handleNext = () => {
+  const handleNext = () => {
     navigation.navigate(routes.MOBILE_SCREEN);
   };
 
+  const renderFooter = () => (
+    <Button
+      text={strings.NEXT}
+      type={Button.Types.PRIMARY}
+      disabled={disableButton()}
+      onPress={handleNext}
+    />
+  );
+
   return (
-    <Screen title={strings.EMAIL_TITLE} contentStyles={styles.screenContent}>
+    <Screen footer={renderFooter} title={strings.EMAIL_TITLE} contentStyles={styles.screenContent}>
       <InputText
         name='email'
         frontIcon={icons.EMAIL}
@@ -33,13 +42,6 @@ const Email = ({ email, errors, navigation }: IProps) => {
         errorStyles={styles.inputError}
         keyboardType={KeyBoardTypes.email}
         validations={[ValidationTypes.required, ValidationTypes.email]}
-      />
-
-      <Button
-        text={strings.NEXT}
-        type={Button.Types.PRIMARY}
-        disabled={_disableButton()}
-        onPress={_handleNext}
       />
     </Screen>
   );

@@ -15,38 +15,41 @@ const Welcome = ({ initForm, navigation }: IProps) => {
     initForm({ form: SIGN_UP_FORM, field: 'firstName' });
   }, []);
 
-  const _navigateToSignIn = () => {
+  const navigateToSignIn = () => {
     navigation.navigate(routes.SIGN_IN_SCREEN);
   };
 
-  const _navigateToSignUp = () => {
+  const navigateToSignUp = () => {
     navigation.navigate(routes.NAME_SCREEN);
   };
 
-  return (
-    <Screen
-      showNavigationHeader={false}
-      title={strings.AUTH_MAIN_TITLE}
-      description={strings.AUTH_MAIN_DESCRIPTION}
-      contentStyles={styles.screenContent}
-      withScrollView={false}>
-      <CustomImage
-        containerStyle={styles.imageContainer}
-        imageStyle={styles.image}
-        source={HomeLogo}
-      />
-
+  const renderFooter = () => (
+    <>
       <Button
         buttonStyle={styles.signUpButton}
         text={strings.I_HAVE_AN_ACCOUNT}
         type={Button.Types.PRIMARY}
-        onPress={_navigateToSignIn}
+        onPress={navigateToSignIn}
       />
-
       <Button
         text={strings.CREATE_NEW_ACCOUNT}
         type={Button.Types.PRIMARY}
-        onPress={_navigateToSignUp}
+        onPress={navigateToSignUp}
+      />
+    </>
+  );
+
+  return (
+    <Screen
+      footer={renderFooter}
+      showNavigationHeader={false}
+      title={strings.AUTH_MAIN_TITLE}
+      description={strings.AUTH_MAIN_DESCRIPTION}
+      contentStyles={styles.screenContent}>
+      <CustomImage
+        containerStyle={styles.imageContainer}
+        imageStyle={styles.image}
+        source={HomeLogo}
       />
     </Screen>
   );

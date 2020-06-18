@@ -26,17 +26,18 @@ const Screen = ({
   screenOnRefresh,
   screenRefreshing,
   footer,
+  footerStyles,
 }: IProps) => {
   const navigation = useNavigation();
-  const _goBack = () => navigation.goBack();
+  const goBack = () => navigation.goBack();
 
-  const _renderNavigationHeader = () => {
+  const renderNavigationHeader = () => {
     if (showNavigationHeader) {
       return (
         <SafeAreaView>
           <View style={[styles.navigationHeader]}>
-            {_renderLeftContent()}
-            {_renderRightContent()}
+            {renderLeftContent()}
+            {renderRightContent()}
           </View>
         </SafeAreaView>
       );
@@ -45,7 +46,7 @@ const Screen = ({
     return null;
   };
 
-  const _renderLeftContent = () => {
+  const renderLeftContent = () => {
     if (leftContent && typeof leftContent === 'string') {
       return (
         <TouchableOpacity onPress={() => onLeftContentPress()}>
@@ -56,10 +57,10 @@ const Screen = ({
 
     if (leftContent) return leftContent;
 
-    return <Icon icon={icons.CHEVRON_LEFT} color={colors.FOREGROUND} size={18} onPress={_goBack} />;
+    return <Icon icon={icons.CHEVRON_LEFT} color={colors.FOREGROUND} size={18} onPress={goBack} />;
   };
 
-  const _renderRightContent = () => {
+  const renderRightContent = () => {
     if (rightContent && typeof rightContent === 'string') {
       return (
         <TouchableOpacity onPress={() => onRightContentPress()}>
@@ -73,7 +74,7 @@ const Screen = ({
     return null;
   };
 
-  const _renderTitle = () => {
+  const renderTitle = () => {
     const desc = description ? (
       <Label style={styles.description} type={Label.Types.HINT} text={description} />
     ) : null;
@@ -91,7 +92,7 @@ const Screen = ({
     }
   };
 
-  const _renderContent = () => {
+  const renderContent = () => {
     if (withScrollView) {
       return (
         <>
@@ -99,10 +100,11 @@ const Screen = ({
             style={contentStyles}
             scrollIndicatorInsets={{ right: 1 }}
             contentInsetAdjustmentBehavior='automatic'
-            {..._handleRefreshScreen()}>
+            {...handleRefreshScreen()}>
             <SafeAreaView>{children}</SafeAreaView>
           </ScrollView>
-          {_renderFooter()}
+
+          {renderFooter()}
         </>
       );
     }
@@ -110,12 +112,15 @@ const Screen = ({
     return <SafeAreaView style={[styles.content, contentStyles]}>{children}</SafeAreaView>;
   };
 
-  const _renderFooter = () => {
-    if (footer) return <SafeAreaView>{footer()}</SafeAreaView>;
+  const renderFooter = () => {
+    if (footer) {
+      return <SafeAreaView style={[styles.footer, footerStyles]}>{footer()}</SafeAreaView>;
+    }
+
     return null;
   };
 
-  const _handleRefreshScreen = () => {
+  const handleRefreshScreen = () => {
     if (screenOnRefresh) {
       return <RefreshControl refreshing={screenRefreshing} onRefresh={() => screenOnRefresh()} />;
     }
@@ -125,9 +130,9 @@ const Screen = ({
 
   return (
     <View style={[styles.container, containerStyles]}>
-      {_renderNavigationHeader()}
-      {_renderTitle()}
-      {_renderContent()}
+      {renderNavigationHeader()}
+      {renderTitle()}
+      {renderContent()}
     </View>
   );
 };
@@ -150,6 +155,7 @@ interface IProps {
   screenOnRefresh: Function;
   screenRefreshing: boolean;
   footer: Function;
+  footerStyles?: Object;
 }
 
 Screen.defaultProps = {

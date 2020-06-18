@@ -19,9 +19,9 @@ const ConfirmPassword = ({
   signUpError,
   signUpStart,
 }: IProps) => {
-  const _disableButton = () => password !== confirmPassword;
+  const disableButton = () => password !== confirmPassword;
 
-  const _renderPasswordError = () => {
+  const renderPasswordError = () => {
     if (confirmPassword && password !== confirmPassword) {
       return (
         <Label
@@ -35,7 +35,7 @@ const ConfirmPassword = ({
     return null;
   };
 
-  const _handleSignUp = () => {
+  const handleSignUp = () => {
     const data = {
       firstName,
       lastName,
@@ -48,7 +48,7 @@ const ConfirmPassword = ({
     signUpStart(data);
   };
 
-  const _renderSignUpError = () => {
+  const renderSignUpError = () => {
     if (signUpError) {
       return <Label style={styles.error} type={Label.Types.ERROR} text={signUpError} />;
     }
@@ -56,8 +56,20 @@ const ConfirmPassword = ({
     return null;
   };
 
+  const renderFooter = () => (
+    <Button
+      text={strings.CREATE_ACCOUNT}
+      type={Button.Types.PRIMARY}
+      disabled={disableButton()}
+      onPress={handleSignUp}
+    />
+  );
+
   return (
-    <Screen title={strings.CONFIRM_PASSWORD_TITLE} contentStyles={styles.screenContent}>
+    <Screen
+      footer={renderFooter}
+      title={strings.CONFIRM_PASSWORD_TITLE}
+      contentStyles={styles.screenContent}>
       <InputText
         name='confirmPassword'
         frontIcon={icons.PASSWORD}
@@ -72,15 +84,8 @@ const ConfirmPassword = ({
         validations={[ValidationTypes.required]}
       />
 
-      {_renderPasswordError()}
-      {_renderSignUpError()}
-
-      <Button
-        text={strings.CREATE_ACCOUNT}
-        type={Button.Types.PRIMARY}
-        disabled={_disableButton()}
-        onPress={_handleSignUp}
-      />
+      {renderPasswordError()}
+      {renderSignUpError()}
     </Screen>
   );
 };

@@ -12,16 +12,25 @@ import { ValidationTypes } from 'enums';
 import styles from './mobile.styles';
 
 const Mobile = ({ mobile, errors, navigation }: IProps) => {
-  const _disableButton = () => {
+  const disableButton = () => {
     if (errors?.mobile?.length > 0 || mobile.trim() === '') return true;
   };
 
-  const _handleNext = () => {
+  const handleNext = () => {
     navigation.navigate(routes.PROFILE_PICTURE_SCREEN);
   };
 
+  const renderFooter = () => (
+    <Button
+      text={strings.NEXT}
+      type={Button.Types.PRIMARY}
+      disabled={disableButton()}
+      onPress={handleNext}
+    />
+  );
+
   return (
-    <Screen title={strings.MOBILE_TITLE} contentStyles={styles.screenContent}>
+    <Screen footer={renderFooter} title={strings.MOBILE_TITLE} contentStyles={styles.screenContent}>
       <InputText
         name='mobile'
         frontIcon={icons.MOBILE}
@@ -33,13 +42,6 @@ const Mobile = ({ mobile, errors, navigation }: IProps) => {
         errorStyles={styles.inputError}
         keyboardType={KeyBoardTypes.phone}
         validations={[ValidationTypes.required, ValidationTypes.mobile]}
-      />
-
-      <Button
-        text={strings.NEXT}
-        type={Button.Types.PRIMARY}
-        disabled={_disableButton()}
-        onPress={_handleNext}
       />
     </Screen>
   );

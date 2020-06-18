@@ -11,18 +11,18 @@ import { KeyBoardTypes } from 'enums';
 import styles from './sign-in.styles';
 
 const SignIn = ({ email, password, navigation, signInError, signInStart }: IProps) => {
-  const _disableButton = () => email.trim() === '' || password.trim() === '';
+  const disableButton = () => email.trim() === '' || password.trim() === '';
 
-  const _navigateToSignUp = () => {
+  const navigateToSignUp = () => {
     navigation.replace(routes.NAME_SCREEN);
   };
 
-  const _handleLogin = () => {
+  const handleLogin = () => {
     const data = { email, password };
     signInStart(data);
   };
 
-  const _renderSignInError = () => {
+  const renderSignInError = () => {
     if (signInError) {
       return <Label style={styles.error} type={Label.Types.ERROR} text={signInError} />;
     }
@@ -30,8 +30,20 @@ const SignIn = ({ email, password, navigation, signInError, signInStart }: IProp
     return null;
   };
 
+  const renderFooter = () => (
+    <Button
+      text={strings.LOG_IN}
+      type={Button.Types.PRIMARY}
+      disabled={disableButton()}
+      onPress={handleLogin}
+    />
+  );
+
   return (
-    <Screen title={strings.SIGN_IN_TITLE} contentStyles={styles.screenContent}>
+    <Screen
+      footer={renderFooter}
+      title={strings.SIGN_IN_TITLE}
+      contentStyles={styles.screenContent}>
       <InputText
         name='email'
         frontIcon={icons.EMAIL}
@@ -56,19 +68,12 @@ const SignIn = ({ email, password, navigation, signInError, signInStart }: IProp
         keyboardType={KeyBoardTypes.default}
       />
 
-      {_renderSignInError()}
-
-      <Button
-        text={strings.LOG_IN}
-        type={Button.Types.PRIMARY}
-        disabled={_disableButton()}
-        onPress={_handleLogin}
-      />
+      {renderSignInError()}
 
       <BorderlessButton
         buttonStyle={styles.buttonStyle}
         text={strings.SIGN_UP_HERE}
-        onPress={_navigateToSignUp}
+        onPress={navigateToSignUp}
       />
     </Screen>
   );

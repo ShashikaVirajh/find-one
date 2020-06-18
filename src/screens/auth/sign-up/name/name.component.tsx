@@ -24,8 +24,17 @@ const Name = ({ firstName, lastName, errors, navigation }: IProps) => {
     navigation.navigate(routes.EMAIL_SCREEN);
   };
 
+  const renderFooter = () => (
+    <Button
+      text={strings.NEXT}
+      type={Button.Types.PRIMARY}
+      disabled={_disableButton()}
+      onPress={_handleName}
+    />
+  );
+
   return (
-    <Screen title={strings.NAME_TITLE} contentStyles={styles.screenContent}>
+    <Screen footer={renderFooter} title={strings.NAME_TITLE} contentStyles={styles.screenContent}>
       <InputText
         name='firstName'
         frontIcon={icons.NAME}
@@ -47,12 +56,6 @@ const Name = ({ firstName, lastName, errors, navigation }: IProps) => {
         inputContainerStyle={styles.inputContainer}
         errorStyles={styles.inputError}
         validations={[ValidationTypes.required, ValidationTypes.name]}
-      />
-      <Button
-        text={strings.NEXT}
-        type={Button.Types.PRIMARY}
-        disabled={_disableButton()}
-        onPress={_handleName}
       />
 
       <BorderlessButton

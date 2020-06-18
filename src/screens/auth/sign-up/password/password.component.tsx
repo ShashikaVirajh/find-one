@@ -12,7 +12,7 @@ import { validatePassword } from 'validations';
 import styles from './password.styles';
 
 const Password = ({ values, navigation }: IProps) => {
-  const _disableButton = () => {
+  const disableButton = () => {
     let errors: string[] = [];
 
     if (values !== undefined) errors = validatePassword(values.password);
@@ -47,12 +47,25 @@ const Password = ({ values, navigation }: IProps) => {
     );
   };
 
-  const _handleSignIn = () => {
+  const handleSignIn = () => {
     navigation.navigate(routes.CONFIRM_PASSWORD_SCREEN);
   };
 
+  const renderFooter = () => (
+    <Button
+      buttonStyle={styles.buttonStyle}
+      text={strings.NEXT}
+      type={Button.Types.PRIMARY}
+      disabled={disableButton()}
+      onPress={handleSignIn}
+    />
+  );
+
   return (
-    <Screen title={strings.PASSWORD_TITLE} contentStyles={styles.screenContent}>
+    <Screen
+      footer={renderFooter}
+      title={strings.PASSWORD_TITLE}
+      contentStyles={styles.screenContent}>
       <InputText
         name='password'
         frontIcon={icons.PASSWORD}
@@ -67,14 +80,6 @@ const Password = ({ values, navigation }: IProps) => {
       />
 
       {renderPasswordConditions()}
-
-      <Button
-        buttonStyle={styles.buttonStyle}
-        text={strings.NEXT}
-        type={Button.Types.PRIMARY}
-        disabled={_disableButton()}
-        onPress={_handleSignIn}
-      />
     </Screen>
   );
 };

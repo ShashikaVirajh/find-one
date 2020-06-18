@@ -41,20 +41,25 @@ const ProfilePicture = ({ uri, navigation }: IProps) => {
     }
   };
 
-  const _handleNext = () => {
+  const handleNext = () => {
     navigation.navigate(routes.PASSWORD_SCREEN);
   };
 
+  const renderFooter = () => (
+    <Button text={strings.NEXT} type={Button.Types.PRIMARY} onPress={handleNext} />
+  );
+
   return (
-    <Screen title={strings.PROFILE_PICTURE_TITLE} contentStyles={styles.screenContent}>
+    <Screen
+      footer={renderFooter}
+      title={strings.PROFILE_PICTURE_TITLE}
+      contentStyles={styles.screenContent}>
       <ImagePicker
         containerStyles={{ marginBottom: 30 }}
         name='photo'
         form={SIGN_UP_FORM}
         iconSize={80}
       />
-
-      <Button text={strings.NEXT} type={Button.Types.PRIMARY} onPress={_handleNext} />
     </Screen>
   );
 };
