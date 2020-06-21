@@ -9,21 +9,21 @@ import { IHeaders } from 'types/data.types';
 
 class Http {
   method: httpMethods;
-  url: string;
+  action: string;
   token: string;
   data: Object;
   version: versions;
 
   constructor() {
     this.method = httpMethods.post;
-    this.url = '';
+    this.action = '';
     this.token = '';
     this.data = {};
     this.version = versions.V1;
   }
 
-  setUrl(url: string) {
-    this.url = url;
+  setAction(action: string) {
+    this.action = action;
     return this;
   }
 
@@ -53,7 +53,7 @@ class Http {
   }
 
   _generateURL = () => {
-    let url = `${BASE_URL}/api/v1/${this.url}`;
+    let url = `${BASE_URL}/api/v1/${this.action}`;
     if (this.method === httpMethods.get) url += this._serializeParams(this.data);
 
     return url;
