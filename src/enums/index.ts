@@ -61,3 +61,7 @@ export enum ResizeModes {
   repeat = 'repeat',
   center = 'center',
 }
+
+export enum versions {
+  V1 = 'v1',
+}

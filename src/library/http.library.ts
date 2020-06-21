@@ -45,16 +45,38 @@ class Http {
     return this;
   }
 
+  _generateURL = () => {
+    let url = BASE_URL + this.url;
+    if (this.method === httpMethods.get) url += this._serializeParams(this.data);
+
+    return url;
+  };
+
+  _setHeaders = () => {
+    const headers: IHeaders = {
+      'Content-Type': 'application/json',
+    };
+
+    return headers;
+  };
+
+  _serializeParams = (params: any) => {
+    if (typeof params === undefined || Object.keys(params).length <= 0) return '';
+
+    let queryString = '';
+    for (const key in params) {
+      if (queryString !== '') queryString += '&';
+      queryString += `${key}'='${encodeURIComponent(params[key])}`;
+    }
+    return `?${queryString}`;
+  };
+
   async request() {
     try {
       store.dispatch(toggleSpinner(true));
 
-      let url = BASE_URL + this.url;
-      if (this.method === httpMethods.get) url += this.serializeParams(this.data);
-
-      const headers: IHeaders = {
-        'Content-Type': 'application/json',
-      };
+      const url = this._generateURL();
+      const headers = this._setHeaders();
 
       if (typeof this.token !== undefined) {
         headers.Authorization = this.token;
@@ -85,17 +107,6 @@ class Http {
 
       throw response.data;
     }
-  }
-
-  private serializeParams(params: any) {
-    if (typeof params === undefined || Object.keys(params).length <= 0) return '';
-
-    let queryString = '';
-    for (const key in params) {
-      if (queryString !== '') queryString += '&';
-      queryString += `${key}'='${encodeURIComponent(params[key])}`;
-    }
-    return `?${queryString}`;
   }
 }
 

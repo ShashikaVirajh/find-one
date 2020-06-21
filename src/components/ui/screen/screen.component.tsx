@@ -69,7 +69,7 @@ const Screen = ({
       );
     }
 
-    if (leftContent) return leftContent;
+    if (rightContent) return rightContent;
 
     return null;
   };
