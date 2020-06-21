@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import { BASE_URL } from 'config';
-import { httpMethods } from 'enums';
+import { httpMethods, versions } from 'enums';
 import { Logger } from 'library';
 import { toggleSpinner } from 'Redux/common/common.actions';
 import { store } from 'Redux/store';
@@ -12,12 +12,14 @@ class Http {
   url: string;
   token: string;
   data: Object;
+  version: versions;
 
   constructor() {
     this.method = httpMethods.post;
     this.url = '';
     this.token = '';
     this.data = {};
+    this.version = versions.V1;
   }
 
   setUrl(url: string) {
@@ -40,13 +42,18 @@ class Http {
     return this;
   }
 
+  setVersion = (version: versions) => {
+    this.version = version;
+    return this;
+  };
+
   unsetData() {
     this.data = [];
     return this;
   }
 
   _generateURL = () => {
-    let url = BASE_URL + this.url;
+    let url = `${BASE_URL}/api/v1/${this.url}`;
     if (this.method === httpMethods.get) url += this._serializeParams(this.data);
 
     return url;
