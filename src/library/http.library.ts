@@ -53,9 +53,8 @@ class Http {
   }
 
   _generateURL = () => {
-    let url = `${BASE_URL}/api/v1/${this.action}`;
+    let url = `${BASE_URL}/api/${this.version}/${this.action}`;
     if (this.method === httpMethods.get) url += this._serializeParams(this.data);
-
     return url;
   };
 
@@ -63,7 +62,6 @@ class Http {
     const headers: IHeaders = {
       'Content-Type': 'application/json',
     };
-
     return headers;
   };
 
@@ -78,7 +76,7 @@ class Http {
     return `?${queryString}`;
   };
 
-  async request() {
+  request = async () => {
     try {
       store.dispatch(toggleSpinner(true));
 
@@ -99,22 +97,18 @@ class Http {
       const response = await axios(config);
 
       Logger.log('SUCCESS:', response);
-
       this.unsetData();
-
       store.dispatch(toggleSpinner(false));
 
       return response.data;
     } catch ({ response }) {
       Logger.log('ERROR:', response);
-
       this.unsetData();
-
       store.dispatch(toggleSpinner(false));
 
       throw response.data;
     }
-  }
+  };
 }
 
 export default new Http();
