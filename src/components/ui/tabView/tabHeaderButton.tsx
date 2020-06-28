@@ -13,7 +13,7 @@ const TabHeaderButton = ({
 }: IProps) => (
   <TouchableOpacity style={styles.container} onPress={() => onTabHeaderPress()}>
     <View style={[styles.tabText, { borderBottomWidth, opacity: buttonOpacity }]}>
-      <Label type={Label.Types.DISPLAY} text={headerLabel} />
+      <Label size={18} text={headerLabel} />
     </View>
   </TouchableOpacity>
 );

@@ -5,45 +5,42 @@ import Label from 'components/ui/label/label.component';
 import styles from './borderless-button.styles';
 
 const BorderlessButton = ({
-  text,
   buttonStyle,
-  textType,
-  textStyle,
-  underline,
   disabled,
   onPress,
+  size,
+  text,
+  textStyle,
+  underline,
 }: IProps) => (
   <TouchableOpacity
     style={[styles.button, buttonStyle]}
     disabled={disabled}
     onPress={() => onPress()}>
     <Label
-      type={textType}
+      size={size}
+      style={[disabled ? styles.disabledText : styles.text, textStyle]}
       text={text}
       underline={underline}
-      style={[disabled ? styles.disabledText : styles.text, textStyle]}
     />
   </TouchableOpacity>
 );
 
 export interface IProps {
-  text: string;
-  disabled?: boolean;
-  underline?: boolean;
-  textType?: string;
   buttonStyle?: object;
-  textStyle?: object;
+  disabled?: boolean;
   onPress: Function;
+  size?: number;
+  text: string;
+  textStyle?: object;
+  underline?: boolean;
 }
 
 BorderlessButton.defaultProps = {
-  text: '',
-  underline: false,
   disabled: false,
-  textType: Label.Types.BUTTON_LABEL,
-  buttonStyle: {},
-  textStyle: {},
   onPress: () => {},
+  size: 16,
+  underline: false,
 };
 
 export default BorderlessButton;

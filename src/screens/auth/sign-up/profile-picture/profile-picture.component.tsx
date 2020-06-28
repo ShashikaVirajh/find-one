@@ -45,9 +45,7 @@ const ProfilePicture = ({ uri, navigation }: IProps) => {
     navigation.navigate(routes.PASSWORD_SCREEN);
   };
 
-  const renderFooter = () => (
-    <Button text={strings.NEXT} type={Button.Types.PRIMARY} onPress={handleNext} />
-  );
+  const renderFooter = () => <Button text={strings.NEXT} onPress={handleNext} />;
 
   return (
     <Screen

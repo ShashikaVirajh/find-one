@@ -39,11 +39,7 @@ const CustomDrawer = React.memo(({ firstName, lastName, drawerProps, signOut }: 
       />
 
       <ScrollView style={styles.itemContainer}>
-        <Label
-          text={`Hi, ${firstName} ${lastName}`}
-          type={Label.Types.MEDIUM}
-          style={styles.header}
-        />
+        <Label size={18} text={`Hi, ${firstName} ${lastName}`} style={styles.header} />
 
         {_renderDrawerItems()}
         <ListItem

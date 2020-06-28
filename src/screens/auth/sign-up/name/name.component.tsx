@@ -25,12 +25,7 @@ const Name = ({ firstName, lastName, errors, navigation }: IProps) => {
   };
 
   const renderFooter = () => (
-    <Button
-      text={strings.NEXT}
-      type={Button.Types.PRIMARY}
-      disabled={_disableButton()}
-      onPress={_handleName}
-    />
+    <Button text={strings.NEXT} disabled={_disableButton()} onPress={_handleName} />
   );
 
   return (

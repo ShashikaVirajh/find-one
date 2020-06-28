@@ -28,14 +28,9 @@ const Welcome = ({ initForm, navigation }: IProps) => {
       <Button
         buttonStyle={styles.signUpButton}
         text={strings.I_HAVE_AN_ACCOUNT}
-        type={Button.Types.PRIMARY}
         onPress={navigateToSignIn}
       />
-      <Button
-        text={strings.CREATE_NEW_ACCOUNT}
-        type={Button.Types.PRIMARY}
-        onPress={navigateToSignUp}
-      />
+      <Button text={strings.CREATE_NEW_ACCOUNT} onPress={navigateToSignUp} />
     </>
   );
 

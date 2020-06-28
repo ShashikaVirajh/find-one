@@ -76,7 +76,7 @@ const Screen = ({
 
   const renderTitle = () => {
     const desc = description ? (
-      <Label style={styles.description} type={Label.Types.HINT} text={description} />
+      <Label size={14} style={styles.description} text={description} />
     ) : null;
 
     if (title) {
@@ -84,7 +84,7 @@ const Screen = ({
         <View style={{ flexDirection: 'row' }}>
           <View
             style={[styles.titleContainer, !showNavigationHeader ? styles.titleTopMargin : null]}>
-            <Label type={Label.Types.DISPLAY} text={title} />
+            <Label size={28} text={title} />
             {desc}
           </View>
         </View>
@@ -99,6 +99,7 @@ const Screen = ({
           <ScrollView
             style={contentStyles}
             scrollIndicatorInsets={{ right: 1 }}
+            keyboardShouldPersistTaps='always'
             contentInsetAdjustmentBehavior='automatic'
             {...handleRefreshScreen()}>
             <SafeAreaView>{children}</SafeAreaView>
@@ -137,6 +138,17 @@ const Screen = ({
   );
 };
 
+Screen.defaultProps = {
+  hideLeftButton: false,
+  withScrollView: true,
+  showNavigationHeader: true,
+  screenRefreshing: false,
+  onLeftContentPress: () => {},
+  onRightContentPress: () => {},
+  screenOnRefresh: () => {},
+  footer: () => {},
+};
+
 interface IProps {
   leftContent?: string | JSX.Element;
   onLeftContentPress: Function;
@@ -157,16 +169,5 @@ interface IProps {
   footer: Function;
   footerStyles?: Object;
 }
-
-Screen.defaultProps = {
-  hideLeftButton: false,
-  withScrollView: true,
-  showNavigationHeader: true,
-  screenRefreshing: false,
-  onLeftContentPress: () => {},
-  onRightContentPress: () => {},
-  screenOnRefresh: () => {},
-  footer: () => {},
-};
 
 export default Screen;

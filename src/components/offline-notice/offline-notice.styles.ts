@@ -4,10 +4,10 @@ import { colors } from 'constants/colors.constant';
 
 export default StyleSheet.create({
   label: {
-    textAlign: 'center',
-    textAlignVertical: 'center',
     backgroundColor: colors.LIGHT_RED,
     color: colors.FOREGROUND,
     height: 30,
+    textAlign: 'center',
+    textAlignVertical: 'center',
   },
 });

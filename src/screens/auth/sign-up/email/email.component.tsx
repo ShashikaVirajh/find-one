@@ -21,12 +21,7 @@ const Email = ({ email, errors, navigation }: IProps) => {
   };
 
   const renderFooter = () => (
-    <Button
-      text={strings.NEXT}
-      type={Button.Types.PRIMARY}
-      disabled={disableButton()}
-      onPress={handleNext}
-    />
+    <Button text={strings.NEXT} disabled={disableButton()} onPress={handleNext} />
   );
 
   return (

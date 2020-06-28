@@ -6,32 +6,28 @@ import { Label } from 'components/ui';
 import styles from './list-item.styles';
 
 const ListItem = ({
-  leftContent,
-  mainContent,
-  subContent,
-  rightContent,
-  leftTextType,
-  mainTextType,
-  subTextType,
-  rightTextType,
   containerStyles,
-  leftContentStyles,
-  mainContentStyles,
-  subContentStyles,
-  rightContentStyles,
-  onContainerPress,
-  // onLeftContentPress,
-  // onMainContentPress,
-  // onSubContentPress,
-  // onRightContentPress,
   hideBorder,
+  leftContent,
+  leftContentStyles,
+  leftTextSize,
+  mainContent,
+  mainContentStyles,
+  mainTextSize,
+  onContainerPress,
+  rightContent,
+  rightContentStyles,
+  rightTextSize,
+  subContent,
+  subContentStyles,
+  subTextSize,
 }: IProps) => {
   const height = hideBorder ? 50 : 80;
   const borderWidth = hideBorder ? 0 : 1;
 
   const _renderLeftContent = () => {
     if (leftContent && typeof leftContent === 'string') {
-      return <Label style={[leftContentStyles]} type={leftTextType} text={leftContent} />;
+      return <Label size={leftTextSize} style={[leftContentStyles]} text={leftContent} />;
     }
 
     if (leftContent) return leftContent;
@@ -41,7 +37,7 @@ const ListItem = ({
 
   const _renderMainContent = () => {
     if (mainContent && typeof mainContent === 'string') {
-      return <Label style={[mainContentStyles]} type={mainTextType} text={mainContent} />;
+      return <Label size={mainTextSize} style={[mainContentStyles]} text={mainContent} />;
     }
 
     if (mainContent) return mainContent;
@@ -51,7 +47,7 @@ const ListItem = ({
 
   const _renderRightContent = () => {
     if (rightContent && typeof rightContent === 'string') {
-      return <Label style={[rightContentStyles]} type={rightTextType} text={rightContent} />;
+      return <Label size={rightTextSize} style={[rightContentStyles]} text={rightContent} />;
     }
 
     if (rightContent) return rightContent;
@@ -61,7 +57,7 @@ const ListItem = ({
 
   const _renderSubContent = () => {
     if (subContent && typeof subContent === 'string') {
-      return <Label style={[subContentStyles]} type={subTextType} text={subContent} />;
+      return <Label size={subTextSize} style={[subContentStyles]} text={subContent} />;
     }
 
     if (subContent) return subContent;
@@ -84,38 +80,34 @@ const ListItem = ({
 };
 
 export interface IProps {
-  leftContent?: string | JSX.Element;
-  leftTextType?: string;
-  leftContentStyles?: Object;
-  mainContent?: string | JSX.Element;
-  subContent?: string | JSX.Element;
-  rightContent?: string | JSX.Element;
-  mainTextType?: string;
-  subTextType?: string;
-  rightTextType?: string;
   containerStyles?: Object;
-  mainContentStyles?: Object;
-  subContentStyles?: Object;
-  rightContentStyles?: Object;
-  onContainerPress: Function;
-  // onLeftContentPress?: Function;
-  // onMainContentPress?: Function;
-  // onSubContentPress?: Function;
-  // onRightContentPress?: Function;
   hideBorder?: boolean;
+  leftContent?: string | JSX.Element;
+  leftContentStyles?: Object;
+  leftTextSize?: number;
+  mainContent?: string | JSX.Element;
+  mainContentStyles?: Object;
+  mainTextSize?: number;
+  onContainerPress: Function;
+  rightContent?: string | JSX.Element;
+  rightContentStyles?: Object;
+  rightTextSize?: number;
+  subContent?: string | JSX.Element;
+  subContentStyles?: Object;
+  subTextSize?: number;
 }
 
 ListItem.defaultProps = {
   hideBorder: false,
-  leftTextType: Label.Types.MEDIUM,
-  mainTextType: Label.Types.MEDIUM,
-  subTextType: Label.Types.SMALL,
-  rightTextType: Label.Types.SMALL,
+  leftTextSize: 16,
+  mainTextSize: 16,
+  subTextSize: 14,
+  rightTextSize: 16,
   onContainerPress: () => {},
   onLeftContentPress: () => {},
   onMainContentPress: () => {},
-  onSubContentPress: () => {},
   onRightContentPress: () => {},
+  onSubContentPress: () => {},
 };
 
 export default ListItem;

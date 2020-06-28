@@ -46,7 +46,7 @@ const InputText = ({
   const [securedText, setSecuredText] = useState(true);
   const [mounted, setMounted] = useState(false);
 
-  const _onLayout = () => {
+  const onLayout = () => {
     if (!form) return;
     if (mounted) return;
 
@@ -54,7 +54,7 @@ const InputText = ({
     setMounted(true);
   };
 
-  const _handleTextChange = (text: string) => {
+  const handleTextChange = (text: string) => {
     const errors = validate(validations, text);
 
     if (handleChange) handleChange(text);
@@ -68,17 +68,17 @@ const InputText = ({
     });
   };
 
-  const _handleFocus = () => {
+  const handleFocus = () => {
     if (onFocus) onFocus();
     setFocus(true);
   };
 
-  const _handleBlur = () => {
+  const handleBlur = () => {
     if (onBlur) onBlur();
     setFocus(false);
   };
 
-  const _renderPrefix = () => {
+  const renderPrefix = () => {
     if (prefix) {
       return <TextInput style={[styles.prefix, prefixStyle]} value={prefix} editable={false} />;
     }
@@ -86,7 +86,7 @@ const InputText = ({
     return null;
   };
 
-  const _renderLabel = () => {
+  const renderLabel = () => {
     let labelStyles: Object = styles.hideLabel;
     if (fieldValue) labelStyles = styles.activeLabel;
 
@@ -94,16 +94,17 @@ const InputText = ({
     return <Text style={[styles.label, labelStyles]} />;
   };
 
-  const _setStyles = () => [styles.inputText, inputStyles];
+  const setStyles = () => [styles.inputText, inputStyles];
 
-  const _toggleSecuredText = () => setSecuredText(prevState => !prevState);
+  const toggleSecuredText = () => setSecuredText(prevState => !prevState);
 
-  const _renderError = () => {
+  const renderError = () => {
     if (fieldErrors && fieldErrors.length > 0) {
       return (
         <View style={styles.errorLabelContainer}>
           <Label
-            type={Label.Types.ERROR}
+            color={colors.RED}
+            size={12}
             text={fieldErrors[0]}
             style={[styles.errorText, errorStyles]}
           />
@@ -118,12 +119,12 @@ const InputText = ({
     );
   };
 
-  const _renderShowHideButton = () => {
+  const renderShowHideButton = () => {
     if (secureTextEntry) {
       return (
         <BorderlessButton
           text={securedText ? strings.SHOW : strings.HIDE}
-          onPress={_toggleSecuredText}
+          onPress={toggleSecuredText}
           textStyle={styles.showHideButton}
         />
       );
@@ -132,7 +133,7 @@ const InputText = ({
     return null;
   };
 
-  const _clearText = () => {
+  const clearText = () => {
     const errors = validate(validations, '');
 
     addFormData({
@@ -144,7 +145,7 @@ const InputText = ({
     });
   };
 
-  const _renderFrontIcon = () => {
+  const renderFrontIcon = () => {
     if (frontIcon) {
       return (
         <Icon
@@ -160,7 +161,7 @@ const InputText = ({
     return null;
   };
 
-  const _renderClearIcon = () => {
+  const renderClearIcon = () => {
     if (focused && fieldValue) {
       return (
         <Icon
@@ -168,19 +169,21 @@ const InputText = ({
           color={colors.GRAY}
           size={24}
           style={styles.clearButton}
-          onPress={_clearText}
+          onPress={clearText}
         />
       );
     }
+
+    return null;
   };
 
   return (
     <View style={containerStyle}>
-      {_renderLabel()}
+      {renderLabel()}
 
       <View style={[styles.inputContainer, inputContainerStyle]}>
-        {_renderFrontIcon()}
-        {_renderPrefix()}
+        {renderFrontIcon()}
+        {renderPrefix()}
 
         <TextInput
           editable={editable}
@@ -192,20 +195,20 @@ const InputText = ({
           value={value || fieldValue}
           placeholderTextColor={colors.GRAY}
           keyboardType={keyboardType === KeyBoardTypes.unset ? undefined : keyboardType}
-          style={_setStyles()}
+          style={setStyles()}
           secureTextEntry={secureTextEntry ? securedText : false}
           placeholder={placeholder}
-          onChangeText={_handleTextChange}
-          onFocus={_handleFocus}
-          onBlur={_handleBlur}
-          onLayout={_onLayout}
+          onChangeText={handleTextChange}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+          onLayout={onLayout}
         />
 
-        {_renderShowHideButton()}
-        {_renderClearIcon()}
+        {renderShowHideButton()}
+        {renderClearIcon()}
       </View>
 
-      {_renderError()}
+      {renderError()}
     </View>
   );
 };

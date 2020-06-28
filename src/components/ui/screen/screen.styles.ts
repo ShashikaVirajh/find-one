@@ -11,7 +11,8 @@ export default StyleSheet.create({
     flex: 1,
   },
   navigationHeader: {
-    paddingVertical: 6,
+    marginTop: 20,
+    marginBottom: 10,
     paddingHorizontal: 24,
     flexDirection: 'row',
     justifyContent: 'space-between',

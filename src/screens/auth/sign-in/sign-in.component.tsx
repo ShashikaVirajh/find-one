@@ -24,19 +24,14 @@ const SignIn = ({ email, password, navigation, signInError, signInStart }: IProp
 
   const renderSignInError = () => {
     if (signInError) {
-      return <Label style={styles.error} type={Label.Types.ERROR} text={signInError} />;
+      return <Label size={12} style={styles.error} text={signInError} />;
     }
 
     return null;
   };
 
   const renderFooter = () => (
-    <Button
-      text={strings.LOG_IN}
-      type={Button.Types.PRIMARY}
-      disabled={disableButton()}
-      onPress={handleLogin}
-    />
+    <Button text={strings.LOG_IN} disabled={disableButton()} onPress={handleLogin} />
   );
 
   return (

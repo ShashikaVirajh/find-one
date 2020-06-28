@@ -23,13 +23,7 @@ const ConfirmPassword = ({
 
   const renderPasswordError = () => {
     if (confirmPassword && password !== confirmPassword) {
-      return (
-        <Label
-          style={styles.error}
-          type={Label.Types.ERROR}
-          text={strings.PASSWORD_MISMATCH_ERRROR}
-        />
-      );
+      return <Label size={14} style={styles.errorText} text={strings.PASSWORD_MISMATCH_ERRROR} />;
     }
 
     return null;
@@ -50,19 +44,14 @@ const ConfirmPassword = ({
 
   const renderSignUpError = () => {
     if (signUpError) {
-      return <Label style={styles.error} type={Label.Types.ERROR} text={signUpError} />;
+      return <Label size={12} style={styles.errorText} text={signUpError} />;
     }
 
     return null;
   };
 
   const renderFooter = () => (
-    <Button
-      text={strings.CREATE_ACCOUNT}
-      type={Button.Types.PRIMARY}
-      disabled={disableButton()}
-      onPress={handleSignUp}
-    />
+    <Button text={strings.CREATE_ACCOUNT} disabled={disableButton()} onPress={handleSignUp} />
   );
 
   return (

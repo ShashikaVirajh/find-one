@@ -11,7 +11,7 @@ const RadioButton = ({ text, option, checked, onPress, containerStyle }: IProps)
       style={[styles.container, containerStyle]}
       onPress={() => onPress(option, checked)}>
       <View style={styles.text}>
-        <Label type={Label.Types.MEDIUM} text={text} />
+        <Label size={16} text={text} />
       </View>
 
       <View style={styles.radio}>

@@ -13,7 +13,8 @@
       true,
       {
         "singleline": "never",
-        "multiline": "always"
+        "multiline": "always",
+        "esSpecCompliant": true
       }
     ],
     "variable-name": false,

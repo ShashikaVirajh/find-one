@@ -21,7 +21,6 @@ const Password = ({ values, navigation }: IProps) => {
 
   const renderPasswordConditions = () => {
     const { LOWERCASE, UPPERCASE, NUMBER, LENGTH, SYMBOL } = PasswordErrorTypes;
-    const { ERROR, HINT } = Label.Types;
 
     let errors: string[] = [];
 
@@ -29,20 +28,31 @@ const Password = ({ values, navigation }: IProps) => {
 
     return (
       <>
-        <Label type={!errors.includes(LENGTH) ? HINT : ERROR} text='Use 8 - 20 characters' />
         <Label
-          type={!errors.includes(UPPERCASE) ? HINT : ERROR}
+          size={14}
+          style={!errors.includes(LENGTH) ? styles.hintText : styles.errorText}
+          text='Use 8 - 20 characters'
+        />
+        <Label
+          size={14}
+          style={!errors.includes(UPPERCASE) ? styles.hintText : styles.errorText}
           text='Use at least 1 upper case letter'
         />
         <Label
-          type={!errors.includes(LOWERCASE) ? HINT : ERROR}
+          size={14}
+          style={!errors.includes(LOWERCASE) ? styles.hintText : styles.errorText}
           text='Use at least 1 lower case letter'
         />
         <Label
-          type={!errors.includes(SYMBOL) ? HINT : ERROR}
+          size={14}
+          style={!errors.includes(SYMBOL) ? styles.hintText : styles.errorText}
           text='Use at least 1 special character (!@#$%^&*)'
         />
-        <Label type={!errors.includes(NUMBER) ? HINT : ERROR} text='Use at least 1 number' />
+        <Label
+          size={14}
+          style={!errors.includes(NUMBER) ? styles.hintText : styles.errorText}
+          text='Use at least 1 number'
+        />
       </>
     );
   };
@@ -55,7 +65,6 @@ const Password = ({ values, navigation }: IProps) => {
     <Button
       buttonStyle={styles.buttonStyle}
       text={strings.NEXT}
-      type={Button.Types.PRIMARY}
       disabled={disableButton()}
       onPress={handleSignIn}
     />
