@@ -20,7 +20,6 @@ const Label = ({ color, size, style, text, underline }: IProps) => {
 Label.defaultProps = {
   color: colors.FOREGROUND,
   size: 12,
-  style: {},
   text: '',
   underline: false,
 };
