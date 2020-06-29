@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { NavigationScreenProp, NavigationState } from 'react-navigation';
 
+import crashes from 'appcenter-crashes';
+
 import { Button, CustomImage, Screen } from 'components/ui';
 import { SIGN_IN_FORM, SIGN_UP_FORM } from 'constants/forms.constant';
 import { HomeLogo } from 'constants/images.constants';
@@ -16,6 +18,7 @@ const Welcome = ({ initForm, navigation }: IProps) => {
   }, []);
 
   const navigateToSignIn = () => {
+    crashes.generateTestCrash();
     navigation.navigate(routes.SIGN_IN_SCREEN);
   };
 
