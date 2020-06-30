@@ -4,7 +4,7 @@ import { Http } from 'library';
 import { endpoints } from 'constants/endpoints.constant';
 import { versions } from 'enums';
 
-class AuthHttp {
+class AuthService {
   static signUp = (payload: Object) =>
     Http.setMethod(httpMethods.post)
       .setAction(endpoints.SIGN_UP)
@@ -27,4 +27,4 @@ class AuthHttp {
       .request();
 }
 
-export default AuthHttp;
+export default AuthService;
