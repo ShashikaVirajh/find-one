@@ -1,3 +1,3 @@
 # find-one
 
-Android: [![Build status](https://build.appcenter.ms/v0.1/apps/7feeb3f1-edba-40e2-a107-3068e3229d7b/branches/dev/badge)](https://appcenter.ms)
+Android: [![Build status](https://build.appcenter.ms/v0.1/apps/4c9dce89-d743-486e-9e6f-6700ee734db8/branches/dev/badge)](https://appcenter.ms)
