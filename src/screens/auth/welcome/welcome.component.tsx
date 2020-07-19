@@ -37,7 +37,7 @@ const Welcome = ({ initForm, navigation }: IProps) => {
   return (
     <Screen
       footer={renderFooter}
-      showNavigationHeader={false}
+      hideBackButton
       title={strings.AUTH_MAIN_TITLE}
       description={strings.AUTH_MAIN_DESCRIPTION}
       contentStyles={styles.screenContent}>

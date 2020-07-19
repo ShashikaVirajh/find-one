@@ -34,6 +34,8 @@ export default StyleSheet.create({
   },
   description: {
     marginTop: 5,
+    paddingHorizontal: 24,
+    textAlign: 'center',
   },
   footer: {
     marginBottom: 20,

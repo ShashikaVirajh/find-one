@@ -14,6 +14,7 @@ const Screen = ({
   onLeftContentPress,
   leftContentStyles,
   title,
+  hideBackButton,
   description,
   rightContent,
   rightContentStyles,
@@ -22,7 +23,7 @@ const Screen = ({
   containerStyles,
   contentStyles,
   withScrollView,
-  showNavigationHeader,
+  showHeader,
   screenOnRefresh,
   screenRefreshing,
   footer,
@@ -31,14 +32,21 @@ const Screen = ({
   const navigation = useNavigation();
   const goBack = () => navigation.goBack();
 
-  const renderNavigationHeader = () => {
-    if (showNavigationHeader) {
+  const renderHeader = () => {
+    const desc = description ? (
+      <Label size={14} style={styles.description} text={description} />
+    ) : null;
+
+    if (showHeader) {
       return (
         <SafeAreaView>
           <View style={[styles.navigationHeader]}>
             {renderLeftContent()}
+            {renderTitle()}
             {renderRightContent()}
           </View>
+
+          {desc}
         </SafeAreaView>
       );
     }
@@ -57,7 +65,13 @@ const Screen = ({
 
     if (leftContent) return leftContent;
 
-    return <Icon icon={icons.CHEVRON_LEFT} color={colors.FOREGROUND} size={18} onPress={goBack} />;
+    if (!hideBackButton) {
+      return (
+        <Icon icon={icons.CHEVRON_LEFT} color={colors.FOREGROUND} size={18} onPress={goBack} />
+      );
+    }
+
+    return <View />;
   };
 
   const renderRightContent = () => {
@@ -71,21 +85,15 @@ const Screen = ({
 
     if (rightContent) return rightContent;
 
-    return null;
+    return <View />;
   };
 
   const renderTitle = () => {
-    const desc = description ? (
-      <Label size={14} style={styles.description} text={description} />
-    ) : null;
-
     if (title) {
       return (
         <View style={{ flexDirection: 'row' }}>
-          <View
-            style={[styles.titleContainer, !showNavigationHeader ? styles.titleTopMargin : null]}>
+          <View style={[styles.titleContainer, !showHeader ? styles.titleTopMargin : null]}>
             <Label size={28} text={title} />
-            {desc}
           </View>
         </View>
       );
@@ -131,22 +139,10 @@ const Screen = ({
 
   return (
     <View style={[styles.container, containerStyles]}>
-      {renderNavigationHeader()}
-      {renderTitle()}
+      {renderHeader()}
       {renderContent()}
     </View>
   );
-};
-
-Screen.defaultProps = {
-  hideLeftButton: false,
-  withScrollView: true,
-  showNavigationHeader: true,
-  screenRefreshing: false,
-  onLeftContentPress: () => {},
-  onRightContentPress: () => {},
-  screenOnRefresh: () => {},
-  footer: () => {},
 };
 
 interface IProps {
@@ -159,15 +155,28 @@ interface IProps {
   rightContentStyles?: Object;
   onRightContentPress: Function;
   children?: object;
+  hideBackButton?: boolean;
   containerStyles?: Object;
   contentStyles?: object;
   withScrollView?: boolean;
   hideLeftButton?: boolean;
-  showNavigationHeader?: boolean;
+  showHeader?: boolean;
   screenOnRefresh: Function;
   screenRefreshing: boolean;
   footer: Function;
   footerStyles?: Object;
 }
+
+Screen.defaultProps = {
+  hideLeftButton: false,
+  withScrollView: true,
+  showHeader: true,
+  screenRefreshing: false,
+  hideBackButton: false,
+  onLeftContentPress: () => {},
+  onRightContentPress: () => {},
+  screenOnRefresh: () => {},
+  footer: () => {},
+};
 
 export default Screen;
