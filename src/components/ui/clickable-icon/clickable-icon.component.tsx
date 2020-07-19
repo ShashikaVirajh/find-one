@@ -1,14 +1,14 @@
 import React from 'react';
-import { TouchableOpacity } from 'react-native';
+import { Pressable } from 'react-native';
 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 
 import styles from './clickable-icon.styles';
 
 const Icon = ({ style, icon, color, size, disabled, onPress }: IProps) => (
-  <TouchableOpacity style={[styles.button, style]} disabled={disabled} onPress={() => onPress()}>
+  <Pressable style={[styles.button, style]} disabled={disabled} onPress={() => onPress()}>
     <FontAwesomeIcon icon={icon} color={color} size={size} />
-  </TouchableOpacity>
+  </Pressable>
 );
 
 export interface IProps {

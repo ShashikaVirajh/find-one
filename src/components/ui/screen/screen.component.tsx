@@ -1,5 +1,5 @@
 import React from 'react';
-import { RefreshControl, SafeAreaView, ScrollView, TouchableOpacity, View } from 'react-native';
+import { Pressable, RefreshControl, SafeAreaView, ScrollView, View } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
 
@@ -49,9 +49,9 @@ const Screen = ({
   const renderLeftContent = () => {
     if (leftContent && typeof leftContent === 'string') {
       return (
-        <TouchableOpacity onPress={() => onLeftContentPress()}>
+        <Pressable onPress={() => onLeftContentPress()}>
           <Label style={[leftContentStyles]} text={leftContent} />
-        </TouchableOpacity>
+        </Pressable>
       );
     }
 
@@ -63,9 +63,9 @@ const Screen = ({
   const renderRightContent = () => {
     if (rightContent && typeof rightContent === 'string') {
       return (
-        <TouchableOpacity onPress={() => onRightContentPress()}>
+        <Pressable onPress={() => onRightContentPress()}>
           <Label style={[rightContentStyles]} text={rightContent} />
-        </TouchableOpacity>
+        </Pressable>
       );
     }
 

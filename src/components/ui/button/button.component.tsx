@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 
 import { Icon, Label } from 'components/ui';
 import { colors } from 'constants/colors.constant';
@@ -59,7 +59,7 @@ const Button = ({
   );
 
   return (
-    <TouchableOpacity
+    <Pressable
       onPress={() => onPress()}
       disabled={disabled}
       style={[
@@ -72,7 +72,7 @@ const Button = ({
       {renderFrontIcon()}
       {renderButtonText()}
       {renderBackIcon()}
-    </TouchableOpacity>
+    </Pressable>
   );
 };
 
@@ -85,7 +85,7 @@ export interface IProps {
   frontIcon?: any;
   frontIconColor?: string;
   frontIconSize?: number;
-  onPress: Function;
+  onPress: () => void;
   roundButton: boolean;
   text: string;
   textStyle?: object;
@@ -97,7 +97,6 @@ Button.defaultProps = {
   disabled: false,
   frontIconColor: colors.SILVER,
   frontIconSize: 24,
-  onPress: () => {},
   roundButton: true,
 };
 

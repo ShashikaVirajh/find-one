@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 
 import { Label } from 'components/ui';
 
@@ -66,7 +66,7 @@ const ListItem = ({
   };
 
   return (
-    <TouchableOpacity
+    <Pressable
       style={[styles.container, { height, borderWidth }, containerStyles]}
       onPress={() => onContainerPress()}>
       <View style={[styles.leftContent, leftContentStyles]}>{_renderLeftContent()}</View>
@@ -75,7 +75,7 @@ const ListItem = ({
         <View>{_renderSubContent()}</View>
       </View>
       <View>{_renderRightContent()}</View>
-    </TouchableOpacity>
+    </Pressable>
   );
 };
 

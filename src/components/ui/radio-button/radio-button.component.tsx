@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 
 import { Label } from 'components/ui';
 
@@ -7,9 +7,7 @@ import styles from './radio-button.styles';
 
 const RadioButton = ({ text, option, checked, onPress, containerStyle }: IProps) => {
   return (
-    <TouchableOpacity
-      style={[styles.container, containerStyle]}
-      onPress={() => onPress(option, checked)}>
+    <Pressable style={[styles.container, containerStyle]} onPress={() => onPress(option, checked)}>
       <View style={styles.text}>
         <Label size={16} text={text} />
       </View>
@@ -17,7 +15,7 @@ const RadioButton = ({ text, option, checked, onPress, containerStyle }: IProps)
       <View style={styles.radio}>
         <View style={checked ? styles.checked : {}} />
       </View>
-    </TouchableOpacity>
+    </Pressable>
   );
 };
 

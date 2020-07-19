@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, TouchableOpacity } from 'react-native';
+import { Image, Pressable } from 'react-native';
 
 import { ResizeModes } from 'enums';
 
@@ -14,7 +14,7 @@ const Icon = ({
   disabled,
   onPress,
 }: IProps) => (
-  <TouchableOpacity
+  <Pressable
     style={[{ height, width }, containerStyle]}
     disabled={disabled}
     onPress={() => onPress()}>
@@ -23,7 +23,7 @@ const Icon = ({
       source={source}
       resizeMode={resizeMode}
     />
-  </TouchableOpacity>
+  </Pressable>
 );
 
 export interface IProps {

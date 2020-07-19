@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Pressable, StyleSheet, View } from 'react-native';
 
 import { Label } from 'components/ui';
 
@@ -11,11 +11,11 @@ const TabHeaderButton = ({
   buttonOpacity,
   onTabHeaderPress,
 }: IProps) => (
-  <TouchableOpacity style={styles.container} onPress={() => onTabHeaderPress()}>
+  <Pressable style={styles.container} onPress={() => onTabHeaderPress()}>
     <View style={[styles.tabText, { borderBottomWidth, opacity: buttonOpacity }]}>
       <Label size={18} text={headerLabel} />
     </View>
-  </TouchableOpacity>
+  </Pressable>
 );
 
 const styles = StyleSheet.create({
