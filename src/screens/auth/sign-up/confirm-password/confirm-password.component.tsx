@@ -1,12 +1,10 @@
 import React from 'react';
-import { NavigationScreenProp, NavigationState } from 'react-navigation';
 
 import { Button, InputText, Label, Screen } from 'components/ui';
 import { SIGN_UP_FORM } from 'constants/forms.constant';
 import { icons } from 'constants/icons.constant';
-import { strings } from 'constants/strings.constant';
 import { KeyBoardTypes, ValidationTypes } from 'enums';
-
+import strings from './confirm-password.strings';
 import styles from './confirm-password.styles';
 
 const ConfirmPassword = ({
@@ -55,10 +53,7 @@ const ConfirmPassword = ({
   );
 
   return (
-    <Screen
-      footer={renderFooter}
-      title={strings.CONFIRM_PASSWORD_TITLE}
-      contentStyles={styles.screenContent}>
+    <Screen footer={renderFooter} title={strings.TITLE} contentStyles={styles.screenContent}>
       <InputText
         name='confirmPassword'
         frontIcon={icons.PASSWORD}
@@ -79,8 +74,6 @@ const ConfirmPassword = ({
   );
 };
 
-type Navigation = NavigationScreenProp<NavigationState>;
-
 interface IProps {
   firstName: string;
   lastName: string;
@@ -89,7 +82,7 @@ interface IProps {
   password: string;
   confirmPassword: string;
   signUpError?: string;
-  navigation: Navigation;
+  navigation: any;
   resetForm: Function;
   signUpStart: Function;
 }

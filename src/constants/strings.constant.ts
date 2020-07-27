@@ -26,6 +26,7 @@ export const strings = {
   /** PASSWORD COMPONENT */
   PASSWORD_TITLE: 'Enter a secure password',
   PASSWORD: 'Password',
+  NEXT: 'NEXT',
 
   /** CONFIRM PASSWORD COMPONENT */
   CONFIRM_PASSWORD_TITLE: 'Confirm your password',

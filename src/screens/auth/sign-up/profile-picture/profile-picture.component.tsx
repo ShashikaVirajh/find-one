@@ -1,16 +1,14 @@
 import React, { useEffect } from 'react';
 import { Platform } from 'react-native';
-import { NavigationScreenProp, NavigationState } from 'react-navigation';
 
 import { Button, ImagePicker, Screen } from 'components/ui';
 import { SIGN_UP_FORM } from 'constants/forms.constant';
 import { routes } from 'constants/routes.constant';
-import { strings } from 'constants/strings.constant';
 import {
   requestCameraPermission,
   requestLocationPermission,
 } from 'utils/android-permissions.utils';
-
+import strings from './profile-picture.strings';
 import styles from './profile-picture.styles';
 
 const ProfilePicture = ({ uri, navigation }: IProps) => {
@@ -48,10 +46,7 @@ const ProfilePicture = ({ uri, navigation }: IProps) => {
   const renderFooter = () => <Button text={strings.NEXT} onPress={handleNext} />;
 
   return (
-    <Screen
-      footer={renderFooter}
-      title={strings.PROFILE_PICTURE_TITLE}
-      contentStyles={styles.screenContent}>
+    <Screen footer={renderFooter} title={strings.TITLE} contentStyles={styles.screenContent}>
       <ImagePicker
         containerStyles={{ marginBottom: 30 }}
         name='photo'
@@ -62,11 +57,9 @@ const ProfilePicture = ({ uri, navigation }: IProps) => {
   );
 };
 
-type Navigation = NavigationScreenProp<NavigationState>;
-
 interface IProps {
   uri: any;
-  navigation: Navigation;
+  navigation: any;
 }
 
 export default ProfilePicture;

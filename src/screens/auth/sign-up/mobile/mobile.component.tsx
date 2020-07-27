@@ -5,10 +5,9 @@ import { Button, InputText, Screen } from 'components/ui';
 import { SIGN_UP_FORM } from 'constants/forms.constant';
 import { icons } from 'constants/icons.constant';
 import { routes } from 'constants/routes.constant';
-import { strings } from 'constants/strings.constant';
 import { KeyBoardTypes } from 'enums';
 import { ValidationTypes } from 'enums';
-
+import strings from './mobile.strings';
 import styles from './mobile.styles';
 
 const Mobile = ({ mobile, errors, navigation }: IProps) => {
@@ -25,7 +24,7 @@ const Mobile = ({ mobile, errors, navigation }: IProps) => {
   );
 
   return (
-    <Screen footer={renderFooter} title={strings.MOBILE_TITLE} contentStyles={styles.screenContent}>
+    <Screen footer={renderFooter} title={strings.TITLE} contentStyles={styles.screenContent}>
       <InputText
         name='mobile'
         frontIcon={icons.MOBILE}

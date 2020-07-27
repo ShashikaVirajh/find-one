@@ -1,14 +1,12 @@
 import React from 'react';
-import { NavigationScreenProp, NavigationState } from 'react-navigation';
 
 import { Button, InputText, Label, Screen } from 'components/ui';
 import { SIGN_UP_FORM } from 'constants/forms.constant';
 import { icons } from 'constants/icons.constant';
 import { routes } from 'constants/routes.constant';
-import { strings } from 'constants/strings.constant';
 import { KeyBoardTypes, PasswordErrorTypes } from 'enums';
 import { validatePassword } from 'validations';
-
+import strings from './password.strings';
 import styles from './password.styles';
 
 const Password = ({ values, navigation }: IProps) => {
@@ -71,10 +69,7 @@ const Password = ({ values, navigation }: IProps) => {
   );
 
   return (
-    <Screen
-      footer={renderFooter}
-      title={strings.PASSWORD_TITLE}
-      contentStyles={styles.screenContent}>
+    <Screen footer={renderFooter} title={strings.TITLE} contentStyles={styles.screenContent}>
       <InputText
         name='password'
         frontIcon={icons.PASSWORD}
@@ -93,11 +88,9 @@ const Password = ({ values, navigation }: IProps) => {
   );
 };
 
-type Navigation = NavigationScreenProp<NavigationState>;
-
 interface IProps {
   values: any;
-  navigation: Navigation;
+  navigation: any;
 }
 
 export default Password;

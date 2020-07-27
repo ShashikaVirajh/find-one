@@ -5,9 +5,8 @@ import { BorderlessButton, Button, InputText, Label, Screen } from 'components/u
 import { SIGN_UP_FORM } from 'constants/forms.constant';
 import { icons } from 'constants/icons.constant';
 import { routes } from 'constants/routes.constant';
-import { strings } from 'constants/strings.constant';
 import { ValidationTypes } from 'enums';
-
+import strings from './name.strings';
 import styles from './name.styles';
 
 const Name = ({ firstName, lastName, errors, navigation }: IProps) => {
@@ -29,7 +28,7 @@ const Name = ({ firstName, lastName, errors, navigation }: IProps) => {
   );
 
   return (
-    <Screen footer={renderFooter} title={strings.NAME_TITLE} contentStyles={styles.screenContent}>
+    <Screen footer={renderFooter} title={strings.TITLE} contentStyles={styles.screenContent}>
       <InputText
         name='firstName'
         frontIcon={icons.NAME}
