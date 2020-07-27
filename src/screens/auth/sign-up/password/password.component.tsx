@@ -29,27 +29,27 @@ const Password = ({ values, navigation }: IProps) => {
         <Label
           size={14}
           style={!errors.includes(LENGTH) ? styles.hintText : styles.errorText}
-          text='Use 8 - 20 characters'
+          text={strings.LENGTH_VALIDATION}
         />
         <Label
           size={14}
           style={!errors.includes(UPPERCASE) ? styles.hintText : styles.errorText}
-          text='Use at least 1 upper case letter'
+          text={strings.UPPERCASE_VALIDATION}
         />
         <Label
           size={14}
           style={!errors.includes(LOWERCASE) ? styles.hintText : styles.errorText}
-          text='Use at least 1 lower case letter'
+          text={strings.LOWERCASE_VALIDATION}
         />
         <Label
           size={14}
           style={!errors.includes(SYMBOL) ? styles.hintText : styles.errorText}
-          text='Use at least 1 special character (!@#$%^&*)'
+          text={strings.SPECIAL_CHARACTER_VALIDATION}
         />
         <Label
           size={14}
           style={!errors.includes(NUMBER) ? styles.hintText : styles.errorText}
-          text='Use at least 1 number'
+          text={strings.NUMBER_VALIDATION}
         />
       </>
     );
