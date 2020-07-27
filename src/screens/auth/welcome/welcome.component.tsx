@@ -50,7 +50,7 @@ const Welcome = ({ initForm, navigation }: IProps) => {
         />
 
         <LottieView
-          source={require('assets/animations/find.json')}
+          source={require('assets/animations/locator.json')}
           autoPlay
           loop
           resizeMode='cover'
