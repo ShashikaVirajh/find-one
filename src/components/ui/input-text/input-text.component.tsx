@@ -193,7 +193,7 @@ const InputText = ({
           autoFocus={autoFocus}
           autoCapitalize={autoCapitalize}
           value={value || fieldValue}
-          placeholderTextColor={colors.GRAY}
+          placeholderTextColor={colors.SILVER}
           keyboardType={keyboardType === KeyBoardTypes.unset ? undefined : keyboardType}
           style={setStyles()}
           secureTextEntry={secureTextEntry ? securedText : false}

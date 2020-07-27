@@ -13,7 +13,7 @@ const BorderlessButton = ({
   textStyle,
   underline,
 }: IProps) => (
-  <Pressable style={[styles.button, buttonStyle]} disabled={disabled} onPress={() => onPress()}>
+  <Pressable style={buttonStyle} disabled={disabled} onPress={() => onPress()}>
     <Label
       size={size}
       style={[disabled ? styles.disabledText : styles.text, textStyle]}

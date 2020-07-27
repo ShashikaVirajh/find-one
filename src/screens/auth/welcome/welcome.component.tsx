@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
-import { NavigationScreenProp, NavigationState } from 'react-navigation';
+import { View } from 'react-native';
+
+import LottieView from 'lottie-react-native';
 
 import { Button, CustomImage, Screen } from 'components/ui';
 import { SIGN_IN_FORM, SIGN_UP_FORM } from 'constants/forms.constant';
 import { HomeLogo } from 'constants/images.constants';
 import { routes } from 'constants/routes.constant';
-import { strings } from 'constants/strings.constant';
-
+import strings from './welcome.strings';
 import styles from './welcome.styles';
 
 const Welcome = ({ initForm, navigation }: IProps) => {
@@ -38,23 +39,31 @@ const Welcome = ({ initForm, navigation }: IProps) => {
     <Screen
       footer={renderFooter}
       hideBackButton
-      title={strings.AUTH_MAIN_TITLE}
-      description={strings.AUTH_MAIN_DESCRIPTION}
+      title={strings.TITLE}
+      description={strings.DESCRIPTION}
       contentStyles={styles.screenContent}>
-      <CustomImage
-        containerStyle={styles.imageContainer}
-        imageStyle={styles.image}
-        source={HomeLogo}
-      />
+      <View style={styles.body}>
+        <CustomImage
+          containerStyle={styles.imageContainer}
+          imageStyle={styles.image}
+          source={HomeLogo}
+        />
+
+        <LottieView
+          source={require('assets/animations/find.json')}
+          autoPlay
+          loop
+          resizeMode='cover'
+          style={styles.anime}
+        />
+      </View>
     </Screen>
   );
 };
 
-type Navigation = NavigationScreenProp<NavigationState>;
-
 interface IProps {
   initForm: Function;
-  navigation: Navigation;
+  navigation: any;
 }
 
 export default Welcome;

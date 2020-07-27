@@ -1,6 +1,6 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 
-import { signInError, signInSuccess, signUpError, signUpSuccess } from 'Redux/auth/auth.actions';
+import { signInSuccess, signUpSuccess } from 'Redux/auth/auth.actions';
 
 import { SIGN_IN_FORM, SIGN_UP_FORM } from 'constants/forms.constant';
 import { authTypes } from 'Redux/auth/auth.constants';
@@ -8,7 +8,7 @@ import { resetForm } from 'Redux/forms/forms.actions';
 import { IAuth, ISaga } from 'types/data.types';
 import AuthService from './auth.service';
 
-function* signInStart({ payload }: ISaga) {
+function* signInStart({ payload, success, failure }: ISaga) {
   try {
     const signInResponse = yield call(AuthService.signIn, payload);
     const mappedSignInResponse: IAuth = signInResponse.token;
@@ -21,7 +21,7 @@ function* signInStart({ payload }: ISaga) {
     yield put(resetForm(SIGN_IN_FORM));
     yield put(resetForm(SIGN_UP_FORM));
   } catch (ex) {
-    yield put(signInError(ex.error));
+    if (failure) failure(ex.error);
   }
 }
 
@@ -37,9 +37,7 @@ function* signUpStart({ payload }: ISaga) {
 
     yield put(resetForm(SIGN_IN_FORM));
     yield put(resetForm(SIGN_UP_FORM));
-  } catch (ex) {
-    yield put(signUpError(ex.error));
-  }
+  } catch (ex) {}
 }
 
 export default function* authSaga() {

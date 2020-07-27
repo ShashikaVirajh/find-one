@@ -2,7 +2,7 @@ export const colors = {
   BACKGROUND: '#2C2C2C',
   FOREGROUND: '#DFDFDF',
   BLACK: '#000000',
-  SILVER: '#AEB3BE',
+  SILVER: '#C0C0C0',
   WHITE: '#FFFFFF',
   LIGHT_GRAY: '#DDDDDD',
   GRAY: '#CCCCCC',

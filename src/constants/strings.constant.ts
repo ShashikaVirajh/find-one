@@ -5,11 +5,6 @@ export const strings = {
   I_HAVE_AN_ACCOUNT: 'I have an account',
   CREATE_NEW_ACCOUNT: 'Create new account',
 
-  /** SIGN IN COMPONENT */
-  SIGN_IN_TITLE: 'Log in to Find One',
-  LOG_IN: 'Log In',
-  SIGN_UP_HERE: 'Do not have an account? Sign up here',
-
   /** EMAIL COMPONENT */
   EMAIL_TITLE: 'What is your email address?',
   EMAIL: 'Email',
@@ -18,7 +13,8 @@ export const strings = {
   NAME_TITLE: 'Enter your name',
   FIRST_NAME: 'First Name',
   LAST_NAME: 'Last Name',
-  SIGN_IN_HERE: 'Already have an account? Sign in here',
+  ALREADY_HAVE_AN_ACCOUNT: 'Already have an account?',
+  SIGN_IN_HERE: 'Sign in here',
 
   /** MOBILE COMPONENT */
   MOBILE_TITLE: 'What is your mobile number?',

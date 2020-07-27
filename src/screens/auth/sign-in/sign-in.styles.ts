@@ -1,5 +1,7 @@
 import { StyleSheet } from 'react-native';
 
+import { colors } from 'constants/colors.constant';
+
 export default StyleSheet.create({
   screenContent: {
     paddingHorizontal: 24,
@@ -11,10 +13,15 @@ export default StyleSheet.create({
   inputError: {
     left: 0,
   },
-  buttonStyle: {
+  message: {
+    flexDirection: 'row',
     marginTop: 20,
+  },
+  link: {
+    marginLeft: 5,
   },
   error: {
     marginBottom: 20,
+    color: colors.RED,
   },
 });

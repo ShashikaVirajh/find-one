@@ -8,6 +8,13 @@ export default StyleSheet.create({
   inputContainer: {
     paddingLeft: 0,
   },
+  message: {
+    flexDirection: 'row',
+    marginTop: 20,
+  },
+  link: {
+    marginLeft: 5,
+  },
   inputError: {
     left: 0,
   },

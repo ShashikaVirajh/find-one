@@ -19,6 +19,8 @@ export interface IEvent {
 export interface ISaga {
   type: string;
   payload?: any;
+  success?: Function;
+  failure?: Function;
 }
 
 export interface IAuth {

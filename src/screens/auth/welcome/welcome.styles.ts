@@ -4,11 +4,14 @@ export default StyleSheet.create({
   screenContent: {
     paddingHorizontal: 24,
   },
+  body: {
+    marginTop: 20,
+  },
   buttonStyle: {
     marginTop: 20,
   },
   imageContainer: {
-    marginVertical: 20,
+    marginTop: 20,
     paddingHorizontal: -24,
     width: '100%',
   },
@@ -17,6 +20,9 @@ export default StyleSheet.create({
   },
   image: {
     flex: 1,
+  },
+  anime: {
+    position: 'relative',
   },
   signUpButton: {
     marginTop: 20,

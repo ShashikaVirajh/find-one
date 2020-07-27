@@ -15,9 +15,11 @@ export const signUpError = (payload: Object) => ({
   payload,
 });
 
-export const signInStart = (payload: Object) => ({
+export const signInStart = (payload: Object, success: Function, failure: Function) => ({
   type: authTypes.SIGN_IN_START,
   payload,
+  success,
+  failure,
 });
 
 export const signInSuccess = (payload: Object) => ({
