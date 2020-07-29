@@ -37,6 +37,7 @@ export default StyleSheet.create({
     fontFamily: 'SharpSans-Book',
   },
   errorLabelContainer: {
+    marginTop: 2,
     height: 30,
   },
   errorText: {

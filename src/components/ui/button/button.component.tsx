@@ -94,7 +94,6 @@ export interface IProps {
 Button.defaultProps = {
   backIconColor: colors.SILVER,
   backIconSize: 24,
-  disabled: false,
   frontIconColor: colors.SILVER,
   frontIconSize: 24,
   roundButton: true,

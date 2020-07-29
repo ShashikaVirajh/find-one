@@ -14,6 +14,7 @@ export const colors = {
   PINK: '#FC5C65',
   RED: '#FF0008',
   SILVER: '#C0C0C0',
+  LIGHT_SILVER: '#888888',
   WHITE: '#FFFFFF',
   YELLOW: '#FFFF00',
 };

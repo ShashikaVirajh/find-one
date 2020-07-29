@@ -5,42 +5,34 @@ import { BorderlessButton, Icon, Label } from 'components/ui';
 import { colors } from 'constants/colors.constant';
 import { icons } from 'constants/icons.constant';
 import { strings } from 'constants/strings.constant';
-import { AutoCapitalizeTypes, KeyBoardTypes, ReturnKeyTypes } from 'enums';
 import { validate } from 'validations';
 
 import styles from './input-text.styles';
 
 const InputText = ({
-  initForm,
-  form,
-  name,
-  value,
-  fieldValue,
   addFormData,
+  containerStyle,
+  errorStyles,
   fieldErrors,
-  handleChange,
-  prefixStyle,
-  prefix,
-  secureTextEntry,
+  fieldValue,
+  form,
   frontIcon,
   frontIconColor,
   frontIconSize,
-  label,
-  editable,
-  placeholder,
-  maxLength,
-  autoCorrect,
-  autoFocus,
-  validations,
-  autoCapitalize,
-  returnKeyType,
-  keyboardType,
-  errorStyles,
-  inputStyles,
-  containerStyle,
+  handleChange,
   inputContainerStyle,
+  initForm,
+  inputStyles,
+  label,
+  name,
   onFocus,
   onBlur,
+  prefixStyle,
+  prefix,
+  secureTextEntry,
+  validations,
+  value,
+  ...otherProps
 }: IProps) => {
   const [focused, setFocus] = useState(false);
   const [securedText, setSecuredText] = useState(true);
@@ -103,8 +95,8 @@ const InputText = ({
       return (
         <View style={styles.errorLabelContainer}>
           <Label
-            color={colors.RED}
-            size={12}
+            color={colors.LIGHT_RED}
+            size={16}
             text={fieldErrors[0]}
             style={[styles.errorText, errorStyles]}
           />
@@ -186,22 +178,14 @@ const InputText = ({
         {renderPrefix()}
 
         <TextInput
-          editable={editable}
-          returnKeyType={returnKeyType}
-          maxLength={maxLength}
-          autoCorrect={autoCorrect}
-          autoFocus={autoFocus}
-          autoCapitalize={autoCapitalize}
           value={value || fieldValue}
-          placeholderTextColor={colors.SILVER}
-          keyboardType={keyboardType === KeyBoardTypes.unset ? undefined : keyboardType}
           style={setStyles()}
           secureTextEntry={secureTextEntry ? securedText : false}
-          placeholder={placeholder}
           onChangeText={handleTextChange}
           onFocus={handleFocus}
           onBlur={handleBlur}
           onLayout={onLayout}
+          {...otherProps}
         />
 
         {renderShowHideButton()}
@@ -214,68 +198,34 @@ const InputText = ({
 };
 
 interface IProps {
-  label?: string;
-  editable?: boolean;
-  maxLength?: number;
-  autoCorrect?: boolean;
-  autoFocus?: boolean;
-  placeholder?: string;
-  value?: string;
-  initForm: Function;
-  form: Object;
-  name: string;
   addFormData: Function;
-  fieldValue?: string;
+  containerStyle?: object;
+  errorStyles?: object;
   fieldErrors: string[];
-  placeholderTextColor?: string;
-  prefix?: string;
+  fieldValue?: string;
+  form: Object;
   frontIcon?: any;
   frontIconColor?: string;
   frontIconSize?: number;
-  clearButton: boolean;
-  autoCapitalize?: AutoCapitalizeTypes;
-  returnKeyType?: ReturnKeyTypes;
-  keyboardType?: KeyBoardTypes;
-  secureTextEntry?: boolean;
-  inputStyles?: object;
-  containerStyle?: object;
-  inputContainerStyle?: object;
-  errorStyles?: object;
-  validations?: string[];
   handleChange: Function;
+  inputContainerStyle?: object;
+  initForm: Function;
+  inputStyles?: object;
+  label?: string;
+  name: string;
   onFocus?: Function;
   onBlur?: Function;
   prefixStyle: object;
+  prefix?: string;
+  secureTextEntry?: boolean;
+  validations?: string[];
+  value?: string;
 }
 
 InputText.defaultProps = {
-  editable: true,
-  maxLength: 30,
-  autoCorrect: false,
-  placeholder: '',
-  value: '',
-  form: {},
-  name: '',
-  fieldValue: '',
-  fieldErrors: [],
-  autoCapitalize: AutoCapitalizeTypes.none,
-  returnKeyType: ReturnKeyTypes.done,
-  keyboardType: KeyBoardTypes.default,
-  secureTextEntry: false,
-  placeholderTextColor: colors.DARK_GRAY,
-  label: '',
   frontIconColor: colors.GRAY,
   frontIconSize: 24,
-  inputStyles: {},
-  containerStyle: {},
-  inputContainerStyle: {},
-  clearButton: true,
-  errorStyles: {},
-  validations: [],
-  initForm: () => {},
-  addFormData: () => {},
-  handleChange: () => {},
-  prefixStyle: {},
+  placeholderTextColor: colors.LIGHT_SILVER,
 };
 
 export default InputText;
