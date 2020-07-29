@@ -22,6 +22,6 @@ export default StyleSheet.create({
   },
   error: {
     marginBottom: 20,
-    color: colors.RED,
+    color: colors.LIGHT_RED,
   },
 });

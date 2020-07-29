@@ -8,7 +8,7 @@ export default StyleSheet.create({
   },
   errorText: {
     marginTop: -20,
-    color: colors.RED,
+    color: colors.LIGHT_RED,
   },
   inputContainer: {
     paddingLeft: 0,

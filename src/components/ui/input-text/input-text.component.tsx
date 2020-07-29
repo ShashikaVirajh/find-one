@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { Text, TextInput, View } from 'react-native';
+import { StyleProp, Text, TextInput, View, ViewStyle } from 'react-native';
 
 import { BorderlessButton, Icon, Label } from 'components/ui';
 import { colors } from 'constants/colors.constant';
 import { icons } from 'constants/icons.constant';
-import { strings } from 'constants/strings.constant';
 import { validate } from 'validations';
 
 import styles from './input-text.styles';
@@ -79,7 +78,7 @@ const InputText = ({
   };
 
   const renderLabel = () => {
-    let labelStyles: Object = styles.hideLabel;
+    let labelStyles: StyleProp<ViewStyle> = styles.hideLabel;
     if (fieldValue) labelStyles = styles.activeLabel;
 
     if (label) return <Text style={[styles.label, labelStyles]}>{label}</Text>;
@@ -115,7 +114,7 @@ const InputText = ({
     if (secureTextEntry) {
       return (
         <BorderlessButton
-          text={securedText ? strings.SHOW : strings.HIDE}
+          text={securedText ? 'Show' : 'Hide'}
           onPress={toggleSecuredText}
           textStyle={styles.showHideButton}
         />
@@ -199,7 +198,7 @@ const InputText = ({
 
 interface IProps {
   addFormData: Function;
-  containerStyle?: object;
+  containerStyle?: StyleProp<ViewStyle>;
   errorStyles?: object;
   fieldErrors: string[];
   fieldValue?: string;
@@ -208,7 +207,7 @@ interface IProps {
   frontIconColor?: string;
   frontIconSize?: number;
   handleChange: Function;
-  inputContainerStyle?: object;
+  inputContainerStyle?: StyleProp<ViewStyle>;
   initForm: Function;
   inputStyles?: object;
   label?: string;
@@ -226,6 +225,7 @@ InputText.defaultProps = {
   frontIconColor: colors.GRAY,
   frontIconSize: 24,
   placeholderTextColor: colors.LIGHT_SILVER,
+  validations: [],
 };
 
 export default InputText;

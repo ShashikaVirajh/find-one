@@ -7,7 +7,7 @@ export default StyleSheet.create({
     marginTop: 20,
   },
   errorText: {
-    color: colors.RED,
+    color: colors.LIGHT_RED,
   },
   hintText: {
     color: colors.FOREGROUND,
