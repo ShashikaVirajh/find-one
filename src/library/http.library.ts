@@ -52,20 +52,20 @@ class Http {
     return this;
   }
 
-  _generateURL = () => {
+  generateURL = () => {
     let url = `${BASE_URL}/api/${this.version}/${this.action}`;
-    if (this.method === httpMethods.get) url += this._serializeParams(this.data);
+    if (this.method === httpMethods.get) url += this.serializeParams(this.data);
     return url;
   };
 
-  _setHeaders = () => {
+  setHeaders = () => {
     const headers: IHeaders = {
       'Content-Type': 'application/json',
     };
     return headers;
   };
 
-  _serializeParams = (params: any) => {
+  serializeParams = (params: any) => {
     if (typeof params === undefined || Object.keys(params).length <= 0) return '';
 
     let queryString = '';
@@ -80,8 +80,8 @@ class Http {
     try {
       store.dispatch(toggleSpinner(true));
 
-      const url = this._generateURL();
-      const headers = this._setHeaders();
+      const url = this.generateURL();
+      const headers = this.setHeaders();
 
       if (typeof this.token !== undefined) {
         headers.Authorization = this.token;

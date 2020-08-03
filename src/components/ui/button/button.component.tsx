@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Pressable, View } from 'react-native';
 
 import { Icon, Label } from 'components/ui';
@@ -77,7 +77,7 @@ const Button = ({
 };
 
 export interface IProps {
-  backIcon?: any;
+  backIcon?: FC;
   backIconColor?: string;
   backIconSize?: number;
   buttonStyle?: object;
