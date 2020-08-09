@@ -2,14 +2,21 @@ import React, { useState } from 'react';
 import { View } from 'react-native';
 
 import { BorderlessButton, Button, InputText, Label, Screen } from 'components/ui';
-import { SIGN_IN_FORM } from 'constants/forms.constant';
+import { SIGN_IN_FORM, SIGN_UP_FORM } from 'constants/forms.constant';
 import { icons } from 'constants/icons.constant';
 import { routes } from 'constants/routes.constant';
 import { KeyBoardTypes } from 'enums';
 import strings from './sign-in.strings';
 import styles from './sign-in.styles';
 
-const SignIn = ({ email, password, navigation, signInStart }: IProps) => {
+const SignIn = ({
+  email,
+  fetchAuthUserStart,
+  navigation,
+  password,
+  resetForm,
+  signInStart,
+}: IProps) => {
   const [signInError, setSignInError] = useState('');
 
   const disableButton = () => email.trim() === '' || password.trim() === '';
@@ -22,7 +29,14 @@ const SignIn = ({ email, password, navigation, signInStart }: IProps) => {
     const data = { email, password };
     signInStart(
       data,
-      () => {},
+      () =>
+        fetchAuthUserStart(
+          () => {
+            resetForm(SIGN_IN_FORM);
+            resetForm(SIGN_UP_FORM);
+          },
+          (error: string) => setSignInError(error),
+        ),
       (error: string) => setSignInError(error),
     );
   };
@@ -87,8 +101,10 @@ const SignIn = ({ email, password, navigation, signInStart }: IProps) => {
 
 interface IProps {
   email: string;
-  password: string;
+  fetchAuthUserStart: Function;
   navigation?: any;
+  password: string;
+  resetForm: Function;
   signInStart: Function;
 }
 

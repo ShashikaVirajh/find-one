@@ -4,7 +4,6 @@ import { signInForm, signUpForm } from 'types/form.types';
 export interface IAuthReducer {
   token?: string;
   user?: any;
-  error?: string;
 }
 
 export interface IFormsReducer {
