@@ -8,7 +8,7 @@ import styles from './offline-notice.styles';
 const OfflineNotice = ({ style, text }: IProps) => {
   const netInfo = useNetInfo();
 
-  if (!netInfo.isConnected) {
+  if (netInfo.type !== 'unknown' && netInfo.isInternetReachable === false) {
     return <Label size={18} style={[styles.label, style]} text={text} />;
   }
 

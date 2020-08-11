@@ -27,6 +27,7 @@ const SignIn = ({
 
   const handleLogin = () => {
     const data = { email, password };
+
     signInStart(
       data,
       () =>

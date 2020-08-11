@@ -23,4 +23,8 @@ export default StyleSheet.create({
     paddingHorizontal: 24,
     marginTop: 50,
   },
+  error: {
+    marginBottom: 20,
+    color: colors.LIGHT_RED,
+  },
 });

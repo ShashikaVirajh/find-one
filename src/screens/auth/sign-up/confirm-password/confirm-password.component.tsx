@@ -1,22 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Button, InputText, Label, Screen } from 'components/ui';
-import { SIGN_UP_FORM } from 'constants/forms.constant';
+import { SIGN_IN_FORM, SIGN_UP_FORM } from 'constants/forms.constant';
 import { icons } from 'constants/icons.constant';
 import { KeyBoardTypes, ValidationTypes } from 'enums';
 import strings from './confirm-password.strings';
 import styles from './confirm-password.styles';
 
 const ConfirmPassword = ({
+  fetchAuthUserStart,
   firstName,
   lastName,
   email,
   mobile,
   password,
   confirmPassword,
-  signUpError,
+  resetForm,
   signUpStart,
 }: IProps) => {
+  const [signInError, setSignInError] = useState('');
+
   const disableButton = () => password !== confirmPassword;
 
   const renderPasswordError = () => {
@@ -37,12 +40,23 @@ const ConfirmPassword = ({
       confirmPassword,
     };
 
-    signUpStart(data);
+    signUpStart(
+      data,
+      () =>
+        fetchAuthUserStart(
+          () => {
+            resetForm(SIGN_IN_FORM);
+            resetForm(SIGN_UP_FORM);
+          },
+          (error: string) => setSignInError(error),
+        ),
+      (error: string) => setSignInError(error),
+    );
   };
 
   const renderSignUpError = () => {
-    if (signUpError) {
-      return <Label size={12} style={styles.errorText} text={signUpError} />;
+    if (signInError) {
+      return <Label size={20} style={styles.error} text={signInError} />;
     }
 
     return null;
@@ -51,6 +65,10 @@ const ConfirmPassword = ({
   const renderFooter = () => (
     <Button text={strings.CREATE_ACCOUNT} disabled={disableButton()} onPress={handleSignUp} />
   );
+
+  const handleTextChange = () => {
+    if (signInError) setSignInError('');
+  };
 
   return (
     <Screen footer={renderFooter} title={strings.TITLE} contentStyles={styles.screenContent}>
@@ -65,6 +83,7 @@ const ConfirmPassword = ({
         inputContainerStyle={styles.inputContainer}
         errorStyles={styles.inputError}
         keyboardType={KeyBoardTypes.default}
+        handleChange={handleTextChange}
         validations={[ValidationTypes.required]}
       />
 
@@ -75,15 +94,16 @@ const ConfirmPassword = ({
 };
 
 interface IProps {
+  confirmPassword: string;
+  email: string;
+  fetchAuthUserStart: Function;
   firstName: string;
   lastName: string;
-  email: string;
   mobile: string;
-  password: string;
-  confirmPassword: string;
-  signUpError?: string;
   navigation: any;
+  password: string;
   resetForm: Function;
+  signUpError?: string;
   signUpStart: Function;
 }
 
