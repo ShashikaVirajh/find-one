@@ -3,6 +3,7 @@ import axios from 'axios';
 import { BASE_URL } from 'config';
 import { httpMethods, versions } from 'enums';
 import { Logger } from 'library';
+import { ErrorTracker } from 'library';
 import { toggleSpinner } from 'Redux/common/common.actions';
 import { store } from 'Redux/store';
 import { IHeaders } from 'types/data.types';
@@ -101,8 +102,16 @@ class Http {
       store.dispatch(toggleSpinner(false));
 
       return response.data;
-    } catch ({ response }) {
+    } catch (error) {
+      const { response } = error;
       Logger.log('ERROR:', response);
+
+      ErrorTracker.log(
+        ErrorTracker.setErrorName(error),
+        response?.config?.url,
+        ErrorTracker.mapErrorResponse(response),
+      );
+
       this.unsetData();
       store.dispatch(toggleSpinner(false));
 

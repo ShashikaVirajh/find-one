@@ -34,3 +34,10 @@ export interface IDrawerItem {
   screen: string;
   options: {};
 }
+
+export interface IErrorResponse {
+  headers: any;
+  requestData: any;
+  responseData: any;
+  status: number | undefined;
+}
