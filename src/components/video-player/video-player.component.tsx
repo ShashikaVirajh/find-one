@@ -22,10 +22,11 @@ const VideoPlayer = ({ source, ...otherProps }: IProps) => {
   return (
     <Video
       source={{ uri: source }}
-      controls
+      controls={otherProps.controls}
+      repeat={otherProps.repeat}
       onLoadStart={onLoadStart}
       onReadyForDisplay={onLoadEnd}
-      resizeMode='stretch'
+      resizeMode={otherProps.videoResizeMode}
       onError={(error: LoadError) => handleError(error)}
       style={styles.videoPlayer}
     />
@@ -33,7 +34,16 @@ const VideoPlayer = ({ source, ...otherProps }: IProps) => {
 };
 
 interface IProps {
+  controls: boolean;
   source: string;
+  repeat: false;
+  videoResizeMode: 'stretch' | 'contain' | 'cover' | 'none' | undefined;
 }
+
+VideoPlayer.defaultProps = {
+  videoResizeMode: 'stretch',
+  repeat: true,
+  controls: true,
+};
 
 export default VideoPlayer;
