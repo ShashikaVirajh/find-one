@@ -1,43 +1,49 @@
-export interface IHeaders {
+export type IHeaders = {
   'Content-Type': string;
   Authorization?: string;
-}
+};
 
-export interface IAction {
+export type IAction = {
   type?: string;
   payload?: any;
-}
+};
 
-export interface IEvent {
+export type IEvent = {
   target: {
     name: string;
     value: string | number;
   };
   preventDefault?: Function;
-}
+};
 
-export interface ISaga {
+export type ISaga = {
   type: string;
   payload?: any;
   success?: Function;
   failure?: Function;
-}
+};
 
-export interface IAuth {
+export type IAuth = {
   token: string;
-}
+};
 
-export interface IDrawerItem {
+export type IDrawerItem = {
   key: string;
   icon: JSX.Element;
   text: string;
   screen: string;
   options: {};
-}
+};
 
-export interface IErrorResponse {
+export type IErrorResponse = {
   headers: any;
   requestData: any;
   responseData: any;
   status: number | undefined;
-}
+};
+
+export type AccordianItem = {
+  id: string;
+  question: string;
+  answer: string;
+};

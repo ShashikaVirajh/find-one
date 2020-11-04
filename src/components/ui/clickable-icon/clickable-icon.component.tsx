@@ -11,7 +11,7 @@ const Icon = ({ style, icon, color, size, disabled, onPress }: IProps) => (
   </Pressable>
 );
 
-export interface IProps {
+interface IProps {
   icon?: any;
   color?: string;
   size?: number;

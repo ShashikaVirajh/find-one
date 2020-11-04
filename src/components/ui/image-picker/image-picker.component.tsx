@@ -6,8 +6,8 @@ import { CustomImage, Icon } from 'components/ui';
 import { colors } from 'constants/colors.constant';
 import { icons } from 'constants/icons.constant';
 import { ResizeModes } from 'enums';
+import { requestCameraPermission } from 'library/android-permissions.library';
 import { IImagePickerResponse } from 'types/response.types';
-import { requestCameraPermission } from 'utils/android-permissions.utils';
 
 import styles from './image-picker.styles';
 

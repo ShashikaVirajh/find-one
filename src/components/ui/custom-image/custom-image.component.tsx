@@ -26,7 +26,7 @@ const Icon = ({
   </Pressable>
 );
 
-export interface IProps {
+interface IProps {
   icon?: any;
   color?: string;
   height?: number | string;

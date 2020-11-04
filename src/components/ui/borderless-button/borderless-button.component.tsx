@@ -23,7 +23,7 @@ const BorderlessButton = ({
   </Pressable>
 );
 
-export interface IProps {
+interface IProps {
   buttonStyle?: object;
   disabled?: boolean;
   onPress: Function;

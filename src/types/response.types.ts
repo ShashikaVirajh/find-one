@@ -1,4 +1,4 @@
-export interface IImagePickerResponse {
+export type IImagePickerResponse = {
   type: string;
   data: string;
-}
+};

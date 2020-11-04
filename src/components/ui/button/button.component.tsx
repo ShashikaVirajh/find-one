@@ -76,7 +76,7 @@ const Button = ({
   );
 };
 
-export interface IProps {
+interface IProps {
   backIcon?: FC;
   backIconColor?: string;
   backIconSize?: number;

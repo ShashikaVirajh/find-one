@@ -79,7 +79,7 @@ const ListItem = ({
   );
 };
 
-export interface IProps {
+interface IProps {
   containerStyles?: Object;
   hideBorder?: boolean;
   leftContent?: string | JSX.Element;

@@ -24,7 +24,7 @@ Label.defaultProps = {
   underline: false,
 };
 
-export interface IProps {
+interface IProps {
   color: string;
   size?: number;
   style?: object;

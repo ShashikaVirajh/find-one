@@ -1,3 +1,4 @@
+import Accordian from './accordian/accordian.component';
 import BorderlessButton from './borderless-button/borderless-button.component';
 import Button from './button/button.component';
 import Icon from './clickable-icon/clickable-icon.component';
@@ -13,6 +14,7 @@ import Spinner from './spinner/spinner.component';
 import TabView from './tabView';
 
 export {
+  Accordian,
   BorderlessButton,
   Button,
   Divider,
