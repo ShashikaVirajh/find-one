@@ -4,6 +4,7 @@ import { Button, InputText, Label, Screen } from 'components/ui';
 import { SIGN_IN_FORM, SIGN_UP_FORM } from 'constants/forms.constant';
 import { icons } from 'constants/icons.constant';
 import { KeyBoardTypes, ValidationTypes } from 'enums';
+import { Utils } from 'library';
 import strings from './confirm-password.strings';
 import styles from './confirm-password.styles';
 
@@ -24,7 +25,13 @@ const ConfirmPassword = ({
 
   const renderPasswordError = () => {
     if (confirmPassword && password !== confirmPassword) {
-      return <Label size={14} style={styles.errorText} text={strings.PASSWORD_MISMATCH_ERRROR} />;
+      return (
+        <Label
+          size={Utils.getScaledNumber(24)}
+          style={styles.errorText}
+          text={strings.PASSWORD_MISMATCH_ERRROR}
+        />
+      );
     }
 
     return null;
@@ -56,7 +63,7 @@ const ConfirmPassword = ({
 
   const renderSignUpError = () => {
     if (signInError) {
-      return <Label size={20} style={styles.error} text={signInError} />;
+      return <Label size={Utils.getScaledNumber(20)} style={styles.error} text={signInError} />;
     }
 
     return null;

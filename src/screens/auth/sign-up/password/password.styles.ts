@@ -1,10 +1,11 @@
 import { StyleSheet } from 'react-native';
 
 import { colors } from 'constants/colors.constant';
+import { Utils } from 'library';
 
 export default StyleSheet.create({
   buttonStyle: {
-    marginTop: 20,
+    marginTop: Utils.getScaledNumber(20),
   },
   errorText: {
     color: colors.LIGHT_RED,
@@ -13,13 +14,13 @@ export default StyleSheet.create({
     color: colors.FOREGROUND,
   },
   inputContainer: {
-    paddingLeft: 0,
+    paddingLeft: Utils.getScaledNumber(0),
   },
   inputError: {
-    left: 0,
+    left: Utils.getScaledNumber(0),
   },
   screenContent: {
-    paddingHorizontal: 24,
-    marginTop: 50,
+    paddingHorizontal: Utils.getScaledNumber(24),
+    marginTop: Utils.getScaledNumber(50),
   },
 });

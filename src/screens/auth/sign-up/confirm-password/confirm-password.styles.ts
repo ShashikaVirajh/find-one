@@ -1,30 +1,31 @@
 import { StyleSheet } from 'react-native';
 
 import { colors } from 'constants/colors.constant';
+import { Utils } from 'library';
 
 export default StyleSheet.create({
   buttonStyle: {
-    marginTop: 20,
+    marginTop: Utils.getScaledNumber(20),
   },
   errorText: {
-    marginTop: -20,
+    marginTop: Utils.getScaledNumber(-20),
     color: colors.LIGHT_RED,
   },
   inputContainer: {
-    paddingLeft: 0,
+    paddingLeft: Utils.getScaledNumber(0),
   },
   inputError: {
-    left: 0,
+    left: Utils.getScaledNumber(0),
   },
   passwordConditions: {
-    marginTop: 30,
+    marginTop: Utils.getScaledNumber(30),
   },
   screenContent: {
     paddingHorizontal: 24,
-    marginTop: 50,
+    marginTop: Utils.getScaledNumber(50),
   },
   error: {
-    marginBottom: 20,
+    marginBottom: Utils.getScaledNumber(20),
     color: colors.LIGHT_RED,
   },
 });

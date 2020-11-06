@@ -1,17 +1,19 @@
 import { StyleSheet } from 'react-native';
 
+import { Utils } from 'library';
+
 export default StyleSheet.create({
   screenContent: {
-    paddingHorizontal: 24,
-    marginTop: 50,
+    paddingHorizontal: Utils.getScaledNumber(24),
+    marginTop: Utils.getScaledNumber(50),
   },
   inputContainer: {
-    paddingLeft: 0,
+    paddingLeft: Utils.getScaledNumber(0),
   },
   inputError: {
-    left: 0,
+    left: Utils.getScaledNumber(0),
   },
   buttonStyle: {
-    marginTop: 20,
+    marginTop: Utils.getScaledNumber(20),
   },
 });

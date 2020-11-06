@@ -6,6 +6,7 @@ import { SIGN_IN_FORM, SIGN_UP_FORM } from 'constants/forms.constant';
 import { icons } from 'constants/icons.constant';
 import { routes } from 'constants/routes.constant';
 import { KeyBoardTypes } from 'enums';
+import { Utils } from 'library';
 import strings from './sign-in.strings';
 import styles from './sign-in.styles';
 
@@ -44,7 +45,7 @@ const SignIn = ({
 
   const renderSignInError = () => {
     if (signInError) {
-      return <Label size={20} style={styles.error} text={signInError} />;
+      return <Label size={Utils.getScaledNumber(20)} style={styles.error} text={signInError} />;
     }
 
     return null;
@@ -88,7 +89,7 @@ const SignIn = ({
       />
 
       <View style={styles.message}>
-        <Label size={16} text={strings.DO_NOT_HAVE_ACCOUT} />
+        <Label size={Utils.getScaledNumber(16)} text={strings.DO_NOT_HAVE_ACCOUT} />
         <BorderlessButton
           buttonStyle={styles.link}
           text={strings.SIGN_UP_HERE}
