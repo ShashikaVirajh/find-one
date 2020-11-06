@@ -1,22 +1,23 @@
 import { SIGN_IN_FORM, SIGN_UP_FORM } from 'constants/forms.constant';
+import { User } from 'types/data.types';
 import { signInForm, signUpForm } from 'types/form.types';
 
-export type IAuthReducer = {
+export type AuthReducer = {
   token?: string;
-  user?: any;
+  user?: User;
 };
 
-export type IFormsReducer = {
+export type FormsReducer = {
   [SIGN_IN_FORM]: signInForm;
   [SIGN_UP_FORM]: signUpForm;
 };
 
-export type ICommonReducer = {
+export type CommonReducer = {
   isLoading: boolean;
 };
 
-export type IApplicationState = {
-  auth: IAuthReducer;
-  forms: IFormsReducer;
-  common: ICommonReducer;
+export type ApplicationState = {
+  auth: AuthReducer;
+  forms: FormsReducer;
+  common: CommonReducer;
 };

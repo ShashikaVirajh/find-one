@@ -7,11 +7,11 @@ import { CustomImage, Icon, Label, ListItem } from 'components/ui';
 import { colors } from 'constants/colors.constant';
 import { icons } from 'constants/icons.constant';
 import { HomeLogo } from 'constants/images.constants';
-import { IDrawerItem } from 'types/data.types';
+import { DrawerItem } from 'types/data.types';
 
 import styles from './custom-drawer.styles';
 
-const CustomDrawer = React.memo(({ firstName, lastName, drawerProps, signOut }: IProps) => {
+const CustomDrawer = React.memo(({ userName, drawerProps, signOut }: IProps) => {
   const navigateToRoute = (route: string, options: Object) => {
     drawerProps.navigation.navigate(route, options);
     drawerProps.navigation.closeDrawer();
@@ -39,7 +39,7 @@ const CustomDrawer = React.memo(({ firstName, lastName, drawerProps, signOut }: 
       />
 
       <ScrollView style={styles.itemContainer}>
-        <Label size={18} text={`Hi, ${firstName} ${lastName}`} style={styles.header} />
+        <Label size={18} text={`Hi, ${userName}`} style={styles.header} />
 
         {_renderDrawerItems()}
         <ListItem
@@ -55,12 +55,11 @@ const CustomDrawer = React.memo(({ firstName, lastName, drawerProps, signOut }: 
 
 interface IProps {
   drawerProps: DrawerContentComponentProps;
-  firstName?: string;
-  lastName?: string;
+  userName?: string;
   signOut: Function;
 }
 
-const DRAWER_ITEMS: IDrawerItem[] = [
+const DRAWER_ITEMS: DrawerItem[] = [
   {
     key: 'Profile',
     icon: <Icon icon={icons.USER} color={colors.LIGHT_GREEN} size={25} />,

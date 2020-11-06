@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { Spinner } from 'components/ui';
-import { IApplicationState } from 'types/reducer.types';
+import { ApplicationState } from 'types/reducer.types';
 
 import AuthNavigator from './auth-navigator';
 import MainNavigator from './main-navigator';
@@ -20,7 +20,7 @@ const AppNavigator = ({ user, isLoading }: IProps) => {
   );
 };
 
-const mapStateToProps = ({ auth, common }: IApplicationState) => ({
+const mapStateToProps = ({ auth, common }: ApplicationState) => ({
   user: auth.user,
   isLoading: common.isLoading,
 });

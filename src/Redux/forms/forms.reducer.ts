@@ -1,6 +1,45 @@
+import { SIGN_IN_FORM, SIGN_UP_FORM } from 'constants/forms.constant';
+import { Action } from 'types/data.types';
+import { FormsReducer } from 'types/reducer.types';
 import { formsTypes } from './forms.constants';
 
-const INITIAL_STATE = {};
+const INITIAL_STATE: FormsReducer = {
+  [SIGN_IN_FORM]: {
+    fields: [],
+    errors: {},
+    values: {
+      email: '',
+      password: '',
+    },
+  },
+  [SIGN_UP_FORM]: {
+    fields: [],
+    errors: {},
+    values: {
+      firstName: '',
+      lastName: '',
+      email: '',
+      mobile: '',
+      password: '',
+      confirmPassword: '',
+    },
+  },
+};
+
+export default (state = INITIAL_STATE, { type, payload }: Action) => {
+  switch (type) {
+    case formsTypes.INIT_FORM:
+      return initForm(state, payload);
+    case formsTypes.ADD_FORM_DATA:
+      return addFormData(state, payload);
+    case formsTypes.RESET_FORM_DATA:
+      return resetForm(state, payload);
+    case formsTypes.SET_REQUEST_ERROR:
+      return setFormError(state, payload);
+    default:
+      return state;
+  }
+};
 
 const initForm = (state: any, { form, field, fieldValue }: any) => {
   const formData = state[form] || {};
@@ -47,22 +86,7 @@ const setFormError = (state: any, { form, message }: any) => {
   };
 };
 
-const resetForm = (state: any, payload: any) => ({
+const resetForm = (state: FormsReducer, payload: any) => ({
   ...state,
   [payload]: { fields: [], values: {}, errors: {} },
 });
-
-export default (state = INITIAL_STATE, { type, payload }: any) => {
-  switch (type) {
-    case formsTypes.INIT_FORM:
-      return initForm(state, payload);
-    case formsTypes.ADD_FORM_DATA:
-      return addFormData(state, payload);
-    case formsTypes.RESET_FORM_DATA:
-      return resetForm(state, payload);
-    case formsTypes.SET_REQUEST_ERROR:
-      return setFormError(state, payload);
-    default:
-      return state;
-  }
-};

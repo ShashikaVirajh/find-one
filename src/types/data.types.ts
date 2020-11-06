@@ -1,14 +1,14 @@
-export type IHeaders = {
+export type Headers = {
   'Content-Type': string;
   Authorization?: string;
 };
 
-export type IAction = {
+export type Action = {
   type?: string;
   payload?: any;
 };
 
-export type IEvent = {
+export type Event = {
   target: {
     name: string;
     value: string | number;
@@ -16,7 +16,7 @@ export type IEvent = {
   preventDefault?: Function;
 };
 
-export type ISaga = {
+export type Saga = {
   type: string;
   payload?: any;
   success?: Function;
@@ -27,7 +27,7 @@ export type IAuth = {
   token: string;
 };
 
-export type IDrawerItem = {
+export type DrawerItem = {
   key: string;
   icon: JSX.Element;
   text: string;
@@ -35,7 +35,7 @@ export type IDrawerItem = {
   options: {};
 };
 
-export type IErrorResponse = {
+export type ErrorResponse = {
   headers: any;
   requestData: any;
   responseData: any;
@@ -46,4 +46,14 @@ export type AccordianItem = {
   id: string;
   question: string;
   answer: string;
+};
+
+export type User = {
+  id: string;
+  firstName: string;
+  lastName: string;
+  handle: string;
+  email: string;
+  mobile: string;
+  role: string;
 };

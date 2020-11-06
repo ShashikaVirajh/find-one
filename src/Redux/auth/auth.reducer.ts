@@ -1,13 +1,21 @@
-import { IAction } from 'types/data.types';
-import { IAuthReducer } from 'types/reducer.types';
+import { Action } from 'types/data.types';
+import { AuthReducer } from 'types/reducer.types';
 import { authTypes } from './auth.constants';
 
-const INITIAL_STATE = {
+const INITIAL_STATE: AuthReducer = {
   token: '',
-  user: '',
+  user: {
+    id: '',
+    firstName: '',
+    lastName: '',
+    handle: '',
+    email: '',
+    mobile: '',
+    role: '',
+  },
 };
 
-export default (state = INITIAL_STATE, { type, payload }: IAction) => {
+export default (state = INITIAL_STATE, { type, payload }: Action) => {
   switch (type) {
     case authTypes.FETCH_AUTH_USER_SUCCESS:
       return fetchAuthUserSuccess(state, payload);
@@ -26,17 +34,17 @@ export default (state = INITIAL_STATE, { type, payload }: IAction) => {
   }
 };
 
-const fetchAuthUserSuccess = (state: IAuthReducer, payload: Object) => ({
+const fetchAuthUserSuccess = (state: AuthReducer, payload: Object) => ({
   ...state,
   ...payload,
 });
 
-const setSignInSuccess = (state: IAuthReducer, payload: Object) => ({
+const setSignInSuccess = (state: AuthReducer, payload: Object) => ({
   ...state,
   ...payload,
 });
 
-const setSignUpSuccess = (state: IAuthReducer, payload: Object) => ({
+const setSignUpSuccess = (state: AuthReducer, payload: Object) => ({
   ...state,
   ...payload,
 });

@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { SIGN_UP_FORM } from 'constants/forms.constant';
 import { fetchAuthUserStart, signUpStart } from 'Redux/auth/auth.actions';
 import { resetForm } from 'Redux/forms/forms.actions';
-import { IApplicationState } from 'types/reducer.types';
+import { ApplicationState } from 'types/reducer.types';
 import ConfirmPassword from './confirm-password.component';
 
-const mapStateToProps = ({ forms }: IApplicationState) => ({
+const mapStateToProps = ({ forms }: ApplicationState) => ({
   firstName: forms[SIGN_UP_FORM]?.values?.firstName || '',
   lastName: forms[SIGN_UP_FORM]?.values?.lastName || '',
   email: forms[SIGN_UP_FORM]?.values?.email || '',

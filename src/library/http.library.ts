@@ -6,7 +6,7 @@ import { Logger } from 'library';
 import { ErrorTracker } from 'library';
 import { toggleSpinner } from 'Redux/common/common.actions';
 import { store } from 'Redux/store';
-import { IHeaders } from 'types/data.types';
+import { Headers } from 'types/data.types';
 
 class Http {
   method: httpMethods;
@@ -60,7 +60,7 @@ class Http {
   };
 
   setHeaders = () => {
-    const headers: IHeaders = {
+    const headers: Headers = {
       'Content-Type': 'application/json',
     };
     return headers;

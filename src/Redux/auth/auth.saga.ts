@@ -3,12 +3,12 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 import { fetchAuthUserSuccess, signInSuccess, signUpSuccess } from 'Redux/auth/auth.actions';
 
 import { authTypes } from 'Redux/auth/auth.constants';
-import { IAuth, ISaga } from 'types/data.types';
+import { IAuth, Saga } from 'types/data.types';
 import AuthService from './auth.service';
 
 import { store } from 'Redux/store';
 
-function* signInStart({ payload, success, failure }: ISaga) {
+function* signInStart({ payload, success, failure }: Saga) {
   try {
     const signInResponse = yield call(AuthService.signIn, payload);
     const token: IAuth = signInResponse.token;
@@ -20,7 +20,7 @@ function* signInStart({ payload, success, failure }: ISaga) {
   }
 }
 
-function* signUpStart({ payload, success, failure }: ISaga) {
+function* signUpStart({ payload, success, failure }: Saga) {
   try {
     const signUpResponse = yield call(AuthService.signUp, payload);
     const token: IAuth = signUpResponse.token;
@@ -32,7 +32,7 @@ function* signUpStart({ payload, success, failure }: ISaga) {
   }
 }
 
-function* fetchAuthUserStart({ success, failure }: ISaga) {
+function* fetchAuthUserStart({ success, failure }: Saga) {
   try {
     const {
       auth: { token },
