@@ -3,7 +3,7 @@ import React from 'react';
 import { createDrawerNavigator, DrawerContentComponentProps } from '@react-navigation/drawer';
 
 import Deactivate from 'screens/deactivate/deactivate.component';
-import Home from 'screens/home/home.screen';
+import Home from 'screens/home/home.container';
 import Invite from 'screens/invite/invite.comonent';
 import Profile from 'screens/profile/profile.comonent';
 import Support from 'screens/support/support.component';

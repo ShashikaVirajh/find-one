@@ -6,7 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import DrawerNavigator from './drawer-navigator';
 
 import { routes } from 'constants/routes.constant';
-import HomeScreen from 'screens/home/home.screen';
+import HomeScreen from 'screens/home/home.container';
 
 const Stack = createStackNavigator();
 
