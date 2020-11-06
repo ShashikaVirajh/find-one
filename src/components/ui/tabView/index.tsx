@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { colors } from 'constants/colors.constant';
+import { Utils } from 'library';
 
 import TabBody from './tabBody';
 import TabHeader from './tabHeader';
@@ -24,9 +25,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.LIGHT_GRAY,
-    marginTop: 30,
-    marginHorizontal: -24,
-    paddingHorizontal: 24,
+    marginTop: Utils.getScaledNumber(30),
+    marginHorizontal: Utils.getScaledNumber(-24),
+    paddingHorizontal: Utils.getScaledNumber(24),
   },
 });
 

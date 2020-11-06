@@ -4,6 +4,7 @@ import { Pressable, StyleSheet, View } from 'react-native';
 import { Label } from 'components/ui';
 
 import { colors } from 'constants/colors.constant';
+import { Utils } from 'library';
 
 const TabHeaderButton = ({
   headerLabel,
@@ -13,7 +14,7 @@ const TabHeaderButton = ({
 }: IProps) => (
   <Pressable style={styles.container} onPress={() => onTabHeaderPress()}>
     <View style={[styles.tabText, { borderBottomWidth, opacity: buttonOpacity }]}>
-      <Label size={18} text={headerLabel} />
+      <Label size={Utils.getScaledNumber(18)} text={headerLabel} />
     </View>
   </Pressable>
 );
@@ -21,8 +22,8 @@ const TabHeaderButton = ({
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    height: 30,
-    width: 140,
+    height: Utils.getScaledNumber(30),
+    width: Utils.getScaledNumber(140),
   },
   tabText: {
     borderBottomColor: colors.LIGHT_BLUE,

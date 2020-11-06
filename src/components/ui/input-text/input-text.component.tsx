@@ -4,6 +4,7 @@ import { StyleProp, Text, TextInput, View, ViewStyle } from 'react-native';
 import { BorderlessButton, Icon, Label } from 'components/ui';
 import { colors } from 'constants/colors.constant';
 import { icons } from 'constants/icons.constant';
+import { Utils } from 'library';
 import { validate } from 'validations';
 
 import styles from './input-text.styles';
@@ -95,7 +96,7 @@ const InputText = ({
         <View style={styles.errorLabelContainer}>
           <Label
             color={colors.LIGHT_RED}
-            size={16}
+            size={Utils.getScaledNumber(16)}
             text={fieldErrors[0]}
             style={[styles.errorText, errorStyles]}
           />
@@ -158,7 +159,7 @@ const InputText = ({
         <Icon
           icon={icons.CLOSE}
           color={colors.GRAY}
-          size={24}
+          size={Utils.getScaledNumber(24)}
           style={styles.clearButton}
           onPress={clearText}
         />
@@ -223,7 +224,7 @@ interface IProps {
 
 InputText.defaultProps = {
   frontIconColor: colors.GRAY,
-  frontIconSize: 24,
+  frontIconSize: Utils.getScaledNumber(24),
   placeholderTextColor: colors.LIGHT_SILVER,
   validations: [],
 };

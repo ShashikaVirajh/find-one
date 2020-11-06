@@ -1,22 +1,23 @@
 import { StyleSheet } from 'react-native';
 
 import { colors } from 'constants/colors.constant';
+import { Utils } from 'library';
 
 export default StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    borderWidth: 1,
+    borderWidth: Utils.getScaledNumber(1),
     borderColor: colors.GRAY,
     width: '100%',
-    height: 50,
+    height: Utils.getScaledNumber(50),
   },
   leftContent: {
-    paddingLeft: 10,
+    paddingLeft: Utils.getScaledNumber(10),
   },
   mainContent: {
     flex: 1,
     flexDirection: 'column',
-    paddingLeft: 20,
+    paddingLeft: Utils.getScaledNumber(20),
   },
 });

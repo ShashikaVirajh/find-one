@@ -1,58 +1,59 @@
 import { StyleSheet } from 'react-native';
 
 import { colors } from 'constants/colors.constant';
+import { Utils } from 'library';
 
 export default StyleSheet.create({
   label: {
-    fontSize: 14,
+    fontSize: Utils.getScaledNumber(14),
     fontFamily: 'SharpSans-Book',
     color: colors.FOREGROUND,
     fontWeight: 'bold',
   },
   activeLabel: {
-    top: 12,
+    top: Utils.getScaledNumber(12),
   },
   hideLabel: {
     display: 'none',
   },
   prefix: {
-    bottom: 0,
-    top: 10,
-    marginRight: 2,
-    fontSize: 20,
+    bottom: Utils.getScaledNumber(0),
+    top: Utils.getScaledNumber(10),
+    marginRight: Utils.getScaledNumber(2),
+    fontSize: Utils.getScaledNumber(20),
     fontFamily: 'SharpSans-Book',
   },
   inputContainer: {
     flexDirection: 'row',
-    paddingBottom: 4,
+    paddingBottom: Utils.getScaledNumber(4),
     borderBottomWidth: 1,
     borderBottomColor: colors.GRAY,
   },
   inputText: {
     flex: 1,
-    top: 10,
-    paddingLeft: 0,
+    top: Utils.getScaledNumber(10),
+    paddingLeft: Utils.getScaledNumber(0),
     color: colors.FOREGROUND,
-    fontSize: 20,
+    fontSize: Utils.getScaledNumber(20),
     fontFamily: 'SharpSans-Book',
   },
   errorLabelContainer: {
-    marginTop: 2,
-    height: 30,
+    marginTop: Utils.getScaledNumber(2),
+    height: Utils.getScaledNumber(30),
   },
   errorText: {
-    top: 1,
+    top: Utils.getScaledNumber(1),
   },
   showHideButton: {
     color: colors.FOREGROUND,
-    marginTop: 25,
+    marginTop: Utils.getScaledNumber(25),
   },
   frontIcon: {
-    marginTop: 22,
-    paddingRight: 16,
+    marginTop: Utils.getScaledNumber(22),
+    paddingRight: Utils.getScaledNumber(16),
   },
   clearButton: {
-    marginTop: 22,
-    paddingLeft: 10,
+    marginTop: Utils.getScaledNumber(22),
+    paddingLeft: Utils.getScaledNumber(10),
   },
 });

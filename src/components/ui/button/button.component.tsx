@@ -3,6 +3,7 @@ import { Pressable, View } from 'react-native';
 
 import { Icon, Label } from 'components/ui';
 import { colors } from 'constants/colors.constant';
+import { Utils } from 'library';
 import styles from './button.styles';
 
 const Button = ({
@@ -54,7 +55,7 @@ const Button = ({
 
   const renderButtonText = () => (
     <View style={styles.textContainer}>
-      <Label size={16} style={[styles.text, textStyle]} text={text} />
+      <Label size={Utils.getScaledNumber(16)} style={[styles.text, textStyle]} text={text} />
     </View>
   );
 
@@ -93,9 +94,9 @@ interface IProps {
 
 Button.defaultProps = {
   backIconColor: colors.SILVER,
-  backIconSize: 24,
+  backIconSize: Utils.getScaledNumber(24),
   frontIconColor: colors.SILVER,
-  frontIconSize: 24,
+  frontIconSize: Utils.getScaledNumber(24),
   roundButton: true,
 };
 

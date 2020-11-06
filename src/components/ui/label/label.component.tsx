@@ -2,6 +2,7 @@ import React from 'react';
 import { Text } from 'react-native';
 
 import { colors } from 'constants/colors.constant';
+import { Utils } from 'library';
 
 const Label = ({ color, size, style, text, underline }: IProps) => {
   return (
@@ -19,7 +20,7 @@ const Label = ({ color, size, style, text, underline }: IProps) => {
 
 Label.defaultProps = {
   color: colors.FOREGROUND,
-  size: 16,
+  size: Utils.getScaledNumber(16),
   text: '',
   underline: false,
 };

@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 import { colors } from 'constants/colors.constant';
+import { Utils } from 'library';
 
 export default StyleSheet.create({
   container: {
@@ -11,34 +12,34 @@ export default StyleSheet.create({
     flex: 1,
   },
   navigationHeader: {
-    marginTop: 20,
-    marginBottom: 10,
-    paddingHorizontal: 24,
+    marginTop: Utils.getScaledNumber(20),
+    marginBottom: Utils.getScaledNumber(10),
+    paddingHorizontal: Utils.getScaledNumber(24),
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
   rightButton: {
-    minHeight: 40,
-    minWidth: 40,
+    minHeight: Utils.getScaledNumber(40),
+    minWidth: Utils.getScaledNumber(40),
     justifyContent: 'center',
     alignItems: 'flex-end',
   },
   titleTopMargin: {
-    marginTop: 30,
+    marginTop: Utils.getScaledNumber(30),
   },
   titleContainer: {
-    paddingHorizontal: 24,
+    paddingHorizontal: Utils.getScaledNumber(24),
     alignSelf: 'flex-start',
     borderColor: 'red',
   },
   description: {
-    marginTop: 5,
-    paddingHorizontal: 24,
+    marginTop: Utils.getScaledNumber(5),
+    paddingHorizontal: Utils.getScaledNumber(24),
     textAlign: 'center',
   },
   footer: {
-    marginBottom: 20,
-    paddingHorizontal: 24,
+    marginBottom: Utils.getScaledNumber(20),
+    paddingHorizontal: Utils.getScaledNumber(24),
   },
 });

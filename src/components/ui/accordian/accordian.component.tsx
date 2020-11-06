@@ -15,7 +15,9 @@ const Accordian = ({ items, expandIcon, collapseIcon, questionStyels, answerStyl
       <View key={item.id}>
         <Pressable style={styles.row} onPress={() => toggleExpanded(item.id)}>
           <Label text={item.question} style={[styles.question, questionStyels]} />
-          <View style={styles.icon}>{item.id === expandedId ? collapseIcon() : expandIcon()}</View>
+          {/* <View style={styles.icon}>
+            {item.id === expandedId ? collapseIcon() : expandIcon()}
+          </View> */}
         </Pressable>
 
         {item.id === expandedId && (

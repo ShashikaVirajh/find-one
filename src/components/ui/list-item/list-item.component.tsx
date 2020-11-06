@@ -3,6 +3,7 @@ import { Pressable, View } from 'react-native';
 
 import { Label } from 'components/ui';
 
+import { Utils } from 'library';
 import styles from './list-item.styles';
 
 const ListItem = ({
@@ -22,8 +23,8 @@ const ListItem = ({
   subContentStyles,
   subTextSize,
 }: IProps) => {
-  const height = hideBorder ? 50 : 80;
-  const borderWidth = hideBorder ? 0 : 1;
+  const height = hideBorder ? Utils.getScaledNumber(50) : Utils.getScaledNumber(80);
+  const borderWidth = hideBorder ? Utils.getScaledNumber(0) : Utils.getScaledNumber(1);
 
   const _renderLeftContent = () => {
     if (leftContent && typeof leftContent === 'string') {
@@ -99,10 +100,10 @@ interface IProps {
 
 ListItem.defaultProps = {
   hideBorder: false,
-  leftTextSize: 16,
-  mainTextSize: 16,
-  subTextSize: 14,
-  rightTextSize: 16,
+  leftTextSize: Utils.getScaledNumber(16),
+  mainTextSize: Utils.getScaledNumber(16),
+  subTextSize: Utils.getScaledNumber(14),
+  rightTextSize: Utils.getScaledNumber(16),
   onContainerPress: () => {},
   onLeftContentPress: () => {},
   onMainContentPress: () => {},

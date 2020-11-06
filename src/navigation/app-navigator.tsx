@@ -7,8 +7,8 @@ import { ApplicationState } from 'types/reducer.types';
 import AuthNavigator from './auth-navigator';
 import MainNavigator from './main-navigator';
 
-const AppNavigator = ({ user, isLoading }: IProps) => {
-  const _renderNavigator = () => (user ? <MainNavigator /> : <AuthNavigator />);
+const AppNavigator = ({ token, isLoading }: IProps) => {
+  const _renderNavigator = () => (token ? <MainNavigator /> : <AuthNavigator />);
 
   const _renderSpinner = () => (isLoading ? <Spinner /> : null);
 
@@ -21,12 +21,12 @@ const AppNavigator = ({ user, isLoading }: IProps) => {
 };
 
 const mapStateToProps = ({ auth, common }: ApplicationState) => ({
-  user: auth.user,
+  token: auth.token,
   isLoading: common.isLoading,
 });
 
 interface IProps {
-  user?: string;
+  token?: string;
   isLoading?: boolean;
 }
 

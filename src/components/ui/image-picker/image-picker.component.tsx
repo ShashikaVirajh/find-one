@@ -6,6 +6,7 @@ import { CustomImage, Icon } from 'components/ui';
 import { colors } from 'constants/colors.constant';
 import { icons } from 'constants/icons.constant';
 import { ResizeModes } from 'enums';
+import { Utils } from 'library';
 import { requestCameraPermission } from 'library/android-permissions.library';
 import { IImagePickerResponse } from 'types/response.types';
 
@@ -121,11 +122,11 @@ interface IProps {
 }
 
 ImagePicker.defaultProps = {
-  borderRadius: 10,
+  borderRadius: Utils.getScaledNumber(10),
   containerStyle: {},
   disabled: true,
-  height: 300,
-  iconSize: 50,
+  height: Utils.getScaledNumber(300),
+  iconSize: Utils.getScaledNumber(50),
   imageStyle: {},
   onPress: () => {},
   width: '100%',

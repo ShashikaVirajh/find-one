@@ -8,6 +8,7 @@ import { icons } from 'constants/icons.constant';
 import styles from './screen.styles';
 
 import { colors } from 'constants/colors.constant';
+import { Utils } from 'library';
 
 const Screen = ({
   leftContent,
@@ -34,7 +35,7 @@ const Screen = ({
 
   const renderHeader = () => {
     const desc = description ? (
-      <Label size={14} style={styles.description} text={description} />
+      <Label size={Utils.getScaledNumber(14)} style={styles.description} text={description} />
     ) : null;
 
     if (showHeader) {
@@ -67,7 +68,12 @@ const Screen = ({
 
     if (!hideBackButton) {
       return (
-        <Icon icon={icons.CHEVRON_LEFT} color={colors.FOREGROUND} size={18} onPress={goBack} />
+        <Icon
+          icon={icons.CHEVRON_LEFT}
+          color={colors.FOREGROUND}
+          size={Utils.getScaledNumber(18)}
+          onPress={goBack}
+        />
       );
     }
 
@@ -93,7 +99,7 @@ const Screen = ({
       return (
         <View style={{ flexDirection: 'row' }}>
           <View style={[styles.titleContainer, !showHeader ? styles.titleTopMargin : null]}>
-            <Label size={28} text={title} />
+            <Label size={Utils.getScaledNumber(28)} text={title} />
           </View>
         </View>
       );

@@ -1,32 +1,33 @@
 import { StyleSheet } from 'react-native';
 
 import { colors } from 'constants/colors.constant';
+import { Utils } from 'library';
 
 export default StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'row',
-    paddingHorizontal: 24,
+    paddingHorizontal: Utils.getScaledNumber(24),
     alignItems: 'center',
-    height: 50,
+    height: Utils.getScaledNumber(50),
     width: '100%',
   },
   text: {
     width: '90%',
   },
   radio: {
-    width: 20,
-    height: 20,
+    width: Utils.getScaledNumber(20),
+    height: Utils.getScaledNumber(20),
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 50,
-    borderWidth: 2,
+    borderRadius: Utils.getScaledNumber(50),
+    borderWidth: Utils.getScaledNumber(2),
     borderColor: colors.LIGHT_GREEN,
   },
   checked: {
-    borderRadius: 50,
-    width: 10,
-    height: 10,
+    borderRadius: Utils.getScaledNumber(50),
+    width: Utils.getScaledNumber(10),
+    height: Utils.getScaledNumber(10),
     backgroundColor: colors.LIGHT_GREEN,
   },
 });
