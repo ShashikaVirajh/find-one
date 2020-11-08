@@ -20,13 +20,13 @@ class ErrorTracker extends Tracker {
   }
 
   static log(name: string, message: string, extras?: any) {
-    const err = new Error(message);
-    err.name = name;
+    const error = new Error(message);
+    error.name = name;
 
     Sentry.withScope((scope: Sentry.Scope) => {
       if (extras) scope.setExtras(extras);
 
-      Sentry.captureException(err);
+      Sentry.captureException(error);
     });
   }
 

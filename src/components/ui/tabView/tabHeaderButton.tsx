@@ -14,7 +14,7 @@ const TabHeaderButton = ({
 }: IProps) => (
   <Pressable style={styles.container} onPress={() => onTabHeaderPress()}>
     <View style={[styles.tabText, { borderBottomWidth, opacity: buttonOpacity }]}>
-      <Label size={Utils.getScaledNumber(18)} text={headerLabel} />
+      <Label size={18} text={headerLabel} />
     </View>
   </Pressable>
 );

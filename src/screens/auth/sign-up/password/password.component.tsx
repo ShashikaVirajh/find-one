@@ -5,7 +5,6 @@ import { SIGN_UP_FORM } from 'constants/forms.constant';
 import { icons } from 'constants/icons.constant';
 import { routes } from 'constants/routes.constant';
 import { KeyBoardTypes, PasswordErrorTypes } from 'enums';
-import { Utils } from 'library';
 import { validatePassword } from 'validations';
 import strings from './password.strings';
 import styles from './password.styles';
@@ -28,27 +27,27 @@ const Password = ({ values, navigation }: IProps) => {
     return (
       <>
         <Label
-          size={Utils.getScaledNumber(14)}
+          size={14}
           style={!errors.includes(LENGTH) ? styles.hintText : styles.errorText}
           text={strings.LENGTH_VALIDATION}
         />
         <Label
-          size={Utils.getScaledNumber(14)}
+          size={14}
           style={!errors.includes(UPPERCASE) ? styles.hintText : styles.errorText}
           text={strings.UPPERCASE_VALIDATION}
         />
         <Label
-          size={Utils.getScaledNumber(14)}
+          size={14}
           style={!errors.includes(LOWERCASE) ? styles.hintText : styles.errorText}
           text={strings.LOWERCASE_VALIDATION}
         />
         <Label
-          size={Utils.getScaledNumber(14)}
+          size={14}
           style={!errors.includes(SYMBOL) ? styles.hintText : styles.errorText}
           text={strings.SPECIAL_CHARACTER_VALIDATION}
         />
         <Label
-          size={Utils.getScaledNumber(14)}
+          size={14}
           style={!errors.includes(NUMBER) ? styles.hintText : styles.errorText}
           text={strings.NUMBER_VALIDATION}
         />

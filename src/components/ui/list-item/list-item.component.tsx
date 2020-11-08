@@ -24,7 +24,7 @@ const ListItem = ({
   subTextSize,
 }: IProps) => {
   const height = hideBorder ? Utils.getScaledNumber(50) : Utils.getScaledNumber(80);
-  const borderWidth = hideBorder ? Utils.getScaledNumber(0) : Utils.getScaledNumber(1);
+  const borderWidth = hideBorder ? 0 : 1;
 
   const _renderLeftContent = () => {
     if (leftContent && typeof leftContent === 'string') {
@@ -100,10 +100,10 @@ interface IProps {
 
 ListItem.defaultProps = {
   hideBorder: false,
-  leftTextSize: Utils.getScaledNumber(16),
-  mainTextSize: Utils.getScaledNumber(16),
-  subTextSize: Utils.getScaledNumber(14),
-  rightTextSize: Utils.getScaledNumber(16),
+  leftTextSize: 16,
+  mainTextSize: 16,
+  subTextSize: 14,
+  rightTextSize: 16,
   onContainerPress: () => {},
   onLeftContentPress: () => {},
   onMainContentPress: () => {},

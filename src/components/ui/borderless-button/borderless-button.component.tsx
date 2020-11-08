@@ -2,7 +2,6 @@ import React from 'react';
 import { Pressable } from 'react-native';
 
 import Label from 'components/ui/label/label.component';
-import { Utils } from 'library';
 import styles from './borderless-button.styles';
 
 const BorderlessButton = ({
@@ -37,7 +36,7 @@ interface IProps {
 BorderlessButton.defaultProps = {
   disabled: false,
   onPress: () => {},
-  size: Utils.getScaledNumber(16),
+  size: 16,
   underline: false,
 };
 

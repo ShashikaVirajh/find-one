@@ -7,7 +7,6 @@ import { CustomImage, Icon, Label, ListItem } from 'components/ui';
 import { colors } from 'constants/colors.constant';
 import { icons } from 'constants/icons.constant';
 import { HomeLogo } from 'constants/images.constants';
-import { Utils } from 'library';
 import { DrawerItem } from 'types/data.types';
 
 import styles from './custom-drawer.styles';
@@ -45,13 +44,7 @@ const CustomDrawer = React.memo(({ userName, drawerProps, signOut }: IProps) => 
         {_renderDrawerItems()}
         <ListItem
           hideBorder
-          leftContent={
-            <Icon
-              icon={icons.SIGN_OUT}
-              color={colors.LIGHT_GREEN}
-              size={Utils.getScaledNumber(25)}
-            />
-          }
+          leftContent={<Icon icon={icons.SIGN_OUT} color={colors.LIGHT_GREEN} size={25} />}
           mainContent='Log Out'
           onContainerPress={handleSignOut}
         />
@@ -69,30 +62,28 @@ interface IProps {
 const DRAWER_ITEMS: DrawerItem[] = [
   {
     key: 'Profile',
-    icon: <Icon icon={icons.USER} color={colors.LIGHT_GREEN} size={Utils.getScaledNumber(25)} />,
+    icon: <Icon icon={icons.USER} color={colors.LIGHT_GREEN} size={25} />,
     text: 'My Profile',
     screen: 'Profile',
     options: {},
   },
   {
     key: 'Invite',
-    icon: <Icon icon={icons.INVITE} color={colors.LIGHT_GREEN} size={Utils.getScaledNumber(25)} />,
+    icon: <Icon icon={icons.INVITE} color={colors.LIGHT_GREEN} size={25} />,
     text: 'Invite People',
     screen: 'Invite',
     options: {},
   },
   {
     key: 'Support',
-    icon: <Icon icon={icons.SUPPORT} color={colors.LIGHT_GREEN} size={Utils.getScaledNumber(25)} />,
+    icon: <Icon icon={icons.SUPPORT} color={colors.LIGHT_GREEN} size={25} />,
     text: 'Contact Support',
     screen: 'Support',
     options: {},
   },
   {
     key: 'Deactivate',
-    icon: (
-      <Icon icon={icons.DEACTIVATE} color={colors.LIGHT_GREEN} size={Utils.getScaledNumber(25)} />
-    ),
+    icon: <Icon icon={icons.DEACTIVATE} color={colors.LIGHT_GREEN} size={25} />,
     text: 'Deactivate Account',
     screen: 'Deactivate',
     options: {},

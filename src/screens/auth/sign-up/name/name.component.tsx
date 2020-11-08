@@ -6,7 +6,6 @@ import { SIGN_UP_FORM } from 'constants/forms.constant';
 import { icons } from 'constants/icons.constant';
 import { routes } from 'constants/routes.constant';
 import { ValidationTypes } from 'enums';
-import { Utils } from 'library';
 import strings from './name.strings';
 import styles from './name.styles';
 
@@ -54,7 +53,7 @@ const Name = ({ firstName, lastName, errors, navigation }: IProps) => {
       />
 
       <View style={styles.message}>
-        <Label size={Utils.getScaledNumber(16)} text={strings.ALREADY_HAVE_AN_ACCOUNT} />
+        <Label size={16} text={strings.ALREADY_HAVE_AN_ACCOUNT} />
         <BorderlessButton
           buttonStyle={styles.link}
           text={strings.SIGN_IN_HERE}

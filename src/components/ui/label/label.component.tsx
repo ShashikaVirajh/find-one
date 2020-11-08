@@ -9,7 +9,7 @@ const Label = ({ color, size, style, text, underline }: IProps) => {
     <Text
       style={[
         { color },
-        { fontSize: size },
+        { fontSize: Utils.getScaledNumber(size) },
         { textDecorationLine: underline ? 'underline' : 'none' },
         style,
       ]}>
