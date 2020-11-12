@@ -16,20 +16,20 @@ import PasswordScreen from 'screens/auth/sign-up/password/password.container';
 import ProfilePictureScreen from 'screens/auth/sign-up/profile-picture/profile-picture.container';
 import WelcomeScreen from 'screens/auth/welcome/welcome.container';
 
-const Stack = createStackNavigator();
+const AuthStack = createStackNavigator();
 
 const AuthNavigator = () => (
   <NavigationContainer>
-    <Stack.Navigator headerMode='none' initialRouteName={routes.WELCOME_SCREEN}>
-      <Stack.Screen name={routes.WELCOME_SCREEN} component={WelcomeScreen} />
-      <Stack.Screen name={routes.SIGN_IN_SCREEN} component={SignInScreen} />
-      <Stack.Screen name={routes.NAME_SCREEN} component={NameScreen} />
-      <Stack.Screen name={routes.EMAIL_SCREEN} component={EmailScreen} />
-      <Stack.Screen name={routes.MOBILE_SCREEN} component={MobileScreen} />
-      <Stack.Screen name={routes.PASSWORD_SCREEN} component={PasswordScreen} />
-      <Stack.Screen name={routes.CONFIRM_PASSWORD_SCREEN} component={ConfirmPasswordScreen} />
-      <Stack.Screen name={routes.PROFILE_PICTURE_SCREEN} component={ProfilePictureScreen} />
-    </Stack.Navigator>
+    <AuthStack.Navigator headerMode='none' initialRouteName={routes.WELCOME_SCREEN}>
+      <AuthStack.Screen name={routes.WELCOME_SCREEN} component={WelcomeScreen} />
+      <AuthStack.Screen name={routes.SIGN_IN_SCREEN} component={SignInScreen} />
+      <AuthStack.Screen name={routes.NAME_SCREEN} component={NameScreen} />
+      <AuthStack.Screen name={routes.EMAIL_SCREEN} component={EmailScreen} />
+      <AuthStack.Screen name={routes.MOBILE_SCREEN} component={MobileScreen} />
+      <AuthStack.Screen name={routes.PASSWORD_SCREEN} component={PasswordScreen} />
+      <AuthStack.Screen name={routes.CONFIRM_PASSWORD_SCREEN} component={ConfirmPasswordScreen} />
+      <AuthStack.Screen name={routes.PROFILE_PICTURE_SCREEN} component={ProfilePictureScreen} />
+    </AuthStack.Navigator>
   </NavigationContainer>
 );
 

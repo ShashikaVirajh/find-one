@@ -8,14 +8,14 @@ import DrawerNavigator from './drawer-navigator';
 import { routes } from 'constants/routes.constant';
 import HomeScreen from 'screens/home/home.container';
 
-const Stack = createStackNavigator();
+const MainStack = createStackNavigator();
 
 const MainNavigator = () => (
   <NavigationContainer>
-    <Stack.Navigator headerMode='none' initialRouteName={routes.HOME_SCREEN}>
-      <Stack.Screen name={'drawer'} component={DrawerNavigator} />
-      <Stack.Screen name={routes.SIGN_IN_SCREEN} component={HomeScreen} />
-    </Stack.Navigator>
+    <MainStack.Navigator headerMode='none' initialRouteName={routes.HOME_SCREEN}>
+      <MainStack.Screen name={'drawer'} component={DrawerNavigator} />
+      <MainStack.Screen name={routes.SIGN_IN_SCREEN} component={HomeScreen} />
+    </MainStack.Navigator>
   </NavigationContainer>
 );
 
