@@ -3,8 +3,8 @@ import { User } from 'types/data.types';
 import { signInForm, signUpForm } from 'types/form.types';
 
 export type AuthReducer = {
-  token?: string;
-  user?: User;
+  token: string;
+  user: User;
 };
 
 export type FormsReducer = {

@@ -1,72 +1,64 @@
 import axios from 'axios';
 
+import { mapErrorResponse, setErrorName } from 'utils/error-logs.utils';
+
 import { BASE_URL } from 'config';
 import { httpMethods, versions } from 'enums';
-import { Logger } from 'library';
-import { ErrorTracker } from 'library';
+import { ConsoleLogger, Logger } from 'library';
 import { toggleSpinner } from 'Redux/common/common.actions';
 import { store } from 'Redux/store';
 import { Headers } from 'types/data.types';
 
 class Http {
-  method: httpMethods;
-  action: string;
-  token: string;
-  data: Object;
-  version: versions;
+  static action: string;
+  static data: Object;
+  static method: httpMethods;
+  static token: string;
+  static version: versions;
 
-  constructor() {
-    this.method = httpMethods.post;
-    this.action = '';
-    this.token = '';
-    this.data = {};
-    this.version = versions.V1;
-  }
-
-  setAction(action: string) {
-    this.action = action;
+  static setAction(action: string) {
+    Http.action = action;
     return this;
   }
 
-  setData(data: Object) {
-    this.data = data;
+  static setData(data: Object) {
+    Http.data = data;
     return this;
   }
 
-  setToken(token: string) {
-    this.token = `Bearer ${token}`;
+  static setMethod(method: httpMethods) {
+    Http.method = method;
     return this;
   }
 
-  setMethod(method: httpMethods) {
-    this.method = method;
+  static setToken(token: string) {
+    Http.token = `Bearer ${token}`;
     return this;
   }
 
-  setVersion = (version: versions) => {
-    this.version = version;
-    return this;
-  };
-
-  unsetData() {
-    this.data = [];
+  static setVersion(version: versions) {
+    Http.version = version;
     return this;
   }
 
-  generateURL = () => {
-    let url = `${BASE_URL}/api/${this.version}/${this.action}`;
-    if (this.method === httpMethods.get) url += this.serializeParams(this.data);
+  static unsetData() {
+    return (Http.data = []);
+  }
+
+  static generateURL() {
+    let url = `${BASE_URL}/api/${Http.version}/${Http.action}`;
+    if (Http.method === httpMethods.get) url += Http.serializeParams(Http.data);
     return url;
-  };
+  }
 
-  setHeaders = () => {
+  static setHeaders() {
     const headers: Headers = {
       'Content-Type': 'application/json',
     };
     return headers;
-  };
+  }
 
-  serializeParams = (params: any) => {
+  static serializeParams(params: any) {
     if (typeof params === undefined || Object.keys(params).length <= 0) return '';
 
     let queryString = '';
@@ -75,44 +67,40 @@ class Http {
       queryString += `${key}'='${encodeURIComponent(params[key])}`;
     }
     return `?${queryString}`;
-  };
+  }
 
-  request = async () => {
+  static request = async () => {
     try {
       store.dispatch(toggleSpinner(true));
 
-      const url = this.generateURL();
-      const headers = this.setHeaders();
+      const url = Http.generateURL();
+      const headers = Http.setHeaders();
 
-      if (typeof this.token !== undefined) {
-        headers.Authorization = this.token;
+      if (typeof Http.token !== undefined) {
+        headers.Authorization = Http.token;
       }
 
       const config = {
         url,
         headers,
-        method: this.method,
-        data: JSON.stringify(this.data) || {},
+        method: Http.method,
+        data: JSON.stringify(Http.data) || {},
       };
 
       const response = await axios(config);
 
-      Logger.log('SUCCESS:', response);
-      this.unsetData();
+      ConsoleLogger.log('SUCCESS:', response);
+      Http.unsetData();
       store.dispatch(toggleSpinner(false));
 
       return response.data;
     } catch (error) {
       const { response } = error;
-      Logger.log('ERROR:', response);
+      ConsoleLogger.log('ERROR:', response);
 
-      ErrorTracker.log(
-        ErrorTracker.setErrorName(error),
-        response?.config?.url,
-        ErrorTracker.mapErrorResponse(response),
-      );
+      Logger.log(setErrorName(error), response?.config?.url, mapErrorResponse(response));
 
-      this.unsetData();
+      Http.unsetData();
       store.dispatch(toggleSpinner(false));
 
       throw response.data;
@@ -120,4 +108,4 @@ class Http {
   };
 }
 
-export default new Http();
+export default Http;

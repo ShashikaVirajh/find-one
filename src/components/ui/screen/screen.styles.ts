@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 import { colors } from 'constants/colors.constant';
-import { Utils } from 'library';
+import { getScaledNumber } from 'utils/common.utils';
 
 export default StyleSheet.create({
   container: {
@@ -12,34 +12,34 @@ export default StyleSheet.create({
     flex: 1,
   },
   navigationHeader: {
-    marginTop: Utils.getScaledNumber(20),
-    marginBottom: Utils.getScaledNumber(10),
-    paddingHorizontal: Utils.getScaledNumber(24),
+    marginTop: getScaledNumber(20),
+    marginBottom: getScaledNumber(10),
+    paddingHorizontal: getScaledNumber(24),
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
   rightButton: {
-    minHeight: Utils.getScaledNumber(40),
-    minWidth: Utils.getScaledNumber(40),
+    minHeight: getScaledNumber(40),
+    minWidth: getScaledNumber(40),
     justifyContent: 'center',
     alignItems: 'flex-end',
   },
   titleTopMargin: {
-    marginTop: Utils.getScaledNumber(30),
+    marginTop: getScaledNumber(30),
   },
   titleContainer: {
-    paddingHorizontal: Utils.getScaledNumber(24),
+    paddingHorizontal: getScaledNumber(24),
     alignSelf: 'flex-start',
     borderColor: 'red',
   },
   description: {
-    marginTop: Utils.getScaledNumber(5),
-    paddingHorizontal: Utils.getScaledNumber(24),
+    marginTop: getScaledNumber(5),
+    paddingHorizontal: getScaledNumber(24),
     textAlign: 'center',
   },
   footer: {
-    marginBottom: Utils.getScaledNumber(20),
-    paddingHorizontal: Utils.getScaledNumber(24),
+    marginBottom: getScaledNumber(20),
+    paddingHorizontal: getScaledNumber(24),
   },
 });

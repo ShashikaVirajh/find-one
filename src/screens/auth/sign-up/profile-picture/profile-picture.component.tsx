@@ -7,7 +7,7 @@ import { routes } from 'constants/routes.constant';
 import {
   requestCameraPermission,
   requestLocationPermission,
-} from 'library/android-permissions.library';
+} from 'utils/android-permissions.utils';
 import strings from './profile-picture.strings';
 import styles from './profile-picture.styles';
 

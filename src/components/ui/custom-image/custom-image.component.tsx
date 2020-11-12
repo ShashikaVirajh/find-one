@@ -2,7 +2,7 @@ import React from 'react';
 import { Image, Pressable } from 'react-native';
 
 import { ResizeModes } from 'enums';
-import { Utils } from 'library';
+import { getScaledNumber } from 'utils/common.utils';
 
 const Icon = ({
   containerStyle,
@@ -45,9 +45,9 @@ interface IProps {
 Icon.defaultProps = {
   disabled: true,
   resizeMode: ResizeModes.cover,
-  height: Utils.getScaledNumber(300),
+  height: getScaledNumber(300),
   width: '100%',
-  borderRadius: Utils.getScaledNumber(6),
+  borderRadius: getScaledNumber(6),
   containerStyle: {},
   imageStyle: {},
   onPress: () => {},

@@ -1,13 +1,13 @@
 import { StyleSheet } from 'react-native';
 
-import { Utils } from 'library';
+import { getScaledNumber } from 'utils/common.utils';
 
 export default StyleSheet.create({
   videoPlayer: {
-    top: Utils.getScaledNumber(0),
-    left: Utils.getScaledNumber(0),
-    bottom: Utils.getScaledNumber(0),
-    right: Utils.getScaledNumber(0),
-    height: Utils.getScaledNumber(300),
+    top: getScaledNumber(0),
+    left: getScaledNumber(0),
+    bottom: getScaledNumber(0),
+    right: getScaledNumber(0),
+    height: getScaledNumber(300),
   },
 });

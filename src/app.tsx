@@ -8,9 +8,9 @@ import { persistor, store } from 'Redux/store';
 import library from 'library/icon.library';
 import AppNavigator from 'navigation/app-navigator';
 
-import { ErrorTracker } from 'library';
+import Logger from 'library/logger.library';
 
-ErrorTracker.init();
+Logger.init();
 
 const App = () => {
   return (

@@ -1,4 +1,4 @@
-export type IImagePickerResponse = {
+export type ImagePickerResponse = {
   type: string;
   data: string;
 };

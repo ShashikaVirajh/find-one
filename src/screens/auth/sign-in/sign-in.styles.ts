@@ -1,28 +1,28 @@
 import { StyleSheet } from 'react-native';
 
 import { colors } from 'constants/colors.constant';
-import { Utils } from 'library';
+import { getScaledNumber } from 'utils/common.utils';
 
 export default StyleSheet.create({
   screenContent: {
-    paddingHorizontal: Utils.getScaledNumber(24),
-    marginTop: Utils.getScaledNumber(50),
+    paddingHorizontal: getScaledNumber(24),
+    marginTop: getScaledNumber(50),
   },
   inputContainer: {
-    paddingLeft: Utils.getScaledNumber(0),
+    paddingLeft: getScaledNumber(0),
   },
   inputError: {
-    left: Utils.getScaledNumber(0),
+    left: getScaledNumber(0),
   },
   message: {
     flexDirection: 'row',
-    marginTop: Utils.getScaledNumber(20),
+    marginTop: getScaledNumber(20),
   },
   link: {
-    marginLeft: Utils.getScaledNumber(5),
+    marginLeft: getScaledNumber(5),
   },
   error: {
-    marginBottom: Utils.getScaledNumber(20),
+    marginBottom: getScaledNumber(20),
     color: colors.LIGHT_RED,
   },
 });

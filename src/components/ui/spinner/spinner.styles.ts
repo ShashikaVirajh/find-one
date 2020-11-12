@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 import { colors } from 'constants/colors.constant';
-import { Utils } from 'library';
+import { getScaledNumber } from 'utils/common.utils';
 
 export default StyleSheet.create({
   overlay: {
@@ -13,8 +13,8 @@ export default StyleSheet.create({
   indicator: {
     alignItems: 'center',
     backgroundColor: colors.WHITE,
-    borderRadius: Utils.getScaledNumber(10),
-    padding: Utils.getScaledNumber(16),
+    borderRadius: getScaledNumber(10),
+    padding: getScaledNumber(16),
     opacity: 0.8,
     justifyContent: 'center',
   },

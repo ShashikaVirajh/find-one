@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import { Utils } from 'library';
+import { getScaledNumber } from 'utils/common.utils';
 import TabHeaderButton from './tabHeaderButton';
 
 const TabHeader = ({ tabHeaders, onHeaderButtonPress }: IProps) => {
@@ -32,7 +32,7 @@ const TabHeader = ({ tabHeaders, onHeaderButtonPress }: IProps) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    marginTop: Utils.getScaledNumber(20),
+    marginTop: getScaledNumber(20),
   },
 });
 

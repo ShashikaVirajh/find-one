@@ -2,14 +2,14 @@ import React from 'react';
 import { Text } from 'react-native';
 
 import { colors } from 'constants/colors.constant';
-import { Utils } from 'library';
+import { getScaledNumber } from 'utils/common.utils';
 
 const Label = ({ color, size, style, text, underline }: IProps) => {
   return (
     <Text
       style={[
         { color },
-        { fontSize: Utils.getScaledNumber(size) },
+        { fontSize: getScaledNumber(size) },
         { textDecorationLine: underline ? 'underline' : 'none' },
         style,
       ]}>
@@ -20,7 +20,7 @@ const Label = ({ color, size, style, text, underline }: IProps) => {
 
 Label.defaultProps = {
   color: colors.FOREGROUND,
-  size: Utils.getScaledNumber(16),
+  size: getScaledNumber(16),
   text: '',
   underline: false,
 };

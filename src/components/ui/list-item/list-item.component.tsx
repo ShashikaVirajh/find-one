@@ -3,7 +3,7 @@ import { Pressable, View } from 'react-native';
 
 import { Label } from 'components/ui';
 
-import { Utils } from 'library';
+import { getScaledNumber } from 'utils/common.utils';
 import styles from './list-item.styles';
 
 const ListItem = ({
@@ -23,7 +23,7 @@ const ListItem = ({
   subContentStyles,
   subTextSize,
 }: IProps) => {
-  const height = hideBorder ? Utils.getScaledNumber(50) : Utils.getScaledNumber(80);
+  const height = hideBorder ? getScaledNumber(50) : getScaledNumber(80);
   const borderWidth = hideBorder ? 0 : 1;
 
   const _renderLeftContent = () => {

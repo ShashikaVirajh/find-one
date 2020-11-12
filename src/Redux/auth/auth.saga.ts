@@ -3,7 +3,7 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 import { fetchAuthUserSuccess, signInSuccess, signUpSuccess } from 'Redux/auth/auth.actions';
 
 import { authTypes } from 'Redux/auth/auth.constants';
-import { IAuth, Saga } from 'types/data.types';
+import { Auth, Saga } from 'types/data.types';
 import AuthService from './auth.service';
 
 import { store } from 'Redux/store';
@@ -11,7 +11,7 @@ import { store } from 'Redux/store';
 function* signInStart({ payload, success, failure }: Saga) {
   try {
     const signInResponse = yield call(AuthService.signIn, payload);
-    const token: IAuth = signInResponse.token;
+    const token: Auth = signInResponse.token;
 
     yield put(signInSuccess({ token }));
     if (success) success();
@@ -23,7 +23,7 @@ function* signInStart({ payload, success, failure }: Saga) {
 function* signUpStart({ payload, success, failure }: Saga) {
   try {
     const signUpResponse = yield call(AuthService.signUp, payload);
-    const token: IAuth = signUpResponse.token;
+    const token: Auth = signUpResponse.token;
 
     yield put(signUpSuccess({ token }));
     if (success) success();

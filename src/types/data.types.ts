@@ -23,7 +23,7 @@ export type Saga = {
   failure?: Function;
 };
 
-export type IAuth = {
+export type Auth = {
   token: string;
 };
 

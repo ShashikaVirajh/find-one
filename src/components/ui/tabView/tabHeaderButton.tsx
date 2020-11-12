@@ -4,7 +4,7 @@ import { Pressable, StyleSheet, View } from 'react-native';
 import { Label } from 'components/ui';
 
 import { colors } from 'constants/colors.constant';
-import { Utils } from 'library';
+import { getScaledNumber } from 'utils/common.utils';
 
 const TabHeaderButton = ({
   headerLabel,
@@ -22,8 +22,8 @@ const TabHeaderButton = ({
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    height: Utils.getScaledNumber(30),
-    width: Utils.getScaledNumber(140),
+    height: getScaledNumber(30),
+    width: getScaledNumber(140),
   },
   tabText: {
     borderBottomColor: colors.LIGHT_BLUE,

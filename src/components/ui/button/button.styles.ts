@@ -1,20 +1,20 @@
 import { StyleSheet } from 'react-native';
 
 import { colors } from 'constants/colors.constant';
-import { Utils } from 'library';
+import { getScaledNumber } from 'utils/common.utils';
 
 export default StyleSheet.create({
   backIcon: {
     justifyContent: 'center',
-    paddingHorizontal: Utils.getScaledNumber(40),
+    paddingHorizontal: getScaledNumber(40),
   },
   button: {
     flexDirection: 'row',
-    borderWidth: Utils.getScaledNumber(1),
-    height: Utils.getScaledNumber(48),
+    borderWidth: getScaledNumber(1),
+    height: getScaledNumber(48),
     width: '100%',
-    marginTop: Utils.getScaledNumber(5),
-    marginBottom: Utils.getScaledNumber(5),
+    marginTop: getScaledNumber(5),
+    marginBottom: getScaledNumber(5),
   },
   buttonText: {
     flex: 1,
@@ -30,13 +30,13 @@ export default StyleSheet.create({
   },
   frontIcon: {
     justifyContent: 'center',
-    paddingHorizontal: Utils.getScaledNumber(16),
+    paddingHorizontal: getScaledNumber(16),
   },
   roundButton: {
-    borderRadius: Utils.getScaledNumber(25),
+    borderRadius: getScaledNumber(25),
   },
   squareButton: {
-    borderRadius: Utils.getScaledNumber(4),
+    borderRadius: getScaledNumber(4),
   },
   text: {
     textAlign: 'center',
