@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import { mapErrorResponse, setErrorName } from 'utils/error-logs.utils';
 
-import { BASE_URL } from 'config';
+import { BASE_URL, DEV_APP } from 'config';
 import { httpMethods, versions } from 'enums';
 import { ConsoleLogger, Logger } from 'library';
 import { toggleSpinner } from 'Redux/common/common.actions';
@@ -10,11 +10,50 @@ import { store } from 'Redux/store';
 import { Headers } from 'types/data.types';
 
 class Http {
-  static action: string;
-  static data: Object;
-  static method: httpMethods;
-  static token: string;
-  static version: versions;
+  private static action: string;
+  private static data: Object;
+  private static method: httpMethods;
+  private static token: string;
+  private static version: versions;
+
+  static request = async () => {
+    try {
+      store.dispatch(toggleSpinner(true));
+
+      const url = Http.generateURL();
+      const headers = Http.setHeaders();
+
+      if (typeof Http.token !== undefined) {
+        headers.Authorization = Http.token;
+      }
+
+      const config = {
+        url,
+        headers,
+        method: Http.method,
+        data: JSON.stringify(Http.data) || {},
+      };
+
+      const response = await axios(config);
+
+      if (DEV_APP) ConsoleLogger.log(`SUCCESS: ${Http.action}`, response);
+
+      Http.unsetData();
+      store.dispatch(toggleSpinner(false));
+
+      return response.data;
+    } catch (error) {
+      const { response } = error;
+      if (DEV_APP) ConsoleLogger.log(`ERROR: ${Http.action}`, response);
+
+      Logger.log(setErrorName(error), response?.config?.url, mapErrorResponse(response));
+
+      Http.unsetData();
+      store.dispatch(toggleSpinner(false));
+
+      throw response.data;
+    }
+  };
 
   static setAction(action: string) {
     Http.action = action;
@@ -41,24 +80,24 @@ class Http {
     return this;
   }
 
-  static unsetData() {
+  private static unsetData() {
     return (Http.data = []);
   }
 
-  static generateURL() {
+  private static generateURL() {
     let url = `${BASE_URL}/api/${Http.version}/${Http.action}`;
     if (Http.method === httpMethods.get) url += Http.serializeParams(Http.data);
     return url;
   }
 
-  static setHeaders() {
+  private static setHeaders() {
     const headers: Headers = {
       'Content-Type': 'application/json',
     };
     return headers;
   }
 
-  static serializeParams(params: any) {
+  private static serializeParams(params: any) {
     if (typeof params === undefined || Object.keys(params).length <= 0) return '';
 
     let queryString = '';
@@ -68,44 +107,6 @@ class Http {
     }
     return `?${queryString}`;
   }
-
-  static request = async () => {
-    try {
-      store.dispatch(toggleSpinner(true));
-
-      const url = Http.generateURL();
-      const headers = Http.setHeaders();
-
-      if (typeof Http.token !== undefined) {
-        headers.Authorization = Http.token;
-      }
-
-      const config = {
-        url,
-        headers,
-        method: Http.method,
-        data: JSON.stringify(Http.data) || {},
-      };
-
-      const response = await axios(config);
-
-      ConsoleLogger.log('SUCCESS:', response);
-      Http.unsetData();
-      store.dispatch(toggleSpinner(false));
-
-      return response.data;
-    } catch (error) {
-      const { response } = error;
-      ConsoleLogger.log('ERROR:', response);
-
-      Logger.log(setErrorName(error), response?.config?.url, mapErrorResponse(response));
-
-      Http.unsetData();
-      store.dispatch(toggleSpinner(false));
-
-      throw response.data;
-    }
-  };
 }
 
 export default Http;

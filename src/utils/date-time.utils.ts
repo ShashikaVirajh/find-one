@@ -22,24 +22,11 @@ export const addDates = (
     : moment(date).format(format);
 };
 
-export const getMonthDate = (date: moment.MomentInput) => {
+export const getMonthAndDate = (date: moment.MomentInput) => {
   return moment(date).format('MMM DD').toString().toUpperCase();
 };
 
 export const getCurrentTime = () => moment();
-
-export const isWithinSecond = (time: string) => {
-  const currentTime = moment();
-  const timeDifference = currentTime.diff(time);
-
-  return timeDifference < 1000;
-};
-
-export const getDateDifference = (value: string, diffIn: unitOfTime.Diff = 'years') => {
-  const receivedDate = moment(value, 'YYYY-MM-DD');
-  const today = moment();
-  return today.diff(receivedDate, diffIn);
-};
 
 export const getToday = (format: string) => moment().format(format);
 
@@ -51,6 +38,12 @@ export const getMinutesFromSeconds = (time: number) => {
   const formattedSeconds = seconds >= 10 ? seconds : `${0}${seconds}`;
 
   return `${formattedMinutes}:${formattedSeconds}`;
+};
+
+export const getDateDifference = (value: string, diffIn: unitOfTime.Diff = 'years') => {
+  const receivedDate = moment(value, 'YYYY-MM-DD');
+  const today = moment();
+  return today.diff(receivedDate, diffIn);
 };
 
 export const getDateDiff = (date1: moment.MomentInput, date2?: moment.MomentInput) => {

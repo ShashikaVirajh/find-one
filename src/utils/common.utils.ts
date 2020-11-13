@@ -42,7 +42,7 @@ export const stringHasSpecialChar = (string: string) => {
   return !specialCharRegex.test(string);
 };
 
-export const hasWordsInString = (string: string, words) => {
+export const hasWordsInString = (string: string, words: string[]) => {
   let wordsFound = false;
 
   for (let i = 0; i < words.length; i++) {
