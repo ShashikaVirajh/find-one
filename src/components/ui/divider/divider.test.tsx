@@ -4,14 +4,10 @@ import React from 'react';
 import Divider from './divider.component';
 
 describe('Divider', () => {
-  const props = {
-    backgroundColor: 'gray',
-    height: 20,
-    width: '100%',
-  };
-  it('test', () => {
-    const { getByTestId } = render(<Divider {...props} />);
-    const divider = getByTestId('divide');
+  it('should render Divider component', () => {
+    const { getByTestId } = render(<Divider />);
+    const divider = getByTestId('divider');
+
     expect(divider).toBeTruthy();
   });
 });

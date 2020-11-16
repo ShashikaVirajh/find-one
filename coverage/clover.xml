@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1605553231919" clover="3.2.0">
-  <project timestamp="1605553231919" name="All files">
+<coverage generated="1605553398471" clover="3.2.0">
+  <project timestamp="1605553398471" name="All files">
     <metrics statements="321" coveredstatements="81" conditionals="185" coveredconditionals="4" methods="122" coveredmethods="3" elements="628" coveredelements="88" complexity="0" loc="321" ncloc="321" packages="21" files="43" classes="43"/>
     <package name="Redux.forms">
       <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>

@@ -4,7 +4,7 @@ import { StyleSheet, View } from 'react-native';
 import { colors } from 'constants/colors.constant';
 
 const Divider = ({ backgroundColor, height, width }: IProps) => (
-  <View testID='divide' style={{ backgroundColor, height, width }} />
+  <View testID='divider' style={{ backgroundColor, height, width }} />
 );
 
 Divider.defaultProps = {
