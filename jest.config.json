@@ -1,0 +1,7 @@
+{
+  "preset": "react-native",
+  "setupFiles": ["<rootDir>/jest.setup.ts"],
+  "transformIgnorePatterns": [
+    "node_modules/(?!(jest-)?(react-native|@?react-navigation|@react-native-community|@fortawesome))"
+  ]
+}

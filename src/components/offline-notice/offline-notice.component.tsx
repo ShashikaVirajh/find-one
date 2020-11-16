@@ -3,6 +3,7 @@ import React from 'react';
 import { useNetInfo } from '@react-native-community/netinfo';
 
 import { Label } from 'components/ui';
+import strings from './offline-notice.strings';
 import styles from './offline-notice.styles';
 
 const OfflineNotice = ({ style, text }: IProps) => {
@@ -16,7 +17,7 @@ const OfflineNotice = ({ style, text }: IProps) => {
 };
 
 OfflineNotice.defaultProps = {
-  text: 'No Internet Connection',
+  text: strings.NO_INTERNET_CONNECTION,
 };
 
 interface IProps {
