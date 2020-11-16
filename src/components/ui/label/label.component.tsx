@@ -4,9 +4,10 @@ import { Text } from 'react-native';
 import { colors } from 'constants/colors.constant';
 import { getScaledNumber } from 'utils/common.utils';
 
-const Label = ({ color, size, style, text, underline }: IProps) => {
+const Label = ({ color, size, style, testID, text, underline }: IProps) => {
   return (
     <Text
+      testID={testID}
       style={[
         { color },
         { fontSize: getScaledNumber(size) },
@@ -29,6 +30,7 @@ interface IProps {
   color: string;
   size?: number;
   style?: object;
+  testID?: string;
   text?: string;
   underline?: boolean;
 }
