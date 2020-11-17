@@ -5,6 +5,7 @@ import Label from 'components/ui/label/label.component';
 import styles from './borderless-button.styles';
 
 const BorderlessButton = ({
+  testID,
   buttonStyle,
   disabled,
   onPress,
@@ -13,7 +14,7 @@ const BorderlessButton = ({
   textStyle,
   underline,
 }: IProps) => (
-  <Pressable style={buttonStyle} disabled={disabled} onPress={() => onPress()}>
+  <Pressable testID={testID} style={buttonStyle} disabled={disabled} onPress={() => onPress()}>
     <Label
       size={size}
       style={[disabled ? styles.disabledText : styles.text, textStyle]}
@@ -24,6 +25,7 @@ const BorderlessButton = ({
 );
 
 interface IProps {
+  testID: string;
   buttonStyle?: object;
   disabled?: boolean;
   onPress: Function;
@@ -35,7 +37,6 @@ interface IProps {
 
 BorderlessButton.defaultProps = {
   disabled: false,
-  onPress: () => {},
   size: 16,
   underline: false,
 };
