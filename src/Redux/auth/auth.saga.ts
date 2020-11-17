@@ -26,9 +26,9 @@ function* signUpStart({ payload, success, failure }: Saga) {
     const token: Auth = signUpResponse.token;
 
     yield put(signUpSuccess({ token }));
-    if (success) success();
+    success?.();
   } catch (ex) {
-    if (failure) failure(ex.error);
+    failure?.(ex.error);
   }
 }
 
@@ -41,9 +41,9 @@ function* fetchAuthUserStart({ success, failure }: Saga) {
     const authUserResponse = yield call(AuthService.fetchAuthUser, token);
 
     yield put(fetchAuthUserSuccess({ user: authUserResponse.data }));
-    if (success) return success();
+    success?.();
   } catch (ex) {
-    if (failure) failure(ex.error);
+    failure?.(ex.error);
   }
 }
 
