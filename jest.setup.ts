@@ -7,3 +7,7 @@ jest.mock('react-native-share', () => ({
 }));
 
 jest.mock('react-native-image-picker', () => ({}));
+
+jest.mock('@fortawesome/react-native-fontawesome', () => ({
+  FontAwesomeIcon: '',
+}));

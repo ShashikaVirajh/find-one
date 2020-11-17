@@ -33,7 +33,6 @@ interface IProps {
 
 RadioButton.defaultProps = {
   checked: false,
-  onPress: () => {},
 };
 
 export default RadioButton;

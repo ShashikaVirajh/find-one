@@ -5,25 +5,28 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 
 import styles from './clickable-icon.styles';
 
-const Icon = ({ style, icon, color, size, disabled, onPress }: IProps) => (
-  <Pressable style={[styles.button, style]} disabled={disabled} onPress={() => onPress()}>
+const Icon = ({ style, icon, color, size, disabled, onPress, testID }: IProps) => (
+  <Pressable
+    testID={testID}
+    style={[styles.button, style]}
+    disabled={disabled}
+    onPress={() => onPress()}>
     <FontAwesomeIcon icon={icon} color={color} size={size} />
   </Pressable>
 );
 
 interface IProps {
-  icon?: any;
-  color?: string;
-  size?: number;
-  disabled?: boolean;
-  style?: object;
+  testID: string;
+  icon: any;
   onPress: Function;
+  color?: string;
+  disabled?: boolean;
+  size?: number;
+  style?: object;
 }
 
 Icon.defaultProps = {
   disabled: false,
-  style: {},
-  onPress: () => {},
 };
 
 export default Icon;
