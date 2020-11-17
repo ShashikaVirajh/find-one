@@ -5,9 +5,12 @@ import { Label } from 'components/ui';
 
 import styles from './radio-button.styles';
 
-const RadioButton = ({ text, option, checked, onPress, containerStyle }: IProps) => {
+const RadioButton = ({ text, option, checked, onPress, containerStyle, testID }: IProps) => {
   return (
-    <Pressable style={[styles.container, containerStyle]} onPress={() => onPress(option, checked)}>
+    <Pressable
+      testID={testID}
+      style={[styles.container, containerStyle]}
+      onPress={() => onPress(option, checked)}>
       <View style={styles.text}>
         <Label size={16} text={text} />
       </View>
@@ -20,6 +23,7 @@ const RadioButton = ({ text, option, checked, onPress, containerStyle }: IProps)
 };
 
 interface IProps {
+  testID: string;
   text: string;
   option: string;
   checked: boolean;

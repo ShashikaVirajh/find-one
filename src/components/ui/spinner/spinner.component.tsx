@@ -7,7 +7,7 @@ import styles from './spinner.styles';
 const Spinner = () => (
   <View style={styles.overlay}>
     <View style={styles.indicator}>
-      <ActivityIndicator size='large' color={colors.LIGHT_GREEN} />
+      <ActivityIndicator testID='spinner' size='large' color={colors.LIGHT_GREEN} />
     </View>
   </View>
 );

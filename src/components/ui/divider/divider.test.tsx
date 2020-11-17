@@ -6,8 +6,8 @@ import Divider from './divider.component';
 describe('Divider', () => {
   it('should render Divider component', () => {
     const { getByTestId } = render(<Divider />);
-    const divider = getByTestId('divider');
+    const component = getByTestId('divider');
 
-    expect(divider).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 });
