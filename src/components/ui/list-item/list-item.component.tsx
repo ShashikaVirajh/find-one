@@ -7,6 +7,7 @@ import { getScaledNumber } from 'utils/common.utils';
 import styles from './list-item.styles';
 
 const ListItem = ({
+  testID,
   containerStyles,
   hideBorder,
   leftContent,
@@ -15,7 +16,7 @@ const ListItem = ({
   mainContent,
   mainContentStyles,
   mainTextSize,
-  onContainerPress,
+  onPress,
   rightContent,
   rightContentStyles,
   rightTextSize,
@@ -28,7 +29,14 @@ const ListItem = ({
 
   const _renderLeftContent = () => {
     if (leftContent && typeof leftContent === 'string') {
-      return <Label size={leftTextSize} style={[leftContentStyles]} text={leftContent} />;
+      return (
+        <Label
+          testID='leftContent'
+          size={leftTextSize}
+          style={[leftContentStyles]}
+          text={leftContent}
+        />
+      );
     }
 
     if (leftContent) return leftContent;
@@ -38,7 +46,14 @@ const ListItem = ({
 
   const _renderMainContent = () => {
     if (mainContent && typeof mainContent === 'string') {
-      return <Label size={mainTextSize} style={[mainContentStyles]} text={mainContent} />;
+      return (
+        <Label
+          testID='mainContent'
+          size={mainTextSize}
+          style={[mainContentStyles]}
+          text={mainContent}
+        />
+      );
     }
 
     if (mainContent) return mainContent;
@@ -48,7 +63,14 @@ const ListItem = ({
 
   const _renderRightContent = () => {
     if (rightContent && typeof rightContent === 'string') {
-      return <Label size={rightTextSize} style={[rightContentStyles]} text={rightContent} />;
+      return (
+        <Label
+          testID='rightContent'
+          size={rightTextSize}
+          style={[rightContentStyles]}
+          text={rightContent}
+        />
+      );
     }
 
     if (rightContent) return rightContent;
@@ -58,7 +80,14 @@ const ListItem = ({
 
   const _renderSubContent = () => {
     if (subContent && typeof subContent === 'string') {
-      return <Label size={subTextSize} style={[subContentStyles]} text={subContent} />;
+      return (
+        <Label
+          testID='subContent'
+          size={subTextSize}
+          style={[subContentStyles]}
+          text={subContent}
+        />
+      );
     }
 
     if (subContent) return subContent;
@@ -68,9 +97,11 @@ const ListItem = ({
 
   return (
     <Pressable
+      testID={testID}
       style={[styles.container, { height, borderWidth }, containerStyles]}
-      onPress={() => onContainerPress()}>
+      onPress={() => onPress()}>
       <View style={[styles.leftContent, leftContentStyles]}>{_renderLeftContent()}</View>
+
       <View style={styles.mainContent}>
         <View>{_renderMainContent()}</View>
         <View>{_renderSubContent()}</View>
@@ -81,6 +112,7 @@ const ListItem = ({
 };
 
 interface IProps {
+  testID: string;
   containerStyles?: Object;
   hideBorder?: boolean;
   leftContent?: string | JSX.Element;
@@ -89,7 +121,7 @@ interface IProps {
   mainContent?: string | JSX.Element;
   mainContentStyles?: Object;
   mainTextSize?: number;
-  onContainerPress: Function;
+  onPress: Function;
   rightContent?: string | JSX.Element;
   rightContentStyles?: Object;
   rightTextSize?: number;
@@ -104,11 +136,6 @@ ListItem.defaultProps = {
   mainTextSize: 16,
   subTextSize: 14,
   rightTextSize: 16,
-  onContainerPress: () => {},
-  onLeftContentPress: () => {},
-  onMainContentPress: () => {},
-  onRightContentPress: () => {},
-  onSubContentPress: () => {},
 };
 
 export default ListItem;

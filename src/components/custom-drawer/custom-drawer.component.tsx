@@ -20,6 +20,7 @@ const CustomDrawer = React.memo(({ userName, drawerProps, signOut }: IProps) => 
   const _renderDrawerItems = () =>
     DRAWER_ITEMS.map(({ key, icon, text, screen, options }) => (
       <ListItem
+        testID={key}
         key={key}
         hideBorder
         leftContent={icon}
@@ -33,6 +34,7 @@ const CustomDrawer = React.memo(({ userName, drawerProps, signOut }: IProps) => 
   return (
     <SafeAreaView style={styles.container}>
       <CustomImage
+        testID='homeLogo'
         containerStyle={styles.imageContainer}
         imageStyle={styles.image}
         source={HomeLogo}
@@ -43,8 +45,11 @@ const CustomDrawer = React.memo(({ userName, drawerProps, signOut }: IProps) => 
 
         {_renderDrawerItems()}
         <ListItem
+          testID='signOut'
           hideBorder
-          leftContent={<Icon icon={icons.SIGN_OUT} color={colors.LIGHT_GREEN} size={25} />}
+          leftContent={
+            <Icon testID='signOut' icon={icons.SIGN_OUT} color={colors.LIGHT_GREEN} size={25} />
+          }
           mainContent='Log Out'
           onContainerPress={handleSignOut}
         />

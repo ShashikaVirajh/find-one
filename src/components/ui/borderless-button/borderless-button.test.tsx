@@ -3,7 +3,7 @@ import React from 'react';
 
 import BorderlessButton from './borderless-button.component';
 
-describe('Borderless Button', () => {
+describe('BorderlessButton', () => {
   it('should render BorderlessButton component', () => {
     const mockProps = {
       testID: 'borderlessButton',

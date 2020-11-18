@@ -14,9 +14,9 @@ function* signInStart({ payload, success, failure }: Saga) {
     const token: Auth = signInResponse.token;
 
     yield put(signInSuccess({ token }));
-    if (success) success();
+    success?.();
   } catch (ex) {
-    if (failure) failure(ex.error);
+    failure?.(ex.error);
   }
 }
 
