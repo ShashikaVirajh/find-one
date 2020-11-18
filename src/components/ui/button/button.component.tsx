@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { Pressable, View } from 'react-native';
 
 import { Icon, Label } from 'components/ui';
@@ -24,6 +24,7 @@ const Button = ({
     if (frontIcon) {
       return (
         <Icon
+          testID='frontIcon'
           icon={frontIcon}
           color={frontIconColor}
           size={frontIconSize}
@@ -40,6 +41,7 @@ const Button = ({
     if (backIcon) {
       return (
         <Icon
+          testID='backIcon'
           icon={backIcon}
           color={backIconColor}
           size={backIconSize}
@@ -77,12 +79,12 @@ const Button = ({
 };
 
 interface IProps {
-  backIcon?: FC;
+  backIcon?: JSX.Element;
   backIconColor?: string;
   backIconSize?: number;
   buttonStyle?: object;
   disabled?: boolean;
-  frontIcon?: any;
+  frontIcon?: JSX.Element;
   frontIconColor?: string;
   frontIconSize?: number;
   onPress: () => void;

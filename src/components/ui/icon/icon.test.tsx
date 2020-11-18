@@ -1,12 +1,12 @@
 import { fireEvent, render } from '@testing-library/react-native';
 import React from 'react';
 
-import ClickableIcon from './clickable-icon.component';
+import Icon from './icon.component';
 
-describe('ClickableIcon', () => {
-  it('should render ClickableIcon component', () => {
+describe('Icon', () => {
+  it('should render Icon component', () => {
     const mockProps = {
-      testID: 'clickableIcon',
+      testID: 'icon',
       icon: 'faCamera',
       onPress: jest.fn(),
       color: 'blue',
@@ -14,8 +14,8 @@ describe('ClickableIcon', () => {
       size: 24,
     };
 
-    const { getByTestId } = render(<ClickableIcon {...mockProps} />);
-    const component = getByTestId('clickableIcon');
+    const { getByTestId } = render(<Icon {...mockProps} />);
+    const component = getByTestId('icon');
     fireEvent.press(component);
 
     expect(component).toBeTruthy();
