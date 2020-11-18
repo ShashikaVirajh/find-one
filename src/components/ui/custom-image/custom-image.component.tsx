@@ -4,7 +4,8 @@ import { Image, Pressable } from 'react-native';
 import { ResizeModes } from 'enums';
 import { getScaledNumber } from 'utils/common.utils';
 
-const Icon = ({
+const CustomIage = ({
+  testID,
   containerStyle,
   imageStyle,
   height,
@@ -16,6 +17,7 @@ const Icon = ({
   onPress,
 }: IProps) => (
   <Pressable
+    testID={testID}
     style={[{ height, width }, containerStyle]}
     disabled={disabled}
     onPress={() => onPress()}>
@@ -28,12 +30,10 @@ const Icon = ({
 );
 
 interface IProps {
-  icon?: any;
-  color?: string;
+  testID: string;
   height?: number | string;
   width?: number | string;
   borderRadius: number;
-  size?: number;
   source: any;
   resizeMode?: ResizeModes;
   disabled?: boolean;
@@ -42,15 +42,12 @@ interface IProps {
   onPress: Function;
 }
 
-Icon.defaultProps = {
+CustomIage.defaultProps = {
   disabled: true,
   resizeMode: ResizeModes.cover,
   height: getScaledNumber(300),
   width: '100%',
   borderRadius: getScaledNumber(6),
-  containerStyle: {},
-  imageStyle: {},
-  onPress: () => {},
 };
 
-export default Icon;
+export default CustomIage;
