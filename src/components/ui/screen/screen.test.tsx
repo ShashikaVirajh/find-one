@@ -9,11 +9,10 @@
 
 describe('Screen', () => {
   it('should render Screen', () => {
-    const mockProps = {
-      testID: 'screen',
-      onPress: jest.fn(),
-    };
-
+    // const mockProps = {
+    //   testID: 'screen',
+    //   onPress: jest.fn(),
+    // };
     // const { getByTestId } = render(<Screen {...mockProps} />);
     // const component = getByTestId('screen');
     // expect(component).toBeTruthy();
