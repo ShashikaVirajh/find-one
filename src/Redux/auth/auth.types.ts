@@ -1,4 +1,4 @@
-export const authTypes = {
+export const authActionTypes = {
   FETCH_AUTH_USER_START: 'FETCH_AUTH_USER_START',
   FETCH_AUTH_USER_SUCCESS: 'FETCH_AUTH_USER_SUCCESS',
 

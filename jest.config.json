@@ -1,7 +1,18 @@
 {
   "preset": "react-native",
+  "collectCoverageFrom": ["src/**/*.{ts,tsx}"],
   "setupFiles": ["<rootDir>/jest.setup.ts"],
   "transformIgnorePatterns": [
     "node_modules/(?!(jest-)?(react-native|@?react-navigation|@react-native-community|@fortawesome))"
+  ],
+  "coveragePathIgnorePatterns": [
+    "/node_modules/",
+    "/jestSetup",
+    "/src/Config.ts",
+    "/src/App.tsx",
+    "/src/Redux/store/root-reducer.ts",
+    "/src/Redux/root-saga.ts",
+    "/src/constants/",
+    "/src/enums/"
   ]
 }

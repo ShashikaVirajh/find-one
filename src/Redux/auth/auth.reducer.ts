@@ -1,6 +1,6 @@
 import { Action } from 'types/data.types';
 import { AuthReducer } from 'types/reducer.types';
-import { authTypes } from './auth.constants';
+import { authActionTypes } from './auth.types';
 
 const INITIAL_STATE: AuthReducer = {
   token: '',
@@ -17,16 +17,16 @@ const INITIAL_STATE: AuthReducer = {
 
 export default (state = INITIAL_STATE, { type, payload }: Action) => {
   switch (type) {
-    case authTypes.FETCH_AUTH_USER_SUCCESS:
+    case authActionTypes.FETCH_AUTH_USER_SUCCESS:
       return fetchAuthUserSuccess(state, payload);
 
-    case authTypes.SIGN_IN_SUCCESS:
+    case authActionTypes.SIGN_IN_SUCCESS:
       return setSignInSuccess(state, payload);
 
-    case authTypes.SIGN_UP_SUCCESS:
+    case authActionTypes.SIGN_UP_SUCCESS:
       return setSignUpSuccess(state, payload);
 
-    case authTypes.SIGN_OUT:
+    case authActionTypes.SIGN_OUT:
       return signOut();
 
     default:

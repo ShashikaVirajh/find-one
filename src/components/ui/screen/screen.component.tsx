@@ -10,6 +10,7 @@ import styles from './screen.styles';
 import { colors } from 'constants/colors.constant';
 
 const Screen = ({
+  testID,
   leftContent,
   onLeftContentPress,
   leftContentStyles,
@@ -67,7 +68,13 @@ const Screen = ({
 
     if (!hideBackButton) {
       return (
-        <Icon icon={icons.CHEVRON_LEFT} color={colors.FOREGROUND} size={18} onPress={goBack} />
+        <Icon
+          testID='left'
+          icon={icons.CHEVRON_LEFT}
+          color={colors.FOREGROUND}
+          size={18}
+          onPress={goBack}
+        />
       );
     }
 
@@ -138,7 +145,7 @@ const Screen = ({
   };
 
   return (
-    <View style={[styles.container, containerStyles]}>
+    <View testID={testID} style={[styles.container, containerStyles]}>
       {renderHeader()}
       {renderContent()}
     </View>
@@ -146,6 +153,7 @@ const Screen = ({
 };
 
 interface IProps {
+  testID: string;
   leftContent?: string | JSX.Element;
   onLeftContentPress: Function;
   leftContentStyles?: Object;

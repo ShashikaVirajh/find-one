@@ -2,7 +2,7 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 
 import { fetchAuthUserSuccess, signInSuccess, signUpSuccess } from 'Redux/auth/auth.actions';
 
-import { authTypes } from 'Redux/auth/auth.constants';
+import { authActionTypes } from 'Redux/auth/auth.types';
 import { Auth, Saga } from 'types/data.types';
 import AuthService from './auth.service';
 
@@ -48,7 +48,7 @@ function* fetchAuthUserStart({ success, failure }: Saga) {
 }
 
 export default function* authSaga() {
-  yield takeLatest(authTypes.FETCH_AUTH_USER_START, fetchAuthUserStart);
-  yield takeLatest(authTypes.SIGN_IN_START, signInStart);
-  yield takeLatest(authTypes.SIGN_UP_START, signUpStart);
+  yield takeLatest(authActionTypes.FETCH_AUTH_USER_START, fetchAuthUserStart);
+  yield takeLatest(authActionTypes.SIGN_IN_START, signInStart);
+  yield takeLatest(authActionTypes.SIGN_UP_START, signUpStart);
 }
