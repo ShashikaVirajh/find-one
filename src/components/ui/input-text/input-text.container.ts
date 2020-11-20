@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { addFormData, initForm } from 'Redux/forms/forms.actions';
+import { addFormData, initForm } from 'Redux/form/form.actions';
 
 import InputText from './input-text.component';
 

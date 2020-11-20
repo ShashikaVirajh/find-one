@@ -1,3 +1,3 @@
-export const commonTypes = {
+export const commonActionTypes = {
   TOGGLE_SPINNER: 'TOGGLE_SPINNER',
 };

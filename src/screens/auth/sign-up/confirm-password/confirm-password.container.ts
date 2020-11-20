@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import { SIGN_UP_FORM } from 'constants/forms.constant';
 import { fetchAuthUserStart, signUpStart } from 'Redux/auth/auth.actions';
-import { resetForm } from 'Redux/forms/forms.actions';
+import { resetForm } from 'Redux/form/form.actions';
 import { ApplicationState } from 'types/reducer.types';
 import ConfirmPassword from './confirm-password.component';
 

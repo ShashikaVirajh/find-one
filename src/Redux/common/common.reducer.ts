@@ -1,6 +1,6 @@
 import { Action } from 'types/data.types';
 import { CommonReducer } from 'types/reducer.types';
-import { commonTypes } from './common.constants';
+import { commonActionTypes } from './common.types';
 
 const INITIAL_STATE: CommonReducer = {
   isLoading: false,
@@ -8,7 +8,7 @@ const INITIAL_STATE: CommonReducer = {
 
 export default (state = INITIAL_STATE, { type, payload }: Action) => {
   switch (type) {
-    case commonTypes.TOGGLE_SPINNER:
+    case commonActionTypes.TOGGLE_SPINNER:
       return toggleSpinner(state, payload);
 
     default:

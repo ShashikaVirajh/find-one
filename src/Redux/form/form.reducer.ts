@@ -1,7 +1,7 @@
 import { SIGN_IN_FORM, SIGN_UP_FORM } from 'constants/forms.constant';
 import { Action } from 'types/data.types';
 import { FormsReducer } from 'types/reducer.types';
-import { formsTypes } from './forms.constants';
+import { formActionTypes } from './form.types';
 
 const INITIAL_STATE: FormsReducer = {
   [SIGN_IN_FORM]: {
@@ -28,13 +28,13 @@ const INITIAL_STATE: FormsReducer = {
 
 export default (state = INITIAL_STATE, { type, payload }: Action) => {
   switch (type) {
-    case formsTypes.INIT_FORM:
+    case formActionTypes.INIT_FORM:
       return initForm(state, payload);
-    case formsTypes.ADD_FORM_DATA:
+    case formActionTypes.ADD_FORM_DATA:
       return addFormData(state, payload);
-    case formsTypes.RESET_FORM_DATA:
+    case formActionTypes.RESET_FORM_DATA:
       return resetForm(state, payload);
-    case formsTypes.SET_REQUEST_ERROR:
+    case formActionTypes.SET_FORM_ERROR:
       return setFormError(state, payload);
     default:
       return state;

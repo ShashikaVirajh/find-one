@@ -1,6 +1,6 @@
-import { commonTypes } from './common.constants';
+import { commonActionTypes } from './common.types';
 
 export const toggleSpinner = (payload: boolean) => ({
-  type: commonTypes.TOGGLE_SPINNER,
+  type: commonActionTypes.TOGGLE_SPINNER,
   payload,
 });

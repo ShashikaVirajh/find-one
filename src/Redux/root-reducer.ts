@@ -5,7 +5,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 import authReducer from 'Redux/auth/auth.reducer';
 import commonReducer from 'Redux/common/common.reducer';
-import formsReducer from 'Redux/forms/forms.reducer';
+import formsReducer from 'Redux/form/form.reducer';
 
 const persistConfig = {
   key: 'root',

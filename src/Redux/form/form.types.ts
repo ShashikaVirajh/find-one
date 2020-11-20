@@ -1,6 +1,6 @@
-export const formsTypes = {
+export const formActionTypes = {
   INIT_FORM: 'INIT_FORM',
   ADD_FORM_DATA: 'ADD_FORM_DATA',
   RESET_FORM_DATA: 'RESET_FORM_DATA',
-  SET_REQUEST_ERROR: 'SET_REQUEST_ERROR',
+  SET_FORM_ERROR: 'SET_FORM_ERROR',
 };
