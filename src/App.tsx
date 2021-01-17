@@ -9,18 +9,20 @@ import library from 'library/icon.library';
 import AppNavigator from 'navigation/app-navigator';
 
 import Logger from 'library/logger.library';
+import { setRemoteConfigCacheInterval } from 'library/remote-config.library';
 
 Logger.init();
+setRemoteConfigCacheInterval();
 
-const App = () => {
-  return (
-    <Provider store={store}>
-      <PersistGate persistor={persistor}>
-        <OfflineNotice />
-        <AppNavigator />
-      </PersistGate>
-    </Provider>
-  );
-};
+const App = () => (
+  <Provider store={store}>
+    <PersistGate persistor={persistor}>
+      <OfflineNotice />
+      <AppNavigator />
+    </PersistGate>
+  </Provider>
+);
 
-export { App, library };
+export default App;
+
+export { library };

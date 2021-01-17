@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "111159793506",
+    "project_id": "find-one-a5f5b",
+    "storage_bucket": "find-one-a5f5b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:111159793506:android:af5426e194091ecb23fe3b",
+        "android_client_info": {
+          "package_name": "com.findone.mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "111159793506-dsiud5rnvkagojb8i03lglmhug8530ds.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.findone.mobile",
+            "certificate_hash": "bef22abc33c6dd71a4760357949383a99f7ea157"
+          }
+        },
+        {
+          "client_id": "111159793506-knn795nsp5ja8qem4e5fa11u2og47kur.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4VSJkZEWiDZQ-OphPQUyEDP65L2fnTXs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "111159793506-knn795nsp5ja8qem4e5fa11u2og47kur.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

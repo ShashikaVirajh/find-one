@@ -20,39 +20,29 @@ const Button = ({
   textStyle,
   ...otherProps
 }: IProps) => {
-  const renderFrontIcon = () => {
-    if (frontIcon) {
-      return (
-        <Icon
-          testID='frontIcon'
-          icon={frontIcon}
-          color={frontIconColor}
-          size={frontIconSize}
-          disabled={true}
-          style={styles.frontIcon}
-        />
-      );
-    }
+  const renderFrontIcon = () =>
+    frontIcon ? (
+      <Icon
+        testID='frontIcon'
+        icon={frontIcon}
+        color={frontIconColor}
+        size={frontIconSize}
+        disabled={true}
+        style={styles.frontIcon}
+      />
+    ) : null;
 
-    return null;
-  };
-
-  const renderBackIcon = () => {
-    if (backIcon) {
-      return (
-        <Icon
-          testID='backIcon'
-          icon={backIcon}
-          color={backIconColor}
-          size={backIconSize}
-          disabled={true}
-          style={styles.backIcon}
-        />
-      );
-    }
-
-    return null;
-  };
+  const renderBackIcon = () =>
+    backIcon ? (
+      <Icon
+        testID='backIcon'
+        icon={backIcon}
+        color={backIconColor}
+        size={backIconSize}
+        disabled={true}
+        style={styles.backIcon}
+      />
+    ) : null;
 
   const renderButtonText = () => (
     <View style={styles.textContainer}>
@@ -98,7 +88,7 @@ Button.defaultProps = {
   backIconSize: 24,
   frontIconColor: colors.SILVER,
   frontIconSize: 24,
-  roundButton: true,
+  roundButton: false,
 };
 
 export default Button;

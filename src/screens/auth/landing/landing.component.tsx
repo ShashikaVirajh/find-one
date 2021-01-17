@@ -7,10 +7,10 @@ import { Button, CustomImage, Screen } from 'components/ui';
 import { SIGN_IN_FORM, SIGN_UP_FORM } from 'constants/forms.constant';
 import { HomeLogo } from 'constants/images.constants';
 import { routes } from 'constants/routes.constant';
-import strings from './welcome.strings';
-import styles from './welcome.styles';
+import strings from './landing.strings';
+import styles from './landing.styles';
 
-const Welcome = ({ initForm, navigation }: IProps) => {
+const Landing = ({ appDescription, initForm, navigation }: IProps) => {
   useEffect(() => {
     initForm({ form: SIGN_IN_FORM, field: 'email' });
     initForm({ form: SIGN_UP_FORM, field: 'firstName' });
@@ -40,7 +40,7 @@ const Welcome = ({ initForm, navigation }: IProps) => {
       footer={renderFooter}
       hideBackButton
       title={strings.TITLE}
-      description={strings.DESCRIPTION}
+      description={appDescription}
       contentStyles={styles.screenContent}>
       <View style={styles.body}>
         <CustomImage
@@ -62,8 +62,9 @@ const Welcome = ({ initForm, navigation }: IProps) => {
 };
 
 interface IProps {
+  appDescription: string;
   initForm: Function;
   navigation: any;
 }
 
-export default Welcome;
+export default Landing;

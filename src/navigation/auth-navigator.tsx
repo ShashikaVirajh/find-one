@@ -7,6 +7,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import { routes } from 'constants/routes.constant';
 
+import LandingScreen from 'screens/auth/landing/landing.container';
 import SignInScreen from 'screens/auth/sign-in/sign-in.container';
 import ConfirmPasswordScreen from 'screens/auth/sign-up/confirm-password/confirm-password.container';
 import EmailScreen from 'screens/auth/sign-up/email/email.container';
@@ -14,14 +15,13 @@ import MobileScreen from 'screens/auth/sign-up/mobile/mobile.container';
 import NameScreen from 'screens/auth/sign-up/name/name.container';
 import PasswordScreen from 'screens/auth/sign-up/password/password.container';
 import ProfilePictureScreen from 'screens/auth/sign-up/profile-picture/profile-picture.container';
-import WelcomeScreen from 'screens/auth/welcome/welcome.container';
 
 const AuthStack = createStackNavigator();
 
 const AuthNavigator = () => (
   <NavigationContainer>
-    <AuthStack.Navigator headerMode='none' initialRouteName={routes.WELCOME_SCREEN}>
-      <AuthStack.Screen name={routes.WELCOME_SCREEN} component={WelcomeScreen} />
+    <AuthStack.Navigator headerMode='none' initialRouteName={routes.LANDING_SCREEN}>
+      <AuthStack.Screen name={routes.LANDING_SCREEN} component={LandingScreen} />
       <AuthStack.Screen name={routes.SIGN_IN_SCREEN} component={SignInScreen} />
       <AuthStack.Screen name={routes.NAME_SCREEN} component={NameScreen} />
       <AuthStack.Screen name={routes.EMAIL_SCREEN} component={EmailScreen} />

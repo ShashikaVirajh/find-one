@@ -7,15 +7,18 @@ import { ApplicationState } from 'types/reducer.types';
 import AuthNavigator from './auth-navigator';
 import MainNavigator from './main-navigator';
 
-const AppNavigator = ({ token, isLoading }: IProps) => {
-  const _renderNavigator = () => (token ? <MainNavigator /> : <AuthNavigator />);
+import { fetchRemoteConfigStart } from 'Redux/app/app.actions';
 
-  const _renderSpinner = () => (isLoading ? <Spinner /> : null);
+const AppNavigator = ({ token, isLoading, fetchRemoteConfigStart }: IProps) => {
+  const renderNavigator = () => (token ? <MainNavigator /> : <AuthNavigator />);
+  const renderSpinner = () => (isLoading ? <Spinner /> : null);
+
+  fetchRemoteConfigStart();
 
   return (
     <>
-      {_renderNavigator()}
-      {_renderSpinner()}
+      {renderNavigator()}
+      {renderSpinner()}
     </>
   );
 };
@@ -26,8 +29,9 @@ const mapStateToProps = ({ auth, common }: ApplicationState) => ({
 });
 
 interface IProps {
+  fetchRemoteConfigStart: Function;
   token?: string;
   isLoading?: boolean;
 }
 
-export default connect(mapStateToProps)(AppNavigator);
+export default connect(mapStateToProps, { fetchRemoteConfigStart })(AppNavigator);

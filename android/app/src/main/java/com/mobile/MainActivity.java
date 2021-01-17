@@ -1,4 +1,4 @@
-package com.mobile;
+package com.findone.mobile;
 
 import com.facebook.react.ReactActivity;
 

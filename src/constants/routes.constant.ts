@@ -9,5 +9,5 @@ export const routes = {
   PASSWORD_SCREEN: 'PasswordScreen',
   PROFILE_PICTURE_SCREEN: 'ProfilePictureScreen',
   SIGN_IN_SCREEN: 'SignInScreen',
-  WELCOME_SCREEN: 'Welcome',
+  LANDING_SCREEN: 'Landing',
 };

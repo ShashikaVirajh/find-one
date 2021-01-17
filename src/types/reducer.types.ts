@@ -7,6 +7,14 @@ export type AuthReducer = {
   user: User;
 };
 
+export type AppReducer = {
+  remoteConfig: {
+    appInfo: {
+      appDescription: string;
+    };
+  };
+};
+
 export type FormsReducer = {
   [SIGN_IN_FORM]: signInForm;
   [SIGN_UP_FORM]: signUpForm;
@@ -17,6 +25,7 @@ export type CommonReducer = {
 };
 
 export type ApplicationState = {
+  app: AppReducer;
   auth: AuthReducer;
   forms: FormsReducer;
   common: CommonReducer;
