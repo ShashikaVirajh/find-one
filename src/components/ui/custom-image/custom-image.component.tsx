@@ -30,7 +30,7 @@ const CustomIage = ({
 );
 
 interface IProps {
-  testID: string;
+  testID?: string;
   height?: number | string;
   width?: number | string;
   borderRadius: number;
@@ -48,6 +48,7 @@ CustomIage.defaultProps = {
   height: getScaledNumber(300),
   width: '100%',
   borderRadius: getScaledNumber(6),
+  onPress: () => {},
 };
 
 export default CustomIage;

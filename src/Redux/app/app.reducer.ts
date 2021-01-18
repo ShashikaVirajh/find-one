@@ -23,7 +23,7 @@ const appReducer = (state = INITIAL_STATE, { type, payload }: Action) => {
 const setRemoteConfig = (state: AppReducer, payload: any) => {
   return {
     ...state,
-    remoteConfig: payload,
+    remoteConfigurations: payload,
   };
 };
 

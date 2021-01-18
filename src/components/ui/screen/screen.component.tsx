@@ -153,7 +153,7 @@ const Screen = ({
 };
 
 interface IProps {
-  testID: string;
+  testID?: string;
   leftContent?: string | JSX.Element;
   onLeftContentPress: Function;
   leftContentStyles?: Object;
