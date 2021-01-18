@@ -8,7 +8,7 @@ export type AuthReducer = {
 };
 
 export type AppReducer = {
-  remoteConfig: {
+  remoteConfigurations: {
     appInfo: {
       appDescription: string;
     };

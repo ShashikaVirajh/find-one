@@ -3,14 +3,14 @@ import { AppReducer } from 'types/reducer.types';
 import { appActionTypes } from './app.types';
 
 export const INITIAL_STATE: AppReducer = {
-  remoteConfig: {
+  remoteConfigurations: {
     appInfo: {
       appDescription: 'Find someone to help you with your tasks',
     },
   },
 };
 
-export default (state = INITIAL_STATE, { type, payload }: Action) => {
+const appReducer = (state = INITIAL_STATE, { type, payload }: Action) => {
   switch (type) {
     case appActionTypes.FETCH_REMOTE_CONFIG_SUCCESS:
       return setRemoteConfig(state, payload);
@@ -26,3 +26,6 @@ const setRemoteConfig = (state: AppReducer, payload: any) => {
     remoteConfig: payload,
   };
 };
+
+const { remoteConfigurations } = INITIAL_STATE;
+export { appReducer as default, remoteConfigurations };

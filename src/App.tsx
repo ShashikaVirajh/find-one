@@ -8,11 +8,11 @@ import { persistor, store } from 'Redux/store';
 import library from 'library/icon.library';
 import AppNavigator from 'navigation/app-navigator';
 
+import { RemoteConfig } from 'library';
 import Logger from 'library/logger.library';
-import { setRemoteConfigCacheInterval } from 'library/remote-config.library';
 
 Logger.init();
-setRemoteConfigCacheInterval();
+RemoteConfig.setRemoteConfigCacheInterval();
 
 const App = () => (
   <Provider store={store}>
