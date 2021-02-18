@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import RNBootSplash from 'react-native-bootsplash';
 import { connect } from 'react-redux';
 
 import { Spinner } from 'components/ui';
@@ -10,10 +11,15 @@ import MainNavigator from './main-navigator';
 import { fetchRemoteConfigStart } from 'Redux/app/app.actions';
 
 const AppNavigator = ({ token, isLoading, fetchRemoteConfigStart }: IProps) => {
-  const renderNavigator = () => (token ? <MainNavigator /> : <AuthNavigator />);
-  const renderSpinner = () => (isLoading ? <Spinner /> : null);
+  useEffect(() => {
+    fetchRemoteConfigStart(hideSplashScreen, hideSplashScreen);
+  }, []);
 
-  fetchRemoteConfigStart();
+  const hideSplashScreen = () => RNBootSplash.hide({ fade: true });
+
+  const renderNavigator = () => (token ? <MainNavigator /> : <AuthNavigator />);
+
+  const renderSpinner = () => (isLoading ? <Spinner /> : null);
 
   return (
     <>
