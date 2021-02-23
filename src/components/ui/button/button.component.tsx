@@ -52,7 +52,7 @@ const Button = ({
 
   return (
     <Pressable
-      onPress={() => onPress()}
+      onPress={onPress}
       disabled={disabled}
       style={[
         styles.button,

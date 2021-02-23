@@ -51,7 +51,11 @@ const SignIn = ({
   };
 
   const renderFooter = () => (
-    <Button text={strings.LOG_IN} disabled={disableButton()} onPress={handleLogin} />
+    <Button
+      text={strings.LOG_IN}
+      disabled={disableButton()}
+      onPress={handleLogin}
+    />
   );
 
   const handleTextChange = () => {

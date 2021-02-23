@@ -6,12 +6,17 @@ import { authActionTypes } from 'Redux/auth/auth.types';
 import { Auth, Saga } from 'types/data.types';
 import AuthService from './auth.service';
 
+import { analyts } from 'constants/analytics.constants';
+import { Analytics } from 'library';
+
 import { store } from 'Redux/store';
 
 function* signInStart({ payload, success, failure }: Saga) {
   try {
     const signInResponse = yield call(AuthService.signIn, payload);
     const token: Auth = signInResponse.token;
+
+    Analytics.logEvent(analyts.SIGNED_IN, { email: payload.email });
 
     yield put(signInSuccess({ token }));
     success?.();
@@ -24,6 +29,8 @@ function* signUpStart({ payload, success, failure }: Saga) {
   try {
     const signUpResponse = yield call(AuthService.signUp, payload);
     const token: Auth = signUpResponse.token;
+
+    Analytics.logEvent(analyts.SIGNED_UP, { email: payload.email });
 
     yield put(signUpSuccess({ token }));
     success?.();

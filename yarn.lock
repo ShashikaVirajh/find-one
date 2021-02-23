@@ -1511,18 +1511,23 @@
   resolved "https://registry.yarnpkg.com/@react-native-community/netinfo/-/netinfo-5.9.7.tgz#769c6b306ea6bbaa1c4a3fffdd183d0cfc30ed7e"
   integrity sha512-NAkkT68oF+M9o6El2xeUqZK7magPjG/tAcEbvCbqyhlh3yElKWnI1e1vpbVvFXzTefy67FwYFWOJqBN6U7Mnkg==
 
-"@react-native-firebase/app@10.4.0":
-  version "10.4.0"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/app/-/app-10.4.0.tgz#f0de2117ac36f58abb690c7b0560207b42d80482"
-  integrity sha512-X+4VS3AlLs1TwQLjFZAfT6SbjeWoSsxf5P+21fJWriHNo3Qv3k8G8TgqXjiNZizWW1FUlhJdVKb+v38yrudjag==
+"@react-native-firebase/analytics@^10.8.1":
+  version "10.8.1"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/analytics/-/analytics-10.8.1.tgz#293c3e483fbb77a181803e9b5a766c87e0d466d8"
+  integrity sha512-6fw3TwV7PbdelLND0yBqrnneHxGzqaXtCMLUYaklO55iCBi8dzX2eT3ouyI3IvtS/qYrF7ruEpvMeM4gUVcdqw==
+
+"@react-native-firebase/app@^10.8.1":
+  version "10.8.1"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/app/-/app-10.8.1.tgz#3455f491a5fc3d91677fd69e70b006a68fb7ca5c"
+  integrity sha512-EHbFGCbRdZMxSbdq5YCc47E9C+ckzsMeZdknJbSddTYJ9JxPDiorUyoHFOUCAHS2ZoklhpdlrU5zGNzxpBgDUw==
   dependencies:
     opencollective-postinstall "^2.0.1"
     superstruct "^0.6.2"
 
-"@react-native-firebase/remote-config@10.4.1":
-  version "10.4.1"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/remote-config/-/remote-config-10.4.1.tgz#79f57b3ab5f716e090be33a67d9c5bbbe2be38b4"
-  integrity sha512-gsj61fwv9ihpPGlcJi5uOv2e/ubWwsjtxI730vQ95hyAg/9m3uo4Yxl1hO0SeC097qRCf1KftUCA7Twf2i8kCw==
+"@react-native-firebase/remote-config@^10.8.1":
+  version "10.8.1"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/remote-config/-/remote-config-10.8.1.tgz#c6587c2ee3610870372084ed51dbfd66d26ffbc3"
+  integrity sha512-zONnuaNsyFziNXR5ee222QgcJv8OIvPufMwzXaY180XRzNnBUsCPWmOvhQouA3ko8oUKov1J/sXPAL9DWpb+JQ==
 
 "@react-navigation/bottom-tabs@5.11.1":
   version "5.11.1"
@@ -2115,20 +2120,6 @@ anymatch@^3.0.3:
   dependencies:
     normalize-path "^3.0.0"
     picomatch "^2.0.4"
-
-appcenter-analytics@3.1.2:
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/appcenter-analytics/-/appcenter-analytics-3.1.2.tgz#7bf78cdfe2575a5ac27e0edf72c6fdbd7e37c098"
-  integrity sha512-uHLcAJW+rP3eO24L5gjAIVMG0Ok2MaLB9bZAdwyIVqSlo1K7ByBTfHDMz6r1RXMRRbIabgiZi+i0+WfZH2dsjA==
-  dependencies:
-    appcenter "3.1.2"
-
-appcenter-crashes@3.1.2:
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/appcenter-crashes/-/appcenter-crashes-3.1.2.tgz#b2665bccc713c916f659c8997f6fe67f20ea8c99"
-  integrity sha512-G/laj2HhwFKhgEPabyWZpHA04C7hQIzLuVZmQ2EwJ8WOq5yQwQqu561gEsRFNFHY3/8Jxf9VPsG47R1254OF/A==
-  dependencies:
-    appcenter "3.1.2"
 
 appcenter-link-scripts@3.1.2:
   version "3.1.2"

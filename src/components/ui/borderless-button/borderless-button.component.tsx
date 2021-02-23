@@ -25,7 +25,7 @@ const BorderlessButton = ({
 );
 
 interface IProps {
-  testID: string;
+  testID?: string;
   buttonStyle?: object;
   disabled?: boolean;
   onPress: Function;

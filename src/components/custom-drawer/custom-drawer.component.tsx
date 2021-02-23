@@ -2,6 +2,8 @@ import React from 'react';
 import { SafeAreaView, ScrollView } from 'react-native';
 
 import { DrawerContentComponentProps } from '@react-navigation/drawer';
+import { routes } from 'constants/routes.constant';
+import { Analytics } from 'library';
 
 import { CustomImage, Icon, Label, ListItem } from 'components/ui';
 import { colors } from 'constants/colors.constant';
@@ -12,12 +14,12 @@ import { DrawerItem } from 'types/data.types';
 import styles from './custom-drawer.styles';
 
 const CustomDrawer = React.memo(({ userName, drawerProps, signOut }: IProps) => {
-  const navigateToRoute = (route: string, options: Object) => {
+  const handleDrawerNavigation = (route: string, options: Object) => {
     drawerProps.navigation.navigate(route, options);
     drawerProps.navigation.closeDrawer();
   };
 
-  const _renderDrawerItems = () =>
+  const renderDrawerItems = () =>
     DRAWER_ITEMS.map(({ key, icon, text, screen, options }) => (
       <ListItem
         testID={key}
@@ -25,11 +27,14 @@ const CustomDrawer = React.memo(({ userName, drawerProps, signOut }: IProps) => 
         hideBorder
         leftContent={icon}
         mainContent={text}
-        onContainerPress={() => navigateToRoute(screen, options)}
+        onPress={() => handleDrawerNavigation(screen, options)}
       />
     ));
 
-  const handleSignOut = () => signOut();
+  const handleSignOut = () => {
+    signOut();
+    Analytics.endSession();
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -43,7 +48,7 @@ const CustomDrawer = React.memo(({ userName, drawerProps, signOut }: IProps) => 
       <ScrollView style={styles.itemContainer}>
         <Label size={18} text={`Hi, ${userName}`} style={styles.header} />
 
-        {_renderDrawerItems()}
+        {renderDrawerItems()}
         <ListItem
           testID='signOut'
           hideBorder
@@ -51,7 +56,7 @@ const CustomDrawer = React.memo(({ userName, drawerProps, signOut }: IProps) => 
             <Icon testID='signOut' icon={icons.SIGN_OUT} color={colors.LIGHT_GREEN} size={25} />
           }
           mainContent='Log Out'
-          onContainerPress={handleSignOut}
+          onPress={handleSignOut}
         />
       </ScrollView>
     </SafeAreaView>
@@ -66,31 +71,38 @@ interface IProps {
 
 const DRAWER_ITEMS: DrawerItem[] = [
   {
-    key: 'Profile',
+    key: 'home',
+    icon: <Icon icon={icons.PASSWORD} color={colors.LIGHT_GREEN} size={25} />,
+    text: 'Home',
+    screen: routes.HOME_SCREEN,
+    options: {},
+  },
+  {
+    key: 'profile',
     icon: <Icon icon={icons.USER} color={colors.LIGHT_GREEN} size={25} />,
     text: 'My Profile',
-    screen: 'Profile',
+    screen: routes.PROFILE_SCREEN,
     options: {},
   },
   {
-    key: 'Invite',
+    key: 'invite',
     icon: <Icon icon={icons.INVITE} color={colors.LIGHT_GREEN} size={25} />,
     text: 'Invite People',
-    screen: 'Invite',
+    screen: routes.INVITE_SCREEN,
     options: {},
   },
   {
-    key: 'Support',
+    key: 'support',
     icon: <Icon icon={icons.SUPPORT} color={colors.LIGHT_GREEN} size={25} />,
     text: 'Contact Support',
-    screen: 'Support',
+    screen: routes.SUPPORT_SCREEN,
     options: {},
   },
   {
-    key: 'Deactivate',
+    key: 'deactivate',
     icon: <Icon icon={icons.DEACTIVATE} color={colors.LIGHT_GREEN} size={25} />,
     text: 'Deactivate Account',
-    screen: 'Deactivate',
+    screen: routes.DEACTIVATE_SCREEN,
     options: {},
   },
 ];

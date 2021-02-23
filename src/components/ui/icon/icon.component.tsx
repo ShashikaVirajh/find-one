@@ -16,7 +16,7 @@ const Icon = ({ testID, style, icon, color, size, disabled, onPress }: IProps) =
 );
 
 interface IProps {
-  testID: string;
+  testID?: string;
   icon?: any;
   color?: string;
   size?: number;

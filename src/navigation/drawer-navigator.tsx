@@ -9,27 +9,22 @@ import Profile from 'screens/profile/profile.comonent';
 import Support from 'screens/support/support.component';
 
 import { CustomDrawer } from 'components';
+import { routes } from 'constants/routes.constant';
 
-const DrawerStack = createDrawerNavigator();
+const Drawer = createDrawerNavigator();
 
-const _renderCustomDrawer = (props: DrawerContentComponentProps) => (
+const renderCustomDrawer = (props: DrawerContentComponentProps) => (
   <CustomDrawer drawerProps={props} />
 );
 
-const DrawerNavigator = () => {
-  return (
-    <DrawerStack.Navigator drawerContent={_renderCustomDrawer}>
-      <DrawerStack.Screen name='Home' component={Home} options={{ drawerLabel: 'Home' }} />
-      <DrawerStack.Screen name='Profile' component={Profile} options={{ drawerLabel: 'Profile' }} />
-      <DrawerStack.Screen name='Invite' component={Invite} options={{ drawerLabel: 'Invite' }} />
-      <DrawerStack.Screen name='Support' component={Support} options={{ drawerLabel: 'Support' }} />
-      <DrawerStack.Screen
-        name='Deactivate'
-        component={Deactivate}
-        options={{ drawerLabel: 'Deactivate' }}
-      />
-    </DrawerStack.Navigator>
-  );
-};
+const DrawerNavigator = () => (
+  <Drawer.Navigator drawerContent={renderCustomDrawer}>
+    <Drawer.Screen name={routes.HOME_SCREEN} component={Home} />
+    <Drawer.Screen name={routes.PROFILE_SCREEN} component={Profile} />
+    <Drawer.Screen name={routes.INVITE_SCREEN} component={Invite} />
+    <Drawer.Screen name={routes.SUPPORT_SCREEN} component={Support} />
+    <Drawer.Screen name={routes.DEACTIVATE_SCREEN} component={Deactivate}/>
+  </Drawer.Navigator>
+);
 
 export default DrawerNavigator;

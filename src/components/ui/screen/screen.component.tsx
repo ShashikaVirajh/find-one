@@ -31,7 +31,7 @@ const Screen = ({
   footerStyles,
 }: IProps) => {
   const navigation = useNavigation();
-  const goBack = () => navigation.goBack();
+  const handleGoBack = () => navigation.goBack();
 
   const renderHeader = () => {
     const desc = description ? (
@@ -73,7 +73,7 @@ const Screen = ({
           icon={icons.CHEVRON_LEFT}
           color={colors.FOREGROUND}
           size={18}
-          onPress={goBack}
+          onPress={handleGoBack}
         />
       );
     }

@@ -99,7 +99,7 @@ const ListItem = ({
     <Pressable
       testID={testID}
       style={[styles.container, { height, borderWidth }, containerStyles]}
-      onPress={() => onPress()}>
+      onPress={onPress}>
       <View style={[styles.leftContent, leftContentStyles]}>{_renderLeftContent()}</View>
 
       <View style={styles.mainContent}>
@@ -121,7 +121,7 @@ interface IProps {
   mainContent?: string | JSX.Element;
   mainContentStyles?: Object;
   mainTextSize?: number;
-  onPress: Function;
+  onPress: () => void;
   rightContent?: string | JSX.Element;
   rightContentStyles?: Object;
   rightTextSize?: number;
