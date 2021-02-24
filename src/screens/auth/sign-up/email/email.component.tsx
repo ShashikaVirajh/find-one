@@ -42,7 +42,6 @@ const Email = ({ email, errors, navigation }: Props) => {
 
 interface Props {
   email: string;
-  initForm: Function;
   errors: any;
   navigation: any;
 }

@@ -96,15 +96,19 @@ const ConfirmPassword = ({
 interface Props {
   confirmPassword: string;
   email: string;
-  fetchAuthUserStart: () => void;
   firstName: string;
   lastName: string;
   mobile: string;
   navigation: any;
   password: string;
-  resetForm: () => void;
   signUpError?: string;
-  signUpStart: () => void;
+  fetchAuthUserStart: (success: () => void, failure: (error: string) => void) => void;
+  resetForm: (formName: string) => void;
+  signUpStart: (
+    data: {firstName: string, lastName: string, email: string,
+      mobile: string,  password: string, confirmPassword: string},
+    success: () => void,
+    failure: (error: string) => void) => void;
 }
 
 export default ConfirmPassword;

@@ -1,6 +1,5 @@
 import React from 'react';
 import { View } from 'react-native';
-import { StackNavigationProp } from '@react-navigation/stack';
 
 import LottieView from 'lottie-react-native';
 
