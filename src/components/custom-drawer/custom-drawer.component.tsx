@@ -13,7 +13,7 @@ import { DrawerItem } from 'types/data.types';
 
 import styles from './custom-drawer.styles';
 
-const CustomDrawer = React.memo(({ userName, drawerProps, signOut }: IProps) => {
+const CustomDrawer = React.memo(({ userName, drawerProps, signOut }: Props) => {
   const handleDrawerNavigation = (route: string, options: Object) => {
     drawerProps.navigation.navigate(route, options);
     drawerProps.navigation.closeDrawer();
@@ -63,7 +63,7 @@ const CustomDrawer = React.memo(({ userName, drawerProps, signOut }: IProps) => 
   );
 });
 
-interface IProps {
+interface Props {
   drawerProps: DrawerContentComponentProps;
   userName?: string;
   signOut: Function;

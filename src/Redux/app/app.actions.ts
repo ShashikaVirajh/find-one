@@ -1,7 +1,7 @@
 import { appActionTypes } from './app.types';
 
 export const fetchRemoteConfigStart = (success: Function, failure: Function) => ({
-  type: appActionTypes.FETCH_REMOTE_CONFIG,
+  type: appActionTypes.FETCH_REMOTE_CONFIG_START,
   success,
   failure,
 });

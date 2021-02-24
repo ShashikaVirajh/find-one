@@ -1,8 +1,6 @@
 import analytics from '@react-native-firebase/analytics';
 
 class Analytics {
-  static enableAnalytics = () => analytics().setAnalyticsCollectionEnabled(true);
-
   static logEvent = (event: string, params?: any) => analytics().logEvent(event, params);
 
   static setUserId = (id: string) => analytics().setUserId(id);

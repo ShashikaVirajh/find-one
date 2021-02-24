@@ -25,6 +25,6 @@ export default StyleSheet.create({
     position: 'relative',
   },
   signUpButton: {
-    marginTop: 20,
+    marginBottom: 10,
   },
 });

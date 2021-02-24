@@ -1,28 +1,18 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { View } from 'react-native';
 
 import LottieView from 'lottie-react-native';
 
 import { Button, CustomImage, Screen } from 'components/ui';
-import { SIGN_IN_FORM, SIGN_UP_FORM } from 'constants/forms.constant';
 import { HomeLogo } from 'constants/images.constants';
 import { routes } from 'constants/routes.constant';
 import strings from './landing.strings';
 import styles from './landing.styles';
 
-const Landing = ({ appDescription, initForm, navigation }: IProps) => {
-  useEffect(() => {
-    initForm({ form: SIGN_IN_FORM, field: 'email' });
-    initForm({ form: SIGN_UP_FORM, field: 'firstName' });
-  }, []);
+const Landing = ({ appDescription, navigation }: IProps) => {
+  const navigateToSignIn = () => navigation.navigate(routes.SIGN_IN_SCREEN);
 
-  const navigateToSignIn = () => {
-    navigation.navigate(routes.SIGN_IN_SCREEN);
-  };
-
-  const navigateToSignUp = () => {
-    navigation.navigate(routes.NAME_SCREEN);
-  };
+  const navigateToSignUp = () => navigation.navigate(routes.NAME_SCREEN);
 
   const renderFooter = () => (
     <>
@@ -63,7 +53,6 @@ const Landing = ({ appDescription, initForm, navigation }: IProps) => {
 
 interface IProps {
   appDescription: string;
-  initForm: Function;
   navigation: any;
 }
 

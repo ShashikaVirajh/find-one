@@ -22,5 +22,5 @@ function* getRemoteConfig({ success, failure }: Saga) {
 }
 
 export default function* appSaga() {
-  yield takeLatest(appActionTypes.FETCH_REMOTE_CONFIG, getRemoteConfig);
+  yield takeLatest(appActionTypes.FETCH_REMOTE_CONFIG_START, getRemoteConfig);
 }

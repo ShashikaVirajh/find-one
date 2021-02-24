@@ -18,10 +18,6 @@ const INITIAL_STATE: FormsReducer = {
     values: {
       firstName: '',
       lastName: '',
-      email: '',
-      mobile: '',
-      password: '',
-      confirmPassword: '',
     },
   },
 };

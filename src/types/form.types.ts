@@ -1,21 +1,33 @@
 export type signInForm = {
   fields: string[];
-  errors: {};
+  errors: {
+    email: string[];
+    password: string[];
+  };
   values: {
     email: string;
     password: string;
   };
+  formError?: string;
 };
 
 export type signUpForm = {
   fields: string[];
-  errors: {};
+  errors: {
+    firstName: string[];
+    lastName: string[];
+    email: string[];
+    mobile: string[];
+    password: string[];
+    confirmPassword: string[];
+  };
   values: {
     firstName: string;
     lastName: string;
-    email: string;
-    mobile: string;
-    password: string;
-    confirmPassword: string;
+    email?: string;
+    mobile?: string;
+    password?: string;
+    confirmPassword?: string;
   };
+  formError?: string;
 };

@@ -88,7 +88,7 @@ Button.defaultProps = {
   backIconSize: 24,
   frontIconColor: colors.SILVER,
   frontIconSize: 24,
-  roundButton: false,
+  roundButton: true,
 };
 
 export default Button;
