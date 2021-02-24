@@ -15,12 +15,12 @@ const CustomIage = ({
   source,
   disabled,
   onPress,
-}: IProps) => (
+}: Props) => (
   <Pressable
     testID={testID}
     style={[{ height, width }, containerStyle]}
     disabled={disabled}
-    onPress={() => onPress()}>
+    onPress={onPress}>
     <Image
       style={[{ height, width, borderRadius }, imageStyle]}
       source={source}
@@ -29,7 +29,7 @@ const CustomIage = ({
   </Pressable>
 );
 
-interface IProps {
+interface Props {
   testID?: string;
   height?: number | string;
   width?: number | string;
@@ -39,7 +39,7 @@ interface IProps {
   disabled?: boolean;
   containerStyle?: object;
   imageStyle?: object;
-  onPress: Function;
+  onPress?: () => void;
 }
 
 CustomIage.defaultProps = {
@@ -48,7 +48,6 @@ CustomIage.defaultProps = {
   height: getScaledNumber(300),
   width: '100%',
   borderRadius: getScaledNumber(6),
-  onPress: () => {},
 };
 
 export default CustomIage;

@@ -10,7 +10,7 @@ import MainNavigator from './main-navigator';
 
 import { fetchRemoteConfigStart } from 'Redux/app/app.actions';
 
-const AppNavigator = ({ token, isLoading, fetchRemoteConfigStart }: IProps) => {
+const AppNavigator = ({ token, isLoading, fetchRemoteConfigStart }: Props) => {
   useEffect(() => {
     fetchRemoteConfigStart(hideSplashScreen, hideSplashScreen);
   }, []);
@@ -34,7 +34,7 @@ const mapStateToProps = ({ auth, common }: ApplicationState) => ({
   isLoading: common.isLoading,
 });
 
-interface IProps {
+interface Props {
   fetchRemoteConfigStart: Function;
   token?: string;
   isLoading?: boolean;

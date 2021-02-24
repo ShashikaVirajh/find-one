@@ -6,7 +6,7 @@ import { Label } from 'components/ui';
 import strings from './offline-notice.strings';
 import styles from './offline-notice.styles';
 
-const OfflineNotice = ({ style, text }: IProps) => {
+const OfflineNotice = ({ style, text }: Props) => {
   const netInfo = useNetInfo();
 
   if (netInfo.type !== 'unknown' && netInfo.isInternetReachable === false) {
@@ -20,7 +20,7 @@ OfflineNotice.defaultProps = {
   text: strings.NO_INTERNET_CONNECTION,
 };
 
-interface IProps {
+interface Props {
   style?: Object;
   text?: string;
 }

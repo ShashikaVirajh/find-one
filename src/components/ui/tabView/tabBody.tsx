@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 
 import { colors } from 'constants/colors.constant';
 
-const TabBody = ({ children }: IProps) => {
+const TabBody = ({ children }: Props) => {
   return <View style={styles.container}>{children}</View>;
 };
 
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
   },
 });
 
-interface IProps {
+interface Props {
   children?: JSX.Element;
 }
 

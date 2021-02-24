@@ -13,8 +13,8 @@ const BorderlessButton = ({
   text,
   textStyle,
   underline,
-}: IProps) => (
-  <Pressable testID={testID} style={buttonStyle} disabled={disabled} onPress={() => onPress()}>
+}: Props) => (
+  <Pressable testID={testID} style={buttonStyle} disabled={disabled} onPress={onPress}>
     <Label
       size={size}
       style={[disabled ? styles.disabledText : styles.text, textStyle]}
@@ -24,11 +24,11 @@ const BorderlessButton = ({
   </Pressable>
 );
 
-interface IProps {
+interface Props {
   testID?: string;
   buttonStyle?: object;
   disabled?: boolean;
-  onPress: Function;
+  onPress: () => void;
   size?: number;
   text: string;
   textStyle?: object;

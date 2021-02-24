@@ -3,20 +3,20 @@ import { StyleSheet, View } from 'react-native';
 
 import { colors } from 'constants/colors.constant';
 
-const Divider = ({ backgroundColor, height, width }: IProps) => (
+const Divider = ({ backgroundColor, height, width }: Props) => (
   <View testID='divider' style={{ backgroundColor, height, width }} />
 );
+
+interface Props {
+  backgroundColor?: string;
+  height?: number | string;
+  width?: number | string;
+}
 
 Divider.defaultProps = {
   backgroundColor: colors.GRAY,
   height: StyleSheet.hairlineWidth,
   width: '100%',
 };
-
-interface IProps {
-  backgroundColor?: string;
-  height?: number | string;
-  width?: number | string;
-}
 
 export default Divider;

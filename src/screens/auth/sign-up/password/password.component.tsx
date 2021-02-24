@@ -9,7 +9,7 @@ import { validatePassword } from 'validations';
 import strings from './password.strings';
 import styles from './password.styles';
 
-const Password = ({ values, navigation }: IProps) => {
+const Password = ({ values, navigation }: Props) => {
   const disableButton = () => {
     let errors: string[] = [];
 
@@ -88,7 +88,7 @@ const Password = ({ values, navigation }: IProps) => {
   );
 };
 
-interface IProps {
+interface Props {
   values: any;
   navigation: any;
 }

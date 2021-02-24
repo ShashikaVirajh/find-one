@@ -66,7 +66,7 @@ const CustomDrawer = React.memo(({ userName, drawerProps, signOut }: Props) => {
 interface Props {
   drawerProps: DrawerContentComponentProps;
   userName?: string;
-  signOut: Function;
+  signOut: () => void;
 }
 
 const DRAWER_ITEMS: DrawerItem[] = [

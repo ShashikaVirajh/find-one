@@ -23,11 +23,11 @@ const ListItem = ({
   subContent,
   subContentStyles,
   subTextSize,
-}: IProps) => {
+}: Props) => {
   const height = hideBorder ? getScaledNumber(50) : getScaledNumber(80);
   const borderWidth = hideBorder ? 0 : 1;
 
-  const _renderLeftContent = () => {
+  const renderLeftContent = () => {
     if (leftContent && typeof leftContent === 'string') {
       return (
         <Label
@@ -44,7 +44,7 @@ const ListItem = ({
     return null;
   };
 
-  const _renderMainContent = () => {
+  const renderMainContent = () => {
     if (mainContent && typeof mainContent === 'string') {
       return (
         <Label
@@ -61,7 +61,7 @@ const ListItem = ({
     return null;
   };
 
-  const _renderRightContent = () => {
+  const renderRightContent = () => {
     if (rightContent && typeof rightContent === 'string') {
       return (
         <Label
@@ -78,7 +78,7 @@ const ListItem = ({
     return null;
   };
 
-  const _renderSubContent = () => {
+  const renderSubContent = () => {
     if (subContent && typeof subContent === 'string') {
       return (
         <Label
@@ -100,18 +100,18 @@ const ListItem = ({
       testID={testID}
       style={[styles.container, { height, borderWidth }, containerStyles]}
       onPress={onPress}>
-      <View style={[styles.leftContent, leftContentStyles]}>{_renderLeftContent()}</View>
+      <View style={[styles.leftContent, leftContentStyles]}>{renderLeftContent()}</View>
 
       <View style={styles.mainContent}>
-        <View>{_renderMainContent()}</View>
-        <View>{_renderSubContent()}</View>
+        <View>{renderMainContent()}</View>
+        <View>{renderSubContent()}</View>
       </View>
-      <View>{_renderRightContent()}</View>
+      <View>{renderRightContent()}</View>
     </Pressable>
   );
 };
 
-interface IProps {
+interface Props {
   testID: string;
   containerStyles?: Object;
   hideBorder?: boolean;

@@ -10,7 +10,7 @@ import { ValidationTypes } from 'enums';
 import strings from './mobile.strings';
 import styles from './mobile.styles';
 
-const Mobile = ({ mobile, errors, navigation }: IProps) => {
+const Mobile = ({ mobile, errors, navigation }: Props) => {
   const disableButton = () => {
     if (errors?.mobile?.length > 0 || mobile.trim() === '') return true;
   };
@@ -43,7 +43,7 @@ const Mobile = ({ mobile, errors, navigation }: IProps) => {
 
 type Navigation = NavigationScreenProp<NavigationState>;
 
-interface IProps {
+interface Props {
   mobile: string;
   errors: any;
   navigation: Navigation;

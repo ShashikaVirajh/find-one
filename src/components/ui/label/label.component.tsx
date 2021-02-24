@@ -4,7 +4,7 @@ import { Text } from 'react-native';
 import { colors } from 'constants/colors.constant';
 import { getScaledNumber } from 'utils/common.utils';
 
-const Label = ({ color, size, style, testID, text, underline }: IProps) => {
+const Label = ({ color, size, style, testID, text, underline }: Props) => {
   return (
     <Text
       testID={testID}
@@ -19,14 +19,7 @@ const Label = ({ color, size, style, testID, text, underline }: IProps) => {
   );
 };
 
-Label.defaultProps = {
-  color: colors.FOREGROUND,
-  size: getScaledNumber(16),
-  text: '',
-  underline: false,
-};
-
-interface IProps {
+interface Props {
   color: string;
   size?: number;
   style?: object;
@@ -34,5 +27,12 @@ interface IProps {
   text?: string;
   underline?: boolean;
 }
+
+Label.defaultProps = {
+  color: colors.FOREGROUND,
+  size: getScaledNumber(16),
+  text: '',
+  underline: false,
+};
 
 export default Label;

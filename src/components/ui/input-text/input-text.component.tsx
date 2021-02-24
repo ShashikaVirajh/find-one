@@ -32,7 +32,7 @@ const InputText = ({
   validations,
   value,
   ...otherProps
-}: IProps) => {
+}: Props) => {
   const [focused, setFocus] = useState(false);
   const [securedText, setSecuredText] = useState(true);
   const [mounted, setMounted] = useState(false);
@@ -196,8 +196,8 @@ const InputText = ({
   );
 };
 
-interface IProps {
-  addFormData: Function;
+interface Props {
+  addFormData: () => void;
   containerStyle?: StyleProp<ViewStyle>;
   errorStyles?: object;
   fieldErrors: string[];
@@ -206,14 +206,14 @@ interface IProps {
   frontIcon?: any;
   frontIconColor?: string;
   frontIconSize?: number;
-  handleChange: Function;
+  handleChange: () => void;
   inputContainerStyle?: StyleProp<ViewStyle>;
-  initForm: Function;
+  initForm: () => void;
   inputStyles?: object;
   label?: string;
   name: string;
-  onFocus?: Function;
-  onBlur?: Function;
+  onFocus?: () => void;
+  onBlur?: () => void;
   prefixStyle: object;
   prefix?: string;
   secureTextEntry?: boolean;

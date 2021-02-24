@@ -11,7 +11,7 @@ import {
 import strings from './profile-picture.strings';
 import styles from './profile-picture.styles';
 
-const ProfilePicture = ({ uri, navigation }: IProps) => {
+const ProfilePicture = ({ uri, navigation }: Props) => {
   useEffect(() => {
     setCameraPermission();
     setLocationPermission();
@@ -57,7 +57,7 @@ const ProfilePicture = ({ uri, navigation }: IProps) => {
   );
 };
 
-interface IProps {
+interface Props {
   uri: any;
   navigation: any;
 }

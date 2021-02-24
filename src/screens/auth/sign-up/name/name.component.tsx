@@ -9,7 +9,7 @@ import { ValidationTypes } from 'enums';
 import strings from './name.strings';
 import styles from './name.styles';
 
-const Name = ({ firstName, lastName, errors, navigation }: IProps) => {
+const Name = ({ firstName, lastName, errors, navigation }: Props) => {
   const disableButton = () => {
     if (errors?.firstName?.length > 0 || firstName.trim() === '') return true;
     if (errors.lastName?.length > 0 || lastName.trim() === '') return true;
@@ -65,7 +65,7 @@ const Name = ({ firstName, lastName, errors, navigation }: IProps) => {
   );
 };
 
-interface IProps {
+interface Props {
   firstName: string;
   lastName: string;
   errors: any;

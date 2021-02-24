@@ -23,7 +23,7 @@ const ImagePicker = ({
   name,
   height,
   width,
-}: IProps) => {
+}: Props) => {
   useEffect(() => {
     initForm({ form, field: name, fieldValue: '' });
     requestPermission();
@@ -40,11 +40,11 @@ const ImagePicker = ({
     await requestCameraPermission();
   };
 
-  const _handlePress = () => {
+  const handlePress = () => {
     selectImage();
   };
 
-  const _setImage = (response: ImagePickerResponse) => {
+  const setImage = (response: ImagePickerResponse) => {
     addFormData({
       form,
       data: {
@@ -53,7 +53,7 @@ const ImagePicker = ({
     });
   };
 
-  const _clearImage = () => {
+  const clearImage = () => {
     addFormData({
       form,
       data: {
@@ -62,14 +62,14 @@ const ImagePicker = ({
     });
   };
 
-  const _renderContent = () => {
+  const renderContent = () => {
     if (!fieldValue) {
       return (
         <Icon
           icon={icons.CAMERA}
           color={colors.BACKGROUND}
           size={iconSize}
-          onPress={_handlePress}
+          onPress={handlePress}
         />
       );
     }
@@ -84,7 +84,7 @@ const ImagePicker = ({
         source={{ uri: fieldValue }}
         width={width}
         disabled={false}
-        onPress={_handlePress}
+        onPress={handlePress}
       />
     );
   };
@@ -94,21 +94,21 @@ const ImagePicker = ({
       RNImagePicker.showImagePicker(cameraOptions, (response: any) => {
         if (response.didCancel) return;
         if (response.error) return;
-        if (response.customButton) return _clearImage();
+        if (response.customButton) return clearImage();
 
-        _setImage(response);
+        setImage(response);
       });
     } catch (error) {}
   };
 
   return (
     <View style={[styles.container, containerStyles, { borderRadius, height, width }]}>
-      {_renderContent()}
+      {renderContent()}
     </View>
   );
 };
 
-interface IProps {
+interface Props {
   addFormData: Function;
   borderRadius: number;
   containerStyles: Object;

@@ -4,7 +4,7 @@ import { StyleSheet, View } from 'react-native';
 import { getScaledNumber } from 'utils/common.utils';
 import TabHeaderButton from './tabHeaderButton';
 
-const TabHeader = ({ tabHeaders, onHeaderButtonPress }: IProps) => {
+const TabHeader = ({ tabHeaders, onHeaderButtonPress }: Props) => {
   const [selectedTab, setSelectedTab] = useState(0);
 
   const handleTabPress = (index: number) => {
@@ -36,9 +36,9 @@ const styles = StyleSheet.create({
   },
 });
 
-interface IProps {
+interface Props {
   tabHeaders: string[];
-  onHeaderButtonPress: Function;
+  onHeaderButtonPress: () => void;
 }
 
 export default TabHeader;

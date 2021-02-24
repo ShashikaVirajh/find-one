@@ -3,32 +3,29 @@ import { Pressable } from 'react-native';
 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 
-import styles from './icon.styles';
-
-const Icon = ({ testID, style, icon, color, size, disabled, onPress }: IProps) => (
+const Icon = ({ testID, style, icon, color, size, disabled, onPress }: Props) => (
   <Pressable
     testID={testID}
-    style={[styles.button, style]}
+    style={style}
     disabled={disabled}
-    onPress={() => onPress()}>
+    onPress={onPress}>
     <FontAwesomeIcon icon={icon} color={color} size={size} />
   </Pressable>
 );
 
-interface IProps {
+interface Props {
   testID?: string;
   icon?: any;
   color?: string;
   size?: number;
   disabled?: boolean;
   style?: object;
-  onPress: Function;
+  onPress?: () => void;
 }
 
 Icon.defaultProps = {
   disabled: false,
   style: {},
-  onPress: () => {},
 };
 
 export default Icon;

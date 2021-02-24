@@ -5,7 +5,7 @@ import { colors } from 'constants/colors.constant';
 import { icons } from 'constants/icons.constant';
 import { getScaledNumber } from 'utils/common.utils';
 
-const Home = ({ navigation }: IProps) => {
+const Home = ({ navigation }: Props) => {
   return (
     <Screen
       leftContent={
@@ -19,7 +19,7 @@ const Home = ({ navigation }: IProps) => {
   );
 };
 
-interface IProps {
+interface Props {
   navigation: {
     navigate: (route: string) => void;
   };

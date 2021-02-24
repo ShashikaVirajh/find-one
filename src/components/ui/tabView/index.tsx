@@ -7,7 +7,7 @@ import { getScaledNumber } from 'utils/common.utils';
 import TabBody from './tabBody';
 import TabHeader from './tabHeader';
 
-const TabView = ({ tabHeaders, children, handleCurrentTab }: IProps) => {
+const TabView = ({ tabHeaders, children, handleCurrentTab }: Props) => {
   const onClick = (index: number) => handleCurrentTab(index);
 
   return (
@@ -31,10 +31,10 @@ const styles = StyleSheet.create({
   },
 });
 
-interface IProps {
+interface Props {
   tabHeaders: string[];
   children?: JSX.Element;
-  handleCurrentTab: Function;
+  handleCurrentTab: () => void;
 }
 
 export default TabView;

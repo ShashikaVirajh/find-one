@@ -16,7 +16,7 @@ const SignIn = ({
   password,
   resetForm,
   signInStart,
-}: IProps) => {
+}: Props) => {
   const [signInError, setSignInError] = useState('');
 
   const disableButton = () => email.trim() === '' || password.trim() === '';
@@ -104,13 +104,16 @@ const SignIn = ({
   );
 };
 
-interface IProps {
+interface Props {
   email: string;
-  fetchAuthUserStart: Function;
   navigation?: any;
   password: string;
-  resetForm: Function;
-  signInStart: Function;
+  fetchAuthUserStart: (success: () => void, failure: (error: string) => void) => void;
+  resetForm: (formName: string) => void;
+  signInStart: (
+    data: {email: string, password: string},
+    success: () => void,
+    failure: (error: string) => void) => void;
 }
 
 export default SignIn;

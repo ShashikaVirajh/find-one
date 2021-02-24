@@ -9,7 +9,7 @@ import { ValidationTypes } from 'enums';
 import strings from './email.strings';
 import styles from './email.styles';
 
-const Email = ({ email, errors, navigation }: IProps) => {
+const Email = ({ email, errors, navigation }: Props) => {
   const disableButton = () => {
     if (errors?.email?.length > 0 || email.trim() === '') return true;
   };
@@ -40,7 +40,7 @@ const Email = ({ email, errors, navigation }: IProps) => {
   );
 };
 
-interface IProps {
+interface Props {
   email: string;
   initForm: Function;
   errors: any;

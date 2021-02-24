@@ -1,5 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
+import { StackNavigationProp } from '@react-navigation/stack';
 
 import LottieView from 'lottie-react-native';
 
@@ -9,7 +10,7 @@ import { routes } from 'constants/routes.constant';
 import strings from './landing.strings';
 import styles from './landing.styles';
 
-const Landing = ({ appDescription, navigation }: IProps) => {
+const Landing = ({ appDescription, navigation }: Props) => {
   const navigateToSignIn = () => navigation.navigate(routes.SIGN_IN_SCREEN);
 
   const navigateToSignUp = () => navigation.navigate(routes.NAME_SCREEN);
@@ -51,7 +52,7 @@ const Landing = ({ appDescription, navigation }: IProps) => {
   );
 };
 
-interface IProps {
+interface Props {
   appDescription: string;
   navigation: any;
 }

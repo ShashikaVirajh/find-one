@@ -29,7 +29,7 @@ const Screen = ({
   screenRefreshing,
   footer,
   footerStyles,
-}: IProps) => {
+}: Props) => {
   const navigation = useNavigation();
   const handleGoBack = () => navigation.goBack();
 
@@ -152,16 +152,16 @@ const Screen = ({
   );
 };
 
-interface IProps {
+interface Props {
   testID?: string;
   leftContent?: string | JSX.Element;
-  onLeftContentPress: Function;
+  onLeftContentPress: () => void;
   leftContentStyles?: Object;
   title?: string;
   description?: string;
   rightContent?: string | JSX.Element;
   rightContentStyles?: Object;
-  onRightContentPress: Function;
+  onRightContentPress: () => void;
   children?: object;
   hideBackButton?: boolean;
   containerStyles?: Object;
@@ -169,9 +169,9 @@ interface IProps {
   withScrollView?: boolean;
   hideLeftButton?: boolean;
   showHeader?: boolean;
-  screenOnRefresh: Function;
+  screenOnRefresh: () => void;
   screenRefreshing: boolean;
-  footer: Function;
+  footer: () => void;
   footerStyles?: Object;
 }
 

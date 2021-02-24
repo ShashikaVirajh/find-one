@@ -11,7 +11,7 @@ const TabHeaderButton = ({
   borderBottomWidth,
   buttonOpacity,
   onTabHeaderPress,
-}: IProps) => (
+}: Props) => (
   <Pressable style={styles.container} onPress={() => onTabHeaderPress()}>
     <View style={[styles.tabText, { borderBottomWidth, opacity: buttonOpacity }]}>
       <Label size={18} text={headerLabel} />
@@ -30,11 +30,11 @@ const styles = StyleSheet.create({
   },
 });
 
-interface IProps {
+interface Props {
   headerLabel: string;
   borderBottomWidth: number;
   buttonOpacity: number;
-  onTabHeaderPress: Function;
+  onTabHeaderPress: () => void;
 }
 
 TabHeaderButton.defaultProps = {

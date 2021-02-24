@@ -17,7 +17,7 @@ const ConfirmPassword = ({
   confirmPassword,
   resetForm,
   signUpStart,
-}: IProps) => {
+}: Props) => {
   const [signInError, setSignInError] = useState('');
 
   const disableButton = () => password !== confirmPassword;
@@ -93,18 +93,18 @@ const ConfirmPassword = ({
   );
 };
 
-interface IProps {
+interface Props {
   confirmPassword: string;
   email: string;
-  fetchAuthUserStart: Function;
+  fetchAuthUserStart: () => void;
   firstName: string;
   lastName: string;
   mobile: string;
   navigation: any;
   password: string;
-  resetForm: Function;
+  resetForm: () => void;
   signUpError?: string;
-  signUpStart: Function;
+  signUpStart: () => void;
 }
 
 export default ConfirmPassword;

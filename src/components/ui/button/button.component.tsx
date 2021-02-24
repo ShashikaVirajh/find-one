@@ -19,7 +19,7 @@ const Button = ({
   text,
   textStyle,
   ...otherProps
-}: IProps) => {
+}: Props) => {
   const renderFrontIcon = () =>
     frontIcon ? (
       <Icon
@@ -68,7 +68,7 @@ const Button = ({
   );
 };
 
-interface IProps {
+interface Props {
   backIcon?: JSX.Element;
   backIconColor?: string;
   backIconSize?: number;

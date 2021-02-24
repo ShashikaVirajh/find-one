@@ -5,7 +5,7 @@ import { Label } from 'components/ui';
 import { AccordianItem } from 'types/data.types';
 import styles from './accordian.styles';
 
-const Accordian = ({ items, expandIcon, collapseIcon, questionStyels, answerStyles }: IProps) => {
+const Accordian = ({ items, expandIcon, collapseIcon, questionStyels, answerStyles }: Props) => {
   const [expandedId, setExpandedId] = useState('');
 
   const toggleExpanded = (id: string) => setExpandedId(expandedId === id ? '' : id);
@@ -29,7 +29,7 @@ const Accordian = ({ items, expandIcon, collapseIcon, questionStyels, answerStyl
   return <View style={styles.container}>{renderItemList()}</View>;
 };
 
-interface IProps {
+interface Props {
   items: AccordianItem[];
   expandIcon?: () => JSX.Element;
   collapseIcon?: () => JSX.Element;

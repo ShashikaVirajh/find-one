@@ -6,7 +6,7 @@ import { toggleSpinner } from 'Redux/common/common.actions';
 import { store } from 'Redux/store';
 import styles from './video-player.styles';
 
-const VideoPlayer = ({ source, ...otherProps }: IProps) => {
+const VideoPlayer = ({ source, ...otherProps }: Props) => {
   const handleError = (error: LoadError) => {
     ErrorTracker.log('VIDEO_LOADING_ERROR', 'Error occured while loading the video', error);
   };
@@ -33,7 +33,7 @@ const VideoPlayer = ({ source, ...otherProps }: IProps) => {
   );
 };
 
-interface IProps {
+interface Props {
   controls: boolean;
   source: string;
   repeat: false;
